@@ -30,6 +30,10 @@ There are many areas we can collaborate on. In some areas work is already being 
 
 - **[Conferences and Meetups](https://github.com/w3c/webcomponents-cg/labels/conferences-and-meetups)** - Organize conferences and meetups that include topics and participants from across the web components ecosystem.
 
+## Meetings
+
+The Web Components Community Group holds [a shared calendar](https://calendar.google.com/calendar/embed?src=o25bim5rvcu42mfnqilirpmp44%40group.calendar.google.com&ctz=America%2FLos_Angeles) of its meetings and events. A ics file if [available here](https://calendar.google.com/calendar/ical/o25bim5rvcu42mfnqilirpmp44%40group.calendar.google.com/public/basic.ics).
+
 ---
 
 A repository for the [Web Components Community Group](https://www.w3.org/community/webcomponents/)
