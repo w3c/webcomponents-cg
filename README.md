@@ -32,7 +32,7 @@ There are many areas we can collaborate on. In some areas work is already being 
 
 ## Meetings
 
-The Web Components Community Group holds [a shared calendar](https://calendar.google.com/calendar/embed?src=o25bim5rvcu42mfnqilirpmp44%40group.calendar.google.com&ctz=America%2FLos_Angeles) of its meetings and events. A ics file if [available here](https://calendar.google.com/calendar/ical/o25bim5rvcu42mfnqilirpmp44%40group.calendar.google.com/public/basic.ics).
+The Web Components Community Group holds [a shared calendar](https://calendar.google.com/calendar/embed?src=o25bim5rvcu42mfnqilirpmp44%40group.calendar.google.com) of its meetings and events. A ics file if [available here](https://calendar.google.com/calendar/ical/o25bim5rvcu42mfnqilirpmp44%40group.calendar.google.com/public/basic.ics).
 
 ---
 
