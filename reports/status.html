@@ -19,6 +19,10 @@
             name: "Westbrook Johnson",
             url: "https://westbrookjohnson.com",
           },
+          {
+            name: "Alan Dávalos",
+            url: "https://github.com/alangdm",
+          }
         ],
         github: "w3c/webcomponents-cg",
         shortName: "webcomponents-cg",
@@ -49,6 +53,12 @@
         </thead>
         <tbody>
           <tr>
+            <th><a href="#form-associated-custom-elements">Form-Associated Custom Elements</a></th>
+            <td><a href="https://github.com/WICG/webcomponents/issues/187">WICG/webcomponents#187</a></td>
+            <td>Critical</td>
+            <td>Some implementation</td>
+          </tr>
+          <tr>
             <th>---</th>
             <td>---</td>
             <td>---</td>
@@ -56,6 +66,38 @@
           </tr>
         </tbody>
       </table>
+    </section>
+    <section>
+      <h2>Form-Associated Custom Elements</h2>
+      <dl>
+        <dt>GitHub Issue(s):</dt>
+        <dd><a href="https://github.com/WICG/webcomponents/issues/187">WICG/webcomponents#187</a></dd>
+        <dt>Priority:</dt>
+        <dd>Critical</dd>
+        <dt>Status:</dt>
+        <dd>Some implementation</dd>
+      </dl>
+      <section>
+        <h3>Description</h3>
+        <p>Form-associated custom elements allow custom elements to participate in forms to the same degree as native elements, including integrations with the form’s validation, state, and submission as well as exposing the Accessibility Object Model to the element.</p>
+        <p>A sample use case can be found in <a href="https://css-tricks.com/creating-custom-form-controls-with-elementinternals/">this article by Caleb Williams</a>.</p>
+      </section>
+      <section>
+        <h3>Motivation</h3>
+        <p>One of the most common use cases for web components is creating form controls not available natively. Some examples include switches and credit card inputs.</p>
+        <p>There is no way for forms to fully integrate with form elements located in a different shadow root the same way they would with form elements in the same root. The only options available to achieve a similar result are:</p>
+        <ul>
+          <li>The formdata event: this event only provides integration on form submission. Using this feature alone may also lead to accessibility issues due to the lack of cross-root ARIA.</li>
+          <li>
+            Setting a form element in light DOM (e.g. using slots): this gives web components authors two main options both of which will only work with standard form elements, mostly for form submission, and require both implementers and end users to write more code:
+            <ul>
+              <li>Visually hide the form element in light DOM and synchronize its value to a visible form element located inside the web component’s shadow root.</li>
+              <li>Have both the form element and its label located in slots and forgo the granular control shadow DOM gives you over how to allow for CSS customization.</li>
+            </ul>
+          </li>
+        </ul>
+        <p>This situation has forced developers to either not use web components for form elements or create their own form systems that allow for full integration (e.g. many big web component libraries such as Lion or Shoelace provide form systems that integrate with their components). This limits the reach web components could have as plug-in form elements for projects created with different tech stacks.</p>
+      </section>
     </section>
     <section>
       <h2>Feature or Problem</h2>
