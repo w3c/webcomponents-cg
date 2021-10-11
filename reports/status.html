@@ -49,6 +49,17 @@
         </thead>
         <tbody>
           <tr>
+            <th><a href="#cross-root-aria">Cross-root ARIA</a></th>
+            <td>
+              <a href="https://github.com/WICG/aom/issues/169">WICG/aom#169</a><br>
+              <a href="https://github.com/WICG/aom/issues/107">WICG/aom#107</a><br>
+              <a href="https://github.com/WICG/webcomponents/issues/917">WICG/webcomponents#917</a><br>
+              <a href="https://github.com/WICG/webcomponents/issues/916">WICG/webcomponents#916</a>
+            </td>
+            <td>Critial</td>
+            <td>Uncertian</td>
+          </tr>
+          <tr>
             <th>---</th>
             <td>---</td>
             <td>---</td>
@@ -56,6 +67,38 @@
           </tr>
         </tbody>
       </table>
+    </section>
+    <section>
+      <h2>Cross-root ARIA</h2>
+      <dl>
+        <dt>GitHub Issue(s):</dt>
+        <dd><a href="https://github.com/WICG/aom/issues/169">WICG/aom#169</a></dd>
+        <dd><a href="https://github.com/WICG/aom/issues/107">WICG/aom#107</a></dd>
+        <dd><a href="https://github.com/WICG/webcomponents/issues/917">WICG/webcomponents#917</a></dd>
+        <dd><a href="https://github.com/WICG/webcomponents/issues/916">WICG/webcomponents#916</a></dd>
+        <dt>Priority:</dt>
+        <dd>Critial</dd>
+        <dt>Status:</dt>
+        <dd>Uncertian</dd>
+      </dl>
+      <section>
+        <h3>Description</h3>
+        <ol>
+          <li>Shadow root encapsulation currently prevents references between elements in different roots. Croot-root ARIA references would re-enable this platform feature within shadow roots.</li>
+          <li>It's not possible to "forward" ARIA attributes from a custom element host into elements in the host's shadow root. For instance, a custom input that wants to allow users to customize the ARIA role, has no way to forward the role attribute to the encapsulated native input.</li>
+        </ol>
+      </section>
+      <section>
+        <h3>Motivation</h3>
+        <p>It's critically important that content on the web be accessible. Making web component content accessible currently requires many complicated and only partially-successful work-arounds, such as:</p>
+        <ul>
+          <li>Observing and moving ARIA-related attributes across elements (for role, etc.)</li>
+          <li>Using non-standard attributes for ARIA features, in order to apply them to elements in a shadow root.</li>
+          <li>Requiring that custom elements users wrap/slot elements so that ARIA attributes can be placed directly on them. This gets very complicated as</li>
+          <li>Duplicating nodes across shadow root boundaries</li>
+          <li>Abandon shadow DOM</li>
+        </ul>
+      </section>
     </section>
     <section>
       <h2>Feature or Problem</h2>
