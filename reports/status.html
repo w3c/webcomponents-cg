@@ -31,6 +31,14 @@
             name: "Justin Fagnani",
             url: "https://github.com/justinfagnani",
           },
+          {
+            name: "Jordan Austin",
+            url: "https://github.com/jordanaustin",
+          },
+          {
+            name: "Dan Clark",
+            url: "https://github.com/dandclark",
+          },
         ],
         github: "w3c/webcomponents-cg",
         shortName: "webcomponents-cg",
@@ -80,6 +88,12 @@
           <tr>
             <th><a href="http://localhost:8080/status.html#constructable-stylesheets-adoptedstylesheets">Constructable Stylesheets & adoptedStyleSheets</a></th>
             <td><a href="https://github.com/WICG/webcomponents/issues/169">WICG/webcomponents#468</a></td>
+            <td>Critical</td>
+            <td>Some implementation</td>
+          </tr>
+          <tr>
+            <th><a href="#css-module-scripts">CSS Module Scripts</a></th>
+            <td><a href="https://github.com/WICG/webcomponents/issues/759">WICG/webcomponents#759</a></td>
             <td>Critical</td>
             <td>Some implementation</td>
           </tr>
@@ -177,6 +191,35 @@
           <li>Creating `&lt;style&gt;` elements for each style used in each shadow root has a measurable performance overhead.</li>
           <li>CSS Module Scripts, another critical feature, depends on constructible stylesheets.</li>
         </ul>
+      </section>
+    </section>
+    <section>
+      <h2>CSS Module Scripts</h2>
+      <dl>
+        <dt>GitHub Issue(s):</dt>
+        <dd><a href="https://github.com/WICG/webcomponents/issues/759">WICG/webcomponents#759</a></dd>
+        <dt>Priority:</dt>
+        <dd>Critical</dd>
+        <dt>Status:</dt>
+        <dd>Some implementation</dd>
+      </dl>
+      <section>
+        <h3>Description</h3>
+        <p>CSS Module Scripts allow JavaScript modules import style sheets. They can then be applied to a document or shadow root using adoptedStyleSheets in the same way as constructible style sheets.</p>
+        <pre class="javascript">
+          import styleSheet from "./styles.css" assert { type: "css" };
+          document.adoptedStyleSheets = [ styleSheet ];
+        </pre>
+      </section>
+      <section>
+        <h3>Motivation</h3>
+        <ul>
+          <li>CSS modules will allow styles to be loaded in component definitions without adding `&lt;style&gt;` or `&lt;link&gt;` elements that need to be created in each element instance.</li>
+          <li>Authors today often use inlined CSS strings in JS modules, but many of them want to move the CSS into separate .css files.</li>
+          <li>Without CSS-in-JS it's difficult to ensure that CSS is loaded before the component is defined and rendered. CSS module scripts provide the same ordering guarantee.</li>
+          <li>Component authors may need to import a resource that is only available as an external .css file, and don't have control over the resource to wrap it in a JS module.</li>
+        </ul>
+        <p>For further motivational details, see this explainer document: <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/css-modules-v1-explainer.md#why-are-css-modules-needed">webcomponents/css-modules-v1-explainer.md at gh-pages · WICG/webcomponents</a>.</p>
       </section>
     </section>
     <section>
