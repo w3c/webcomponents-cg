@@ -98,6 +98,12 @@
             <td>Some implementation</td>
           </tr>
           <tr>
+            <th><a href="#scoped-element-registries">Scoped Element Registries</a></th>
+            <td><a href="https://github.com/WICG/webcomponents/issues/716">WICG/webcomponents#716</a></td>
+            <td>Critical</td>
+            <td>Consensus</td>
+          </tr>
+          <tr>
             <th>---</th>
             <td>---</td>
             <td>---</td>
@@ -220,6 +226,32 @@
           <li>Component authors may need to import a resource that is only available as an external .css file, and don't have control over the resource to wrap it in a JS module.</li>
         </ul>
         <p>For further motivational details, see this explainer document: <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/css-modules-v1-explainer.md#why-are-css-modules-needed">webcomponents/css-modules-v1-explainer.md at gh-pages · WICG/webcomponents</a>.</p>
+      </section>
+    </section>
+    <section>
+      <h2>Scoped Element Registries</h2>
+      <dl>
+        <dt>GitHub Issue(s):</dt>
+        <dd><a href="https://github.com/WICG/webcomponents/issues/716">WICG/webcomponents#716</a></dd>
+        <dt>Priority:</dt>
+        <dd>Critical</dd>
+        <dt>Status:</dt>
+        <dd>Consensus</dd>
+      </dl>
+      <section>
+        <h3>Description</h3>
+        <p>Scoped element registries allow custom element definitions to be scoped to one or more shadow roots. This allows the same tag name to be used with different implementations in different parts of the page, greatly reducing tag name collisions.</p>
+      </section>
+      <section>
+        <h3>Motivation</h3>
+        <p>There are a number of situations where multiple definitions of an element may be loaded into a page, leading to errors when the second definition executes:</p>
+        <ul>
+          <li>Unrelated name collisions: Unrelated web component libraries may attempt to register the same name; eg, `&lt;my-button&gt;`.</li>
+          <li>Versioning: Often different versions of a library are required as dependencies of an application. If any library defines a custom element, only one version of that element can be registered. This can cause bugs with incompatible versions of the element being used.</li>
+          <li>Distribution: Some elements are distributed via different channels, like CDNs and NPM. If a page consumes the library from multiple sources, that can lead to name collisions. The workarounds are not obvious.</li>
+          <li>Encapsulation: Some components define and use other elements as internal implementation helpers. These elements should not have to be defined in a public global scope.</li>
+        </ul>
+        <p>A partial polyfill for scoped custom element registries is available, but it has a number of drawbacks, including lower performance, and a requirement that all definitions have the same set of observed attributes.</p>
       </section>
     </section>
     <section>
