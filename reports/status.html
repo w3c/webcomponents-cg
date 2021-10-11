@@ -77,6 +77,7 @@
         </thead>
         <tbody>
           <tr>
+<<<<<<< HEAD
             <th><a href="#form-associated-custom-elements">Form-Associated Custom Elements</a></th>
             <td><a href="https://github.com/WICG/webcomponents/issues/187">WICG/webcomponents#187</a></td>
             <td>Critical</td>
@@ -122,6 +123,12 @@
             <td><a href="https://github.com/WICG/webcomponents/issues/79">WICG/webcomponents#79</a></td>
             <td>High</td>
             <td>Partial consensus, divergent partial implementations</td>
+          </tr>
+          <tr>
+            <th>Declarative CSS Modules</th>
+            <td><a href="https://github.com/WICG/webcomponents/issues/939">WICG/webcomponents#939</a></td>
+            <td>High</td>
+            <td>Not Addressed</td>
           </tr>
           <tr>
             <th>---</th>
@@ -327,6 +334,25 @@
           <li><a href="https://github.com/ckeditor/ckeditor5/pull/7846#issuecomment-675477977">CKEditor</a></li>
           <li><a href="https://github.com/quilljs/quill/pull/1805">Quill</a></li>
         </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Declarative CSS Modules</h2>
+      <dl>
+        <dt>GitHub Issue(s):</dt>
+        <dd><a href="https://github.com/WICG/webcomponents/issues/939">WICG/webcomponents#939</a></dd>
+        <dt>Priority:</dt>
+        <dd>High</dd>
+        <dt>Status:</dt>
+        <dd>Not Addressed</dd>
+      </dl>
+      <section>
+        <h3>Description</h3>
+        <p>Declarative shadow roots and constructible stylesheets need to be made to work together so that stylesheets added to shadow roots can be round-tripped through HTML serialization and deserialization.</p>
+      </section>
+      <section>
+        <h3>Motivation</h3>
+        <p>urrently, there is no way to associate a declarative shadow root with a constructed stylesheet. This means that when a custom element with a shadow root and adopted stylesheets is serialized to HTML, it either loses its styling or some additional code has to convert the adopted stylesheets to style tags and insert them into the markup.</p>
       </section>
     </section>
     <section>
