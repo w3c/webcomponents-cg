@@ -51,6 +51,10 @@
             name: "Michael Potter",
             url: "https://github.com/heymp",
           },
+          {
+            name: "Benny Powers",
+            url: "https://github.com/bennypowers",
+          },
         ],
         github: "w3c/webcomponents-cg",
         shortName: "webcomponents-cg",
@@ -142,6 +146,12 @@
           <tr>
             <th><a href="#open-styling-of-shadow-roots">Open styling of shadow roots</a></th>
             <td><a href="https://github.com/WICG/webcomponents/issues/909">WICG/webcomponents#909</a></td>
+            <td>High</td>
+            <td>Not addressed</td>
+          </tr>
+          <tr>
+            <th><a href="#declarative-custom-elements">Declarative custom elements</a></th>
+            <td><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Declarative-Custom-Elements-Strawman.md">Strawperson</a></td>
             <td>High</td>
             <td>Not addressed</td>
           </tr>
@@ -412,6 +422,25 @@
         <p>While this does loosen encapsulation a lot, it also preserves many of the benefits of shadow DOM including upper bound style encapsulation, lower bound encapsulation to non-open-styleable shadow roots, DOM composition with slotting, and providing a scope for custom element registrations, ARIA/focus delegation, event composition, attaching constructible stylesheets and more.</p>
         <p>We estimate this is a extremely large blocker to shadow DOM adoption. The inability to style shadow roots is one of the most common complaints on various GitHub/Twitter/Chat comments.</p>
         <p>There is theoretically a workaround where a component reads styles from its containing scope and copies them into its own shadow root. This is difficult to make reactive to changes in DOM structure and new styles being added in parent scopes, and requires script so doesn't work with declarative shadow DOM.</p>
+      </section>
+    </section>
+    <section>
+      <h2>Declarative custom elements</h2>
+      <dl>
+        <dt>GitHub Issue(s):</dt>
+        <dd><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Declarative-Custom-Elements-Strawman.md">Strawperson</a></dd>
+        <dt>Priority:</dt>
+        <dd>High</dd>
+        <dt>Status:</dt>
+        <dd>Not addressed</dd>
+      </dl>
+      <section>
+        <h3>Description</h3>
+        <p>ְDevelopers would like to define a custom element, it’s shadow-root, and styles from HTML, without need for JavaScript.</p>
+      </section>
+      <section>
+        <h3>Motivation</h3>
+        <p>This would allow them to share reusable components easily without need for extra tooling, and to load them in `&lt;noscript&gt;` contexts. Declarative Shadow DOM allows developers to emulate this using build-tools, but requires repeating the declared shadow roots for each instance.</p>
       </section>
     </section>
     <section>
