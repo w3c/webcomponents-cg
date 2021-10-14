@@ -411,7 +411,7 @@
         <p>A common request for a solution to this problem is to be able to opt shadow roots into including styles from the scope above them. A chain of these "open-styleable" shadow roots from the top-level down would allow page styles to select against nodes in the shadow root.</p>
         <p>While this does loosen encapsulation a lot, it also preserves many of the benefits of shadow DOM including upper bound style encapsulation, lower bound encapsulation to non-open-styleable shadow roots, DOM composition with slotting, and providing a scope for custom element registrations, ARIA/focus delegation, event composition, attaching constructible stylesheets and more.</p>
         <p>We estimate this is a extremely large blocker to shadow DOM adoption. The inability to style shadow roots is one of the most common complaints on various GitHub/Twitter/Chat comments.</p>
-        <p>There is theoretically a workaround where a component reads styles from its containing scope and copies them into the</p>
+        <p>There is theoretically a workaround where a component reads styles from its containing scope and copies them into its own shadow root. This is difficult to make reactive to changes in DOM structure and new styles being added in parent scopes, and requires script so doesn't work with declarative shadow DOM.</p>
       </section>
     </section>
     <section>
