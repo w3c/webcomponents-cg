@@ -114,6 +114,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     {
       "name": "Westbrook Johnson",
       "url": "https://westbrookjohnson.com"
+    },
+    {
+      "name": "Alan Dávalos",
+      "url": "https://github.com/alangdm"
     }
   ],
   "github": "w3c/webcomponents-cg",
@@ -140,9 +144,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       
       
       
-      <dt>Editor:</dt>
+      <dt>Editors:</dt>
       <dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://westbrookjohnson.com">Westbrook Johnson</a>
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://github.com/alangdm">Alan Dávalos</a>
   </dd>
       
       
@@ -185,7 +191,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           discussion of this specification.
         
     
-  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#feature-or-problem"><bdi class="secno">2. </bdi>Feature or Problem</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">2.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">2.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">3. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Terms defined by this specification</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Terms defined by reference</a></li></ol></li></ol></nav>
+  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#form-associated-custom-elements"><bdi class="secno">2. </bdi>Form-Associated Custom Elements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">2.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">2.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#feature-or-problem"><bdi class="secno">3. </bdi>Feature or Problem</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">3.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-0"><bdi class="secno">3.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">4. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Terms defined by this specification</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Terms defined by reference</a></li></ol></li></ol></nav>
     <section class="informative" id="introduction">
       <h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a></h2><p><em>This section is non-normative.</em></p>
       <p>Some informative introductory text.</p>
@@ -200,6 +206,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         </thead>
         <tbody>
           <tr>
+            <th><a href="#form-associated-custom-elements">Form-Associated Custom Elements</a></th>
+            <td><a href="https://github.com/WICG/webcomponents/issues/187">WICG/webcomponents#187</a></td>
+            <td>Critical</td>
+            <td>Some implementation</td>
+          </tr>
+          <tr>
             <th>---</th>
             <td>---</td>
             <td>---</td>
@@ -208,8 +220,40 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         </tbody>
       </table>
     </section>
+    <section id="form-associated-custom-elements">
+      <h2 id="x2-form-associated-custom-elements"><bdi class="secno">2. </bdi>Form-Associated Custom Elements<a class="self-link" aria-label="§" href="#form-associated-custom-elements"></a></h2>
+      <dl>
+        <dt>GitHub Issue(s):</dt>
+        <dd><a href="https://github.com/WICG/webcomponents/issues/187">WICG/webcomponents#187</a></dd>
+        <dt>Priority:</dt>
+        <dd>Critical</dd>
+        <dt>Status:</dt>
+        <dd>Some implementation</dd>
+      </dl>
+      <section id="description">
+        <h3 id="x2-1-description"><bdi class="secno">2.1 </bdi>Description<a class="self-link" aria-label="§" href="#description"></a></h3>
+        <p>Form-associated custom elements allow custom elements to participate in forms to the same degree as native elements, including integrations with the form’s validation, state, and submission as well as exposing the Accessibility Object Model to the element.</p>
+        <p>A sample use case can be found in <a href="https://css-tricks.com/creating-custom-form-controls-with-elementinternals/">this article by Caleb Williams</a>.</p>
+      </section>
+      <section id="motivation">
+        <h3 id="x2-2-motivation"><bdi class="secno">2.2 </bdi>Motivation<a class="self-link" aria-label="§" href="#motivation"></a></h3>
+        <p>One of the most common use cases for web components is creating form controls not available natively. Some examples include switches and credit card inputs.</p>
+        <p>There is no way for forms to fully integrate with form elements located in a different shadow root the same way they would with form elements in the same root. The only options available to achieve a similar result are:</p>
+        <ul>
+          <li>The formdata event: this event only provides integration on form submission. Using this feature alone may also lead to accessibility issues due to the lack of cross-root ARIA.</li>
+          <li>
+            Setting a form element in light DOM (e.g. using slots): this gives web components authors two main options both of which will only work with standard form elements, mostly for form submission, and require both implementers and end users to write more code:
+            <ul>
+              <li>Visually hide the form element in light DOM and synchronize its value to a visible form element located inside the web component’s shadow root.</li>
+              <li>Have both the form element and its label located in slots and forgo the granular control shadow DOM gives you over how to allow for CSS customization.</li>
+            </ul>
+          </li>
+        </ul>
+        <p>This situation has forced developers to either not use web components for form elements or create their own form systems that allow for full integration (e.g. many big web component libraries such as Lion or Shoelace provide form systems that integrate with their components). This limits the reach web components could have as plug-in form elements for projects created with different tech stacks.</p>
+      </section>
+    </section>
     <section id="feature-or-problem">
-      <h2 id="x2-feature-or-problem"><bdi class="secno">2. </bdi>Feature or Problem<a class="self-link" aria-label="§" href="#feature-or-problem"></a></h2>
+      <h2 id="x3-feature-or-problem"><bdi class="secno">3. </bdi>Feature or Problem<a class="self-link" aria-label="§" href="#feature-or-problem"></a></h2>
       <dl>
         <dt>GitHub Issue(s):</dt>
         <dd>---</dd>
@@ -218,16 +262,16 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <dt>Status:</dt>
         <dd>---</dd>
       </dl>
-      <section id="description">
-        <h3 id="x2-1-description"><bdi class="secno">2.1 </bdi>Description<a class="self-link" aria-label="§" href="#description"></a></h3>
+      <section id="description-0">
+        <h3 id="x3-1-description"><bdi class="secno">3.1 </bdi>Description<a class="self-link" aria-label="§" href="#description-0"></a></h3>
         <p>---</p>
       </section>
-      <section id="motivation">
-        <h3 id="x2-2-motivation"><bdi class="secno">2.2 </bdi>Motivation<a class="self-link" aria-label="§" href="#motivation"></a></h3>
+      <section id="motivation-0">
+        <h3 id="x3-2-motivation"><bdi class="secno">3.2 </bdi>Motivation<a class="self-link" aria-label="§" href="#motivation-0"></a></h3>
         <p>---</p>
       </section>
     </section>
-    <section id="conformance"><h2 id="x3-conformance"><bdi class="secno">3. </bdi>Conformance<a class="self-link" aria-label="§" href="#conformance"></a></h2><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p>
+    <section id="conformance"><h2 id="x4-conformance"><bdi class="secno">4. </bdi>Conformance<a class="self-link" aria-label="§" href="#conformance"></a></h2><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p>
       <p>
         This is required for specifications that contain normative material.
       </p>
