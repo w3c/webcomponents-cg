@@ -100,6 +100,20 @@ ul.index code{color:inherit}
 </style>
 <meta name="description" content="This is required.">
 <style>
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
+.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
+.hljs-literal{color:#0b76c5}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
 var{position:relative;cursor:pointer}
 var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
 var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
@@ -126,6 +140,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     {
       "name": "Justin Fagnani",
       "url": "https://github.com/justinfagnani"
+    },
+    {
+      "name": "Jordan Austin",
+      "url": "https://github.com/jordanaustin"
+    },
+    {
+      "name": "Dan Clark",
+      "url": "https://github.com/dandclark"
     }
   ],
   "github": "w3c/webcomponents-cg",
@@ -161,6 +183,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <a class="u-url url p-name fn" href="https://github.com/splitinfinities">William Riley</a>
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://github.com/justinfagnani">Justin Fagnani</a>
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://github.com/jordanaustin">Jordan Austin</a>
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://github.com/dandclark">Dan Clark</a>
   </dd>
       
       
@@ -203,7 +229,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           discussion of this specification.
         
     
-  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#form-associated-custom-elements"><bdi class="secno">2. </bdi>Form-Associated Custom Elements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">2.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">2.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#cross-root-aria"><bdi class="secno">3. </bdi>Cross-root ARIA</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">3.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-0"><bdi class="secno">3.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#constructable-stylesheets-adoptedstylesheets"><bdi class="secno">4. </bdi>Constructable Stylesheets &amp; adoptedStyleSheets</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-1"><bdi class="secno">4.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-1"><bdi class="secno">4.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#feature-or-problem"><bdi class="secno">5. </bdi>Feature or Problem</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-2"><bdi class="secno">5.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-2"><bdi class="secno">5.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">6. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Terms defined by this specification</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Terms defined by reference</a></li></ol></li></ol></nav>
+  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#form-associated-custom-elements"><bdi class="secno">2. </bdi>Form-Associated Custom Elements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">2.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">2.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#cross-root-aria"><bdi class="secno">3. </bdi>Cross-root ARIA</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">3.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-0"><bdi class="secno">3.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#constructable-stylesheets-adoptedstylesheets"><bdi class="secno">4. </bdi>Constructable Stylesheets &amp; adoptedStyleSheets</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-1"><bdi class="secno">4.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-1"><bdi class="secno">4.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#css-module-scripts"><bdi class="secno">5. </bdi>CSS Module Scripts</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-2"><bdi class="secno">5.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-2"><bdi class="secno">5.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#feature-or-problem"><bdi class="secno">6. </bdi>Feature or Problem</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-3"><bdi class="secno">6.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-3"><bdi class="secno">6.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">7. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Terms defined by this specification</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Terms defined by reference</a></li></ol></li></ol></nav>
     <section class="informative" id="introduction">
       <h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a></h2><p><em>This section is non-normative.</em></p>
       <p>Some informative introductory text.</p>
@@ -237,6 +263,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <tr>
             <th><a href="http://localhost:8080/status.html#constructable-stylesheets-adoptedstylesheets">Constructable Stylesheets &amp; adoptedStyleSheets</a></th>
             <td><a href="https://github.com/WICG/webcomponents/issues/169">WICG/webcomponents#468</a></td>
+            <td>Critical</td>
+            <td>Some implementation</td>
+          </tr>
+          <tr>
+            <th><a href="#css-module-scripts">CSS Module Scripts</a></th>
+            <td><a href="https://github.com/WICG/webcomponents/issues/759">WICG/webcomponents#759</a></td>
             <td>Critical</td>
             <td>Some implementation</td>
           </tr>
@@ -336,8 +368,35 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         </ul>
       </section>
     </section>
+    <section id="css-module-scripts">
+      <h2 id="x5-css-module-scripts"><bdi class="secno">5. </bdi>CSS Module Scripts<a class="self-link" aria-label="§" href="#css-module-scripts"></a></h2>
+      <dl>
+        <dt>GitHub Issue(s):</dt>
+        <dd><a href="https://github.com/WICG/webcomponents/issues/759">WICG/webcomponents#759</a></dd>
+        <dt>Priority:</dt>
+        <dd>Critical</dd>
+        <dt>Status:</dt>
+        <dd>Some implementation</dd>
+      </dl>
+      <section id="description-2">
+        <h3 id="x5-1-description"><bdi class="secno">5.1 </bdi>Description<a class="self-link" aria-label="§" href="#description-2"></a></h3>
+        <p>CSS Module Scripts allow JavaScript modules to import style sheets. They can then be applied to a document or shadow root using adoptedStyleSheets in the same way as constructible style sheets.</p>
+        <pre aria-busy="false"><code class="hljs javascript"><span class="hljs-keyword">import</span> styleSheet <span class="hljs-keyword">from</span> <span class="hljs-string">"./styles.css"</span> assert { <span class="hljs-attr">type</span>: <span class="hljs-string">"css"</span> };
+<span class="hljs-built_in">document</span>.adoptedStyleSheets = [ styleSheet ];</code></pre>
+      </section>
+      <section id="motivation-2">
+        <h3 id="x5-2-motivation"><bdi class="secno">5.2 </bdi>Motivation<a class="self-link" aria-label="§" href="#motivation-2"></a></h3>
+        <ul>
+          <li>CSS modules will allow styles to be loaded in component definitions without adding <code>&lt;style&gt;</code> or <code>&lt;link&gt;</code> elements that need to be created in each element instance.</li>
+          <li>Authors today often use inlined CSS strings in JS modules, but many of them want to move the CSS into separate .css files.</li>
+          <li>Without CSS-in-JS it's difficult to ensure that CSS is loaded before the component is defined and rendered. CSS module scripts provide the same ordering guarantee.</li>
+          <li>Component authors may need to import a resource that is only available as an external .css file, and don't have control over the resource to wrap it in a JS module.</li>
+        </ul>
+        <p>For further motivational details, see this explainer document: <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/css-modules-v1-explainer.md#why-are-css-modules-needed">webcomponents/css-modules-v1-explainer.md at gh-pages · WICG/webcomponents</a>.</p>
+      </section>
+    </section>
     <section id="feature-or-problem">
-      <h2 id="x5-feature-or-problem"><bdi class="secno">5. </bdi>Feature or Problem<a class="self-link" aria-label="§" href="#feature-or-problem"></a></h2>
+      <h2 id="x6-feature-or-problem"><bdi class="secno">6. </bdi>Feature or Problem<a class="self-link" aria-label="§" href="#feature-or-problem"></a></h2>
       <dl>
         <dt>GitHub Issue(s):</dt>
         <dd>---</dd>
@@ -346,16 +405,16 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <dt>Status:</dt>
         <dd>---</dd>
       </dl>
-      <section id="description-2">
-        <h3 id="x5-1-description"><bdi class="secno">5.1 </bdi>Description<a class="self-link" aria-label="§" href="#description-2"></a></h3>
+      <section id="description-3">
+        <h3 id="x6-1-description"><bdi class="secno">6.1 </bdi>Description<a class="self-link" aria-label="§" href="#description-3"></a></h3>
         <p>---</p>
       </section>
-      <section id="motivation-2">
-        <h3 id="x5-2-motivation"><bdi class="secno">5.2 </bdi>Motivation<a class="self-link" aria-label="§" href="#motivation-2"></a></h3>
+      <section id="motivation-3">
+        <h3 id="x6-2-motivation"><bdi class="secno">6.2 </bdi>Motivation<a class="self-link" aria-label="§" href="#motivation-3"></a></h3>
         <p>---</p>
       </section>
     </section>
-    <section id="conformance"><h2 id="x6-conformance"><bdi class="secno">6. </bdi>Conformance<a class="self-link" aria-label="§" href="#conformance"></a></h2><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p>
+    <section id="conformance"><h2 id="x7-conformance"><bdi class="secno">7. </bdi>Conformance<a class="self-link" aria-label="§" href="#conformance"></a></h2><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p>
       <p>
         This is required for specifications that contain normative material.
       </p>
