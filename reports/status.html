@@ -140,6 +140,12 @@
             <td>---</td>
           </tr>
           <tr>
+            <th><a href="#open-styling-of-shadow-roots">Open styling of shadow roots</a></th>
+            <td><a href="https://github.com/WICG/webcomponents/issues/909">WICG/webcomponents#909</a></td>
+            <td>High</td>
+            <td>Not addressed</td>
+          </tr>
+          <tr>
             <th>---</th>
             <td>---</td>
             <td>---</td>
@@ -383,6 +389,29 @@
         <p>Establishing parent child relationships between components is a common pattern with custom elements. The challenge for the parent is to know when new children are inserted into its scope and act on those children. The parent doesn't have inherent insurance that the child element is upgraded by the custom element registry. Currently, developers are using a combination of mutation observers and slotchange events to be notified when new elements have entered its scope, then using polling, promise callbacks or `setTimeouts` to a "wait" for the child to finish upgrading.</p>
         <p>Consider the following example.  A higher order app (`x-app`) component is in charge of orchestrating authenticating the user when the page initially loads.  To do that, it leverages the authentication component (`x-auth`) that is a child component.  Using the `childrenChangedCallback()` hook, `x-app` can be notified when new children are added to its scope and has the ability to immediately interface with it’s API.</p>
         <p>Example: <a href="https://codepen.io/heyMP/pen/rNwXRWg">https://codepen.io/heyMP/pen/rNwXRWg</a></p>
+      </section>
+    </section>
+    <section>
+      <h2>Open styling of shadow roots</h2>
+      <dl>
+        <dt>GitHub Issue(s):</dt>
+        <dd><a href="https://github.com/WICG/webcomponents/issues/909">WICG/webcomponents#909</a></dd>
+        <dt>Priority:</dt>
+        <dd>High</dd>
+        <dt>Status:</dt>
+        <dd>Not addressed</dd>
+      </dl>
+      <section>
+        <h3>Description</h3>
+        <p>Open-styleable shadow roots would be a new mode on shadow roots that allow selectors from the shadow root's containing scope. This will allow component's internal DOM to be styled by page styles if there is a chain of open-styleable shadow roots up to the document scope - which in turn allow those components to be made to be compatible with existing pages so that projects can incrementally adopt shadow DOM.</p>
+      </section>
+      <section>
+        <h3>Motivation</h3>
+        <p>Many potential consumers and providers of web components have raised the issue that they need to make components styleable with existing, and potentially <em>unknown</em> stylesheets. This is a common occurrence with systems like Bootstrap, Tailwind, or corporate stylesheets. The stylesheet may be loaded at the page level and maintained and distributed by a different team than the team building components. This scenario is extremely common for projects that are trying to port existing components to web components.</p>
+        <p>A common request for a solution to this problem is to be able to opt shadow roots into including styles from the scope above them. A chain of these "open-styleable" shadow roots from the top-level down would allow page styles to select against nodes in the shadow root.</p>
+        <p>While this does loosen encapsulation a lot, it also preserves many of the benefits of shadow DOM including upper bound style encapsulation, lower bound encapsulation to non-open-styleable shadow roots, DOM composition with slotting, and providing a scope for custom element registrations, ARIA/focus delegation, event composition, attaching constructible stylesheets and more.</p>
+        <p>We estimate this is a extremely large blocker to shadow DOM adoption. The inability to style shadow roots is one of the most common complaints on various GitHub/Twitter/Chat comments.</p>
+        <p>There is theoretically a workaround where a component reads styles from its containing scope and copies them into its own shadow root. This is difficult to make reactive to changes in DOM structure and new styles being added in parent scopes, and requires script so doesn't work with declarative shadow DOM.</p>
       </section>
     </section>
     <section>
