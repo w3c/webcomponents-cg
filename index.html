@@ -160,6 +160,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     {
       "name": "Michael Potter",
       "url": "https://github.com/heymp"
+    },
+    {
+      "name": "Benny Powers",
+      "url": "https://github.com/bennypowers"
     }
   ],
   "github": "w3c/webcomponents-cg",
@@ -205,6 +209,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <a class="u-url url p-name fn" href="https://github.com/hunterloftis">Hunter Loftis</a>
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://github.com/heymp">Michael Potter</a>
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://github.com/bennypowers">Benny Powers</a>
   </dd>
       
       
@@ -247,7 +253,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           discussion of this specification.
         
     
-  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#form-associated-custom-elements"><bdi class="secno">2. </bdi>Form-Associated Custom Elements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">2.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">2.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#cross-root-aria"><bdi class="secno">3. </bdi>Cross-root ARIA</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">3.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-0"><bdi class="secno">3.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#constructable-stylesheets-adoptedstylesheets"><bdi class="secno">4. </bdi>Constructable Stylesheets &amp; adoptedStyleSheets</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-1"><bdi class="secno">4.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-1"><bdi class="secno">4.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#css-module-scripts"><bdi class="secno">5. </bdi>CSS Module Scripts</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-2"><bdi class="secno">5.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-2"><bdi class="secno">5.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#scoped-element-registries"><bdi class="secno">6. </bdi>Scoped Element Registries</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-3"><bdi class="secno">6.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-3"><bdi class="secno">6.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#declarative-shadow-dom"><bdi class="secno">7. </bdi>Declarative Shadow DOM</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-4"><bdi class="secno">7.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-4"><bdi class="secno">7.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#composed-selection"><bdi class="secno">8. </bdi>Composed Selection</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-5"><bdi class="secno">8.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-5"><bdi class="secno">8.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#declarative-css-modules"><bdi class="secno">9. </bdi>Declarative CSS Modules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-6"><bdi class="secno">9.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-6"><bdi class="secno">9.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#children-changed-callback"><bdi class="secno">10. </bdi>Children changed callback</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-7"><bdi class="secno">10.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-7"><bdi class="secno">10.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#open-styling-of-shadow-roots"><bdi class="secno">11. </bdi>Open styling of shadow roots</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-8"><bdi class="secno">11.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-8"><bdi class="secno">11.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#feature-or-problem"><bdi class="secno">12. </bdi>Feature or Problem</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-9"><bdi class="secno">12.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-9"><bdi class="secno">12.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">13. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Terms defined by this specification</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Terms defined by reference</a></li></ol></li></ol></nav>
+  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#form-associated-custom-elements"><bdi class="secno">2. </bdi>Form-Associated Custom Elements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">2.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">2.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#cross-root-aria"><bdi class="secno">3. </bdi>Cross-root ARIA</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">3.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-0"><bdi class="secno">3.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#constructable-stylesheets-adoptedstylesheets"><bdi class="secno">4. </bdi>Constructable Stylesheets &amp; adoptedStyleSheets</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-1"><bdi class="secno">4.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-1"><bdi class="secno">4.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#css-module-scripts"><bdi class="secno">5. </bdi>CSS Module Scripts</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-2"><bdi class="secno">5.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-2"><bdi class="secno">5.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#scoped-element-registries"><bdi class="secno">6. </bdi>Scoped Element Registries</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-3"><bdi class="secno">6.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-3"><bdi class="secno">6.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#declarative-shadow-dom"><bdi class="secno">7. </bdi>Declarative Shadow DOM</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-4"><bdi class="secno">7.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-4"><bdi class="secno">7.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#composed-selection"><bdi class="secno">8. </bdi>Composed Selection</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-5"><bdi class="secno">8.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-5"><bdi class="secno">8.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#declarative-css-modules"><bdi class="secno">9. </bdi>Declarative CSS Modules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-6"><bdi class="secno">9.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-6"><bdi class="secno">9.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#children-changed-callback"><bdi class="secno">10. </bdi>Children changed callback</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-7"><bdi class="secno">10.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-7"><bdi class="secno">10.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#open-styling-of-shadow-roots"><bdi class="secno">11. </bdi>Open styling of shadow roots</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-8"><bdi class="secno">11.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-8"><bdi class="secno">11.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#declarative-custom-elements"><bdi class="secno">12. </bdi>Declarative custom elements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-9"><bdi class="secno">12.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-9"><bdi class="secno">12.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#feature-or-problem"><bdi class="secno">13. </bdi>Feature or Problem</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-10"><bdi class="secno">13.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-10"><bdi class="secno">13.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">14. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Terms defined by this specification</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Terms defined by reference</a></li></ol></li></ol></nav>
     <section class="informative" id="introduction">
       <h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a></h2><p><em>This section is non-normative.</em></p>
       <p>Some informative introductory text.</p>
@@ -323,6 +329,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <tr>
             <th><a href="#open-styling-of-shadow-roots">Open styling of shadow roots</a></th>
             <td><a href="https://github.com/WICG/webcomponents/issues/909">WICG/webcomponents#909</a></td>
+            <td>High</td>
+            <td>Not addressed</td>
+          </tr>
+          <tr>
+            <th><a href="#declarative-custom-elements">Declarative custom elements</a></th>
+            <td><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Declarative-Custom-Elements-Strawman.md">Strawperson</a></td>
             <td>High</td>
             <td>Not addressed</td>
           </tr>
@@ -593,8 +605,27 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <p>There is theoretically a workaround where a component reads styles from its containing scope and copies them into its own shadow root. This is difficult to make reactive to changes in DOM structure and new styles being added in parent scopes, and requires script so doesn't work with declarative shadow DOM.</p>
       </section>
     </section>
+    <section id="declarative-custom-elements">
+      <h2 id="x12-declarative-custom-elements"><bdi class="secno">12. </bdi>Declarative custom elements<a class="self-link" aria-label="§" href="#declarative-custom-elements"></a></h2>
+      <dl>
+        <dt>GitHub Issue(s):</dt>
+        <dd><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Declarative-Custom-Elements-Strawman.md">Strawperson</a></dd>
+        <dt>Priority:</dt>
+        <dd>High</dd>
+        <dt>Status:</dt>
+        <dd>Not addressed</dd>
+      </dl>
+      <section id="description-9">
+        <h3 id="x12-1-description"><bdi class="secno">12.1 </bdi>Description<a class="self-link" aria-label="§" href="#description-9"></a></h3>
+        <p>ְDevelopers would like to define a custom element, it’s shadow-root, and styles from HTML, without need for JavaScript.</p>
+      </section>
+      <section id="motivation-9">
+        <h3 id="x12-2-motivation"><bdi class="secno">12.2 </bdi>Motivation<a class="self-link" aria-label="§" href="#motivation-9"></a></h3>
+        <p>This would allow them to share reusable components easily without need for extra tooling, and to load them in <code>&lt;noscript&gt;</code> contexts. Declarative Shadow DOM allows developers to emulate this using build-tools, but requires repeating the declared shadow roots for each instance.</p>
+      </section>
+    </section>
     <section id="feature-or-problem">
-      <h2 id="x12-feature-or-problem"><bdi class="secno">12. </bdi>Feature or Problem<a class="self-link" aria-label="§" href="#feature-or-problem"></a></h2>
+      <h2 id="x13-feature-or-problem"><bdi class="secno">13. </bdi>Feature or Problem<a class="self-link" aria-label="§" href="#feature-or-problem"></a></h2>
       <dl>
         <dt>GitHub Issue(s):</dt>
         <dd>---</dd>
@@ -603,16 +634,16 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <dt>Status:</dt>
         <dd>---</dd>
       </dl>
-      <section id="description-9">
-        <h3 id="x12-1-description"><bdi class="secno">12.1 </bdi>Description<a class="self-link" aria-label="§" href="#description-9"></a></h3>
+      <section id="description-10">
+        <h3 id="x13-1-description"><bdi class="secno">13.1 </bdi>Description<a class="self-link" aria-label="§" href="#description-10"></a></h3>
         <p>---</p>
       </section>
-      <section id="motivation-9">
-        <h3 id="x12-2-motivation"><bdi class="secno">12.2 </bdi>Motivation<a class="self-link" aria-label="§" href="#motivation-9"></a></h3>
+      <section id="motivation-10">
+        <h3 id="x13-2-motivation"><bdi class="secno">13.2 </bdi>Motivation<a class="self-link" aria-label="§" href="#motivation-10"></a></h3>
         <p>---</p>
       </section>
     </section>
-    <section id="conformance"><h2 id="x13-conformance"><bdi class="secno">13. </bdi>Conformance<a class="self-link" aria-label="§" href="#conformance"></a></h2><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p>
+    <section id="conformance"><h2 id="x14-conformance"><bdi class="secno">14. </bdi>Conformance<a class="self-link" aria-label="§" href="#conformance"></a></h2><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p>
       <p>
         This is required for specifications that contain normative material.
       </p>
