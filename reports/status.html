@@ -98,8 +98,8 @@
               <a href="https://github.com/WICG/webcomponents/issues/917">WICG/webcomponents#917</a><br>
               <a href="https://github.com/WICG/webcomponents/issues/916">WICG/webcomponents#916</a>
             </td>
-            <td>Critial</td>
-            <td>Uncertian</td>
+            <td>Critical</td>
+            <td>Uncertain</td>
           </tr>
           <tr>
             <th><a href="http://localhost:8080/status.html#constructable-stylesheets-adoptedstylesheets">Constructable Stylesheets & adoptedStyleSheets</a></th>
@@ -205,20 +205,20 @@
         <dd><a href="https://github.com/WICG/webcomponents/issues/917">WICG/webcomponents#917</a></dd>
         <dd><a href="https://github.com/WICG/webcomponents/issues/916">WICG/webcomponents#916</a></dd>
         <dt>Priority:</dt>
-        <dd>Critial</dd>
+        <dd>Critical</dd>
         <dt>Status:</dt>
-        <dd>Uncertian</dd>
+        <dd>Uncertain</dd>
       </dl>
       <section>
         <h3>Description</h3>
         <ol>
-          <li>Shadow root encapsulation currently prevents references between elements in different roots. Croot-root ARIA references would re-enable this platform feature within shadow roots.</li>
+          <li>Shadow root encapsulation currently prevents references between elements in different roots. Cross-root ARIA references would re-enable this platform feature within shadow roots.</li>
           <li>It's not possible to "forward" ARIA attributes from a custom element host into elements in the host's shadow root. For instance, a custom input that wants to allow users to customize the ARIA role, has no way to forward the role attribute to the encapsulated native input.</li>
         </ol>
       </section>
       <section>
         <h3>Motivation</h3>
-        <p>It's critically important that content on the web be accessible. Making web component content accessible currently requires many complicated and only partially-successful work-arounds, such as:</p>
+        <p>It's critically important that content on the web be accessible. Making web component content accessible currently requires many complicated and only partially-successful workarounds, such as:</p>
         <ul>
           <li>Observing and moving ARIA-related attributes across elements (for role, etc.)</li>
           <li>Using non-standard attributes for ARIA features, in order to apply them to elements in a shadow root.</li>
@@ -377,7 +377,7 @@
       </section>
       <section>
         <h3>Motivation</h3>
-        <p>urrently, there is no way to associate a declarative shadow root with a constructed stylesheet. This means that when a custom element with a shadow root and adopted stylesheets is serialized to HTML, it either loses its styling or some additional code has to convert the adopted stylesheets to style tags and insert them into the markup.</p>
+        <p>Currently, there is no way to associate a declarative shadow root with a constructed stylesheet. This means that when a custom element with a shadow root and adopted stylesheets is serialized to HTML, it either loses its styling or some additional code has to convert the adopted stylesheets to style tags and insert them into the markup.</p>
       </section>
     </section>
     <section>
