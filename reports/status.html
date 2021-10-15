@@ -47,6 +47,10 @@
             name: "Hunter Loftis",
             url: "https://github.com/hunterloftis",
           },
+          {
+            name: "Michael Potter",
+            url: "https://github.com/heymp",
+          },
         ],
         github: "w3c/webcomponents-cg",
         shortName: "webcomponents-cg",
@@ -77,7 +81,6 @@
         </thead>
         <tbody>
           <tr>
-<<<<<<< HEAD
             <th><a href="#form-associated-custom-elements">Form-Associated Custom Elements</a></th>
             <td><a href="https://github.com/WICG/webcomponents/issues/187">WICG/webcomponents#187</a></td>
             <td>Critical</td>
@@ -129,6 +132,12 @@
             <td><a href="https://github.com/WICG/webcomponents/issues/939">WICG/webcomponents#939</a></td>
             <td>High</td>
             <td>Not Addressed</td>
+          </tr>
+          <tr>
+            <th><a href="#children-changed-callback">Children changed callback</a></th>
+            <td><a href="https://github.com/WICG/webcomponents/issues/809">WICG/webcomponents#809</a></td>
+            <td>High</td>
+            <td>---</td>
           </tr>
           <tr>
             <th>---</th>
@@ -353,6 +362,27 @@
       <section>
         <h3>Motivation</h3>
         <p>urrently, there is no way to associate a declarative shadow root with a constructed stylesheet. This means that when a custom element with a shadow root and adopted stylesheets is serialized to HTML, it either loses its styling or some additional code has to convert the adopted stylesheets to style tags and insert them into the markup.</p>
+      </section>
+    </section>
+    <section>
+      <h2>Children changed callback</h2>
+      <dl>
+        <dt>GitHub Issue(s):</dt>
+        <dd><a href="https://github.com/WICG/webcomponents/issues/809">WICG/webcomponents#809</a></dd>
+        <dt>Priority:</dt>
+        <dd>High</dd>
+        <dt>Status:</dt>
+        <dd>---</dd>
+      </dl>
+      <section>
+        <h3>Description</h3>
+        <p>This is a proposal to add a new callback to the CEReaction extended attribute that would fire once an element's child has changed. This new callback would allow developers to deterministically know when child elements are added or removed, taking into account slotting.</p>
+      </section>
+      <section>
+        <h3>Motivation</h3>
+        <p>Establishing parent child relationships between components is a common pattern with custom elements. The challenge for the parent is to know when new children are inserted into its scope and act on those children. The parent doesn't have inherent insurance that the child element is upgraded by the custom element registry. Currently, developers are using a combination of mutation observers and slotchange events to be notified when new elements have entered its scope, then using polling, promise callbacks or `setTimeouts` to a "wait" for the child to finish upgrading.</p>
+        <p>Consider the following example.  A higher order app (`x-app`) component is in charge of orchestrating authenticating the user when the page initially loads.  To do that, it leverages the authentication component (`x-auth`) that is a child component.  Using the `childrenChangedCallback()` hook, `x-app` can be notified when new children are added to its scope and has the ability to immediately interface with it’s API.</p>
+        <p>Example: <a href="https://codepen.io/heyMP/pen/rNwXRWg">https://codepen.io/heyMP/pen/rNwXRWg</a></p>
       </section>
     </section>
     <section>
