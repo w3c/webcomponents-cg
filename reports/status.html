@@ -24,6 +24,10 @@
             url: "https://github.com/alangdm",
           },
           {
+            name: "Owen Buckley",
+            url: "https://github.com/thescientist13",
+          },
+          {
             name: "William Riley",
             url: "https://github.com/splitinfinities",
           },
@@ -102,6 +106,12 @@
             <td><a href="https://github.com/WICG/webcomponents/issues/716">WICG/webcomponents#716</a></td>
             <td>Critical</td>
             <td>Consensus</td>
+          </tr>
+          <tr>
+            <th><a href="#declarative-shadow-dom">Declarative Shadow DOM</a></th>
+            <td><a href="https://github.com/whatwg/dom/issues/831">whatwg/dom#831</a></td>
+            <td>Critical</td>
+            <td>Partial consensus, some implementation</td>
           </tr>
           <tr>
             <th>---</th>
@@ -252,6 +262,31 @@
           <li>Encapsulation: Some components define and use other elements as internal implementation helpers. These elements should not have to be defined in a public global scope.</li>
         </ul>
         <p>A partial polyfill for scoped custom element registries is available, but it has a number of drawbacks, including lower performance, and a requirement that all definitions have the same set of observed attributes.</p>
+      </section>
+    </section>
+    <section>
+      <h2>Declarative Shadow DOM</h2>
+      <dl>
+        <dt>GitHub Issue(s):</dt>
+        <dd><a href="https://github.com/whatwg/dom/issues/831">whatwg/dom#831</a></dd>
+        <dt>Priority:</dt>
+        <dd>Critical</dd>
+        <dt>Status:</dt>
+        <dd>Partial consensus, some implementation</dd>
+      </dl>
+      <section>
+        <h3>Description</h3>
+        <p>Declarative Shadow DOM is a mechanism to express <a href="https://www.w3.org/TR/shadow-dom/">Shadow DOM</a> using only HTML, with no dependency on JavaScript, much like light DOM can be declaratively expressed today.</p>
+        <p><em>For details, see <a href="https://web.dev/declarative-shadow-dom/">this article</a> by Jason Miller and Mason Freed.</em></p>
+      </section>
+      <section>
+        <h3>Motivation</h3>
+        <p>Without Declarative Shadow DOM, web components depend on rendering environments that support JavaScript. This limits their use in:</p>
+        <ul>
+          <li>Server-Side Rendering: Without Declarative Shadow DOM, servers cannot deliver complete websites that include web component content. Markup cannot be efficiently delivered and then hydrated with JavaScript client-side.</li>
+          <li>JavaScript-less environments: Many web components could be implemented without JavaScript, taking advantage of encapsulated DOM and styles. However, web components cannot currently be rendered by users who have JavaScript disabled. Developers who are more comfortable with markup than with scripting may avoid shadow DOM altogether due to its tight coupling with JavaScript.</li>
+        </ul>
+        <p>Chrome has <a href="https://web.dev/declarative-shadow-dom/#detection-support">experimental support</a> and <a href="https://web.dev/declarative-shadow-dom/#polyfill">a polyfill</a> for Declarative Shadow DOM, but complete workarounds are not possible since Declarative Shadow DOM is a browser-level feature. Frameworks and libraries have hacked around this issue by prerendering sites, pages, or components in JavaScript-supporting environments prior to delivering HTML.</p>
       </section>
     </section>
     <section>
