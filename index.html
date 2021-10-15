@@ -281,8 +281,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
               <a href="https://github.com/WICG/webcomponents/issues/917">WICG/webcomponents#917</a><br>
               <a href="https://github.com/WICG/webcomponents/issues/916">WICG/webcomponents#916</a>
             </td>
-            <td>Critial</td>
-            <td>Uncertian</td>
+            <td>Critical</td>
+            <td>Uncertain</td>
           </tr>
           <tr>
             <th><a href="http://localhost:8080/status.html#constructable-stylesheets-adoptedstylesheets">Constructable Stylesheets &amp; adoptedStyleSheets</a></th>
@@ -388,20 +388,20 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <dd><a href="https://github.com/WICG/webcomponents/issues/917">WICG/webcomponents#917</a></dd>
         <dd><a href="https://github.com/WICG/webcomponents/issues/916">WICG/webcomponents#916</a></dd>
         <dt>Priority:</dt>
-        <dd>Critial</dd>
+        <dd>Critical</dd>
         <dt>Status:</dt>
-        <dd>Uncertian</dd>
+        <dd>Uncertain</dd>
       </dl>
       <section id="description-0">
         <h3 id="x3-1-description"><bdi class="secno">3.1 </bdi>Description<a class="self-link" aria-label="§" href="#description-0"></a></h3>
         <ol>
-          <li>Shadow root encapsulation currently prevents references between elements in different roots. Croot-root ARIA references would re-enable this platform feature within shadow roots.</li>
+          <li>Shadow root encapsulation currently prevents references between elements in different roots. Cross-root ARIA references would re-enable this platform feature within shadow roots.</li>
           <li>It's not possible to "forward" ARIA attributes from a custom element host into elements in the host's shadow root. For instance, a custom input that wants to allow users to customize the ARIA role, has no way to forward the role attribute to the encapsulated native input.</li>
         </ol>
       </section>
       <section id="motivation-0">
         <h3 id="x3-2-motivation"><bdi class="secno">3.2 </bdi>Motivation<a class="self-link" aria-label="§" href="#motivation-0"></a></h3>
-        <p>It's critically important that content on the web be accessible. Making web component content accessible currently requires many complicated and only partially-successful work-arounds, such as:</p>
+        <p>It's critically important that content on the web be accessible. Making web component content accessible currently requires many complicated and only partially-successful workarounds, such as:</p>
         <ul>
           <li>Observing and moving ARIA-related attributes across elements (for role, etc.)</li>
           <li>Using non-standard attributes for ARIA features, in order to apply them to elements in a shadow root.</li>
@@ -558,7 +558,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </section>
       <section id="motivation-6">
         <h3 id="x9-2-motivation"><bdi class="secno">9.2 </bdi>Motivation<a class="self-link" aria-label="§" href="#motivation-6"></a></h3>
-        <p>urrently, there is no way to associate a declarative shadow root with a constructed stylesheet. This means that when a custom element with a shadow root and adopted stylesheets is serialized to HTML, it either loses its styling or some additional code has to convert the adopted stylesheets to style tags and insert them into the markup.</p>
+        <p>Currently, there is no way to associate a declarative shadow root with a constructed stylesheet. This means that when a custom element with a shadow root and adopted stylesheets is serialized to HTML, it either loses its styling or some additional code has to convert the adopted stylesheets to style tags and insert them into the markup.</p>
       </section>
     </section>
     <section id="children-changed-callback">
