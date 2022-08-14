@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.2.2">
+<meta name="generator" content="ReSpec 32.2.3">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 dfn{cursor:pointer}
@@ -99,20 +99,6 @@ ul.index code{color:inherit}
 </style>
 <meta name="description" content="This is required.">
 <style>
-.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
-.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
-.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
-.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
-.hljs-literal{color:#0b76c5}
-.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
-.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
-.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
-.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
-.hljs-emphasis{font-style:italic}
-.hljs-strong{font-weight:700}
-.hljs-link{text-decoration:underline}
-</style>
-<style>
 var{position:relative;cursor:pointer}
 var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
 var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
@@ -127,42 +113,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     {
       "name": "Westbrook Johnson",
       "url": "https://westbrookjohnson.com"
-    },
-    {
-      "name": "Alan Dávalos",
-      "url": "https://github.com/alangdm"
-    },
-    {
-      "name": "Owen Buckley",
-      "url": "https://github.com/thescientist13"
-    },
-    {
-      "name": "William Riley",
-      "url": "https://github.com/splitinfinities"
-    },
-    {
-      "name": "Justin Fagnani",
-      "url": "https://github.com/justinfagnani"
-    },
-    {
-      "name": "Jordan Austin",
-      "url": "https://github.com/jordanaustin"
-    },
-    {
-      "name": "Dan Clark",
-      "url": "https://github.com/dandclark"
-    },
-    {
-      "name": "Hunter Loftis",
-      "url": "https://github.com/hunterloftis"
-    },
-    {
-      "name": "Michael Potter",
-      "url": "https://github.com/heymp"
-    },
-    {
-      "name": "Benny Powers",
-      "url": "https://github.com/bennypowers"
     }
   ],
   "github": "w3c/webcomponents-cg",
@@ -170,8 +120,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "xref": "web-platform",
   "group": "webcomponents",
   "tocIntroductory": true,
-  "publishISODate": "2022-08-09T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 09 August 2022"
+  "publishISODate": "2022-08-14T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 14 August 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
   <body class="h-entry" data-cite="HTML INFRA URL WEBIDL DOM FETCH"><div class="head">
@@ -179,7 +129,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Web Components Community Group: 2022 Spec/API status</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2022-08-09">09 August 2022</time>
+      <time class="dt-published" datetime="2022-08-14">14 August 2022</time>
     </p>
     <dl>
       
@@ -191,26 +141,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       
       
       
-      <dt>Editors:</dt><dd class="editor p-author h-card vcard">
+      <dt>Editor:</dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://westbrookjohnson.com">Westbrook Johnson</a>
-  </dd><dd class="editor p-author h-card vcard">
-    <a class="u-url url p-name fn" href="https://github.com/alangdm">Alan Dávalos</a>
-  </dd><dd class="editor p-author h-card vcard">
-    <a class="u-url url p-name fn" href="https://github.com/thescientist13">Owen Buckley</a>
-  </dd><dd class="editor p-author h-card vcard">
-    <a class="u-url url p-name fn" href="https://github.com/splitinfinities">William Riley</a>
-  </dd><dd class="editor p-author h-card vcard">
-    <a class="u-url url p-name fn" href="https://github.com/justinfagnani">Justin Fagnani</a>
-  </dd><dd class="editor p-author h-card vcard">
-    <a class="u-url url p-name fn" href="https://github.com/jordanaustin">Jordan Austin</a>
-  </dd><dd class="editor p-author h-card vcard">
-    <a class="u-url url p-name fn" href="https://github.com/dandclark">Dan Clark</a>
-  </dd><dd class="editor p-author h-card vcard">
-    <a class="u-url url p-name fn" href="https://github.com/hunterloftis">Hunter Loftis</a>
-  </dd><dd class="editor p-author h-card vcard">
-    <a class="u-url url p-name fn" href="https://github.com/heymp">Michael Potter</a>
-  </dd><dd class="editor p-author h-card vcard">
-    <a class="u-url url p-name fn" href="https://github.com/bennypowers">Benny Powers</a>
   </dd>
       
       
@@ -258,7 +190,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           discussion of this specification.
         
     
-  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#form-associated-custom-elements"><bdi class="secno">2. </bdi>Form-Associated Custom Elements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">2.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">2.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#cross-root-aria"><bdi class="secno">3. </bdi>Cross-root ARIA</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">3.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-0"><bdi class="secno">3.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#constructable-stylesheets-adoptedstylesheets"><bdi class="secno">4. </bdi>Constructable Stylesheets &amp; adoptedStyleSheets</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-1"><bdi class="secno">4.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-1"><bdi class="secno">4.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#css-module-scripts"><bdi class="secno">5. </bdi>CSS Module Scripts</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-2"><bdi class="secno">5.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-2"><bdi class="secno">5.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#scoped-element-registries"><bdi class="secno">6. </bdi>Scoped Element Registries</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-3"><bdi class="secno">6.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-3"><bdi class="secno">6.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#declarative-shadow-dom"><bdi class="secno">7. </bdi>Declarative Shadow DOM</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-4"><bdi class="secno">7.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-4"><bdi class="secno">7.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#composed-selection"><bdi class="secno">8. </bdi>Composed Selection</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-5"><bdi class="secno">8.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-5"><bdi class="secno">8.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#declarative-css-modules"><bdi class="secno">9. </bdi>Declarative CSS Modules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-6"><bdi class="secno">9.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-6"><bdi class="secno">9.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#children-changed-callback"><bdi class="secno">10. </bdi>Children changed callback</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-7"><bdi class="secno">10.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-7"><bdi class="secno">10.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#open-styling-of-shadow-roots"><bdi class="secno">11. </bdi>Open styling of shadow roots</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-8"><bdi class="secno">11.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-8"><bdi class="secno">11.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#declarative-custom-elements"><bdi class="secno">12. </bdi>Declarative custom elements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-9"><bdi class="secno">12.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-9"><bdi class="secno">12.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#feature-or-problem"><bdi class="secno">13. </bdi>Feature or Problem</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-10"><bdi class="secno">13.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#motivation-10"><bdi class="secno">13.2 </bdi>Motivation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">14. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Terms defined by this specification</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Terms defined by reference</a></li></ol></li></ol></nav>
+  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#form-associated-custom-elements"><bdi class="secno">2. </bdi>Form-Associated Custom Elements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">2.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links"><bdi class="secno">2.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status"><bdi class="secno">2.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal"><bdi class="secno">2.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios"><bdi class="secno">2.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns"><bdi class="secno">2.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion"><bdi class="secno">2.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs"><bdi class="secno">2.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions"><bdi class="secno">2.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#cross-root-aria"><bdi class="secno">3. </bdi>Cross-root ARIA</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">3.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-0"><bdi class="secno">3.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-0"><bdi class="secno">3.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-0"><bdi class="secno">3.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-0"><bdi class="secno">3.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-0"><bdi class="secno">3.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-0"><bdi class="secno">3.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-0"><bdi class="secno">3.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-0"><bdi class="secno">3.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#constructable-stylesheets-adoptedstylesheets"><bdi class="secno">4. </bdi>Constructable Stylesheets &amp; adoptedStyleSheets</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-1"><bdi class="secno">4.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-1"><bdi class="secno">4.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-1"><bdi class="secno">4.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-1"><bdi class="secno">4.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-1"><bdi class="secno">4.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-1"><bdi class="secno">4.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-1"><bdi class="secno">4.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-1"><bdi class="secno">4.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-1"><bdi class="secno">4.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#css-module-scripts"><bdi class="secno">5. </bdi>CSS Module Scripts</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-2"><bdi class="secno">5.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-2"><bdi class="secno">5.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-2"><bdi class="secno">5.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-2"><bdi class="secno">5.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-2"><bdi class="secno">5.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-2"><bdi class="secno">5.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-2"><bdi class="secno">5.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-2"><bdi class="secno">5.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-2"><bdi class="secno">5.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#scoped-element-registries"><bdi class="secno">6. </bdi>Scoped Element Registries</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-3"><bdi class="secno">6.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-3"><bdi class="secno">6.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-3"><bdi class="secno">6.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-3"><bdi class="secno">6.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-3"><bdi class="secno">6.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-3"><bdi class="secno">6.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-3"><bdi class="secno">6.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-3"><bdi class="secno">6.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-3"><bdi class="secno">6.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#declarative-shadow-dom"><bdi class="secno">7. </bdi>Declarative Shadow DOM</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-4"><bdi class="secno">7.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-4"><bdi class="secno">7.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-4"><bdi class="secno">7.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-4"><bdi class="secno">7.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-4"><bdi class="secno">7.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-4"><bdi class="secno">7.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-4"><bdi class="secno">7.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-4"><bdi class="secno">7.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-4"><bdi class="secno">7.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#composed-selection"><bdi class="secno">8. </bdi>Composed Selection</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-5"><bdi class="secno">8.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-5"><bdi class="secno">8.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-5"><bdi class="secno">8.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-5"><bdi class="secno">8.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-5"><bdi class="secno">8.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-5"><bdi class="secno">8.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-5"><bdi class="secno">8.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-5"><bdi class="secno">8.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-5"><bdi class="secno">8.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#declarative-css-modules"><bdi class="secno">9. </bdi>Declarative CSS Modules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-6"><bdi class="secno">9.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-6"><bdi class="secno">9.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-6"><bdi class="secno">9.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-6"><bdi class="secno">9.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-6"><bdi class="secno">9.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-6"><bdi class="secno">9.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-6"><bdi class="secno">9.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-6"><bdi class="secno">9.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-6"><bdi class="secno">9.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#children-changed-callback"><bdi class="secno">10. </bdi>Children changed callback</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-7"><bdi class="secno">10.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-7"><bdi class="secno">10.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-7"><bdi class="secno">10.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-7"><bdi class="secno">10.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-7"><bdi class="secno">10.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-7"><bdi class="secno">10.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-7"><bdi class="secno">10.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-7"><bdi class="secno">10.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-7"><bdi class="secno">10.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#open-styling-of-shadow-roots"><bdi class="secno">11. </bdi>Open styling of shadow roots</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-8"><bdi class="secno">11.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-8"><bdi class="secno">11.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-8"><bdi class="secno">11.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-8"><bdi class="secno">11.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-8"><bdi class="secno">11.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-8"><bdi class="secno">11.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-8"><bdi class="secno">11.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-8"><bdi class="secno">11.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-8"><bdi class="secno">11.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#declarative-custom-elements"><bdi class="secno">12. </bdi>Declarative custom elements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-9"><bdi class="secno">12.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-9"><bdi class="secno">12.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-9"><bdi class="secno">12.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-9"><bdi class="secno">12.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-9"><bdi class="secno">12.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-9"><bdi class="secno">12.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-9"><bdi class="secno">12.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-9"><bdi class="secno">12.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-9"><bdi class="secno">12.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#themeing"><bdi class="secno">13. </bdi>Themeing</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-10"><bdi class="secno">13.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-10"><bdi class="secno">13.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-10"><bdi class="secno">13.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-10"><bdi class="secno">13.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-10"><bdi class="secno">13.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-10"><bdi class="secno">13.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-10"><bdi class="secno">13.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-10"><bdi class="secno">13.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-10"><bdi class="secno">13.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#styling-children-of-slotted-content"><bdi class="secno">14. </bdi>Styling children of slotted content</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-11"><bdi class="secno">14.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-11"><bdi class="secno">14.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-11"><bdi class="secno">14.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-11"><bdi class="secno">14.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-11"><bdi class="secno">14.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-11"><bdi class="secno">14.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-11"><bdi class="secno">14.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-11"><bdi class="secno">14.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-11"><bdi class="secno">14.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#custom-css-state"><bdi class="secno">15. </bdi>Custom CSS State</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-12"><bdi class="secno">15.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-12"><bdi class="secno">15.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-12"><bdi class="secno">15.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-12"><bdi class="secno">15.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-12"><bdi class="secno">15.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-12"><bdi class="secno">15.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-12"><bdi class="secno">15.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-12"><bdi class="secno">15.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-12"><bdi class="secno">15.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#imperative-slot-assignement"><bdi class="secno">16. </bdi>Imperative Slot Assignement</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-13"><bdi class="secno">16.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-13"><bdi class="secno">16.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-13"><bdi class="secno">16.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-13"><bdi class="secno">16.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-13"><bdi class="secno">16.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-13"><bdi class="secno">16.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-13"><bdi class="secno">16.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-13"><bdi class="secno">16.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-13"><bdi class="secno">16.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#css-properties-and-values-inside-shadow-root"><bdi class="secno">17. </bdi>CSS Properties and values inside shadow root</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-14"><bdi class="secno">17.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-14"><bdi class="secno">17.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-14"><bdi class="secno">17.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-14"><bdi class="secno">17.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-14"><bdi class="secno">17.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-14"><bdi class="secno">17.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-14"><bdi class="secno">17.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-14"><bdi class="secno">17.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-14"><bdi class="secno">17.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#lazy-custom-element-definitions"><bdi class="secno">18. </bdi>Lazy custom element definitions</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-15"><bdi class="secno">18.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-15"><bdi class="secno">18.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-15"><bdi class="secno">18.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-15"><bdi class="secno">18.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-15"><bdi class="secno">18.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-15"><bdi class="secno">18.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-15"><bdi class="secno">18.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-15"><bdi class="secno">18.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-15"><bdi class="secno">18.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#dom-parts"><bdi class="secno">19. </bdi>DOM Parts</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-16"><bdi class="secno">19.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-16"><bdi class="secno">19.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-16"><bdi class="secno">19.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-16"><bdi class="secno">19.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-16"><bdi class="secno">19.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-16"><bdi class="secno">19.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-16"><bdi class="secno">19.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-16"><bdi class="secno">19.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-16"><bdi class="secno">19.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#html-modules"><bdi class="secno">20. </bdi>HTML modules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-17"><bdi class="secno">20.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-17"><bdi class="secno">20.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-17"><bdi class="secno">20.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-17"><bdi class="secno">20.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-17"><bdi class="secno">20.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-17"><bdi class="secno">20.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-17"><bdi class="secno">20.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-17"><bdi class="secno">20.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-17"><bdi class="secno">20.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#custom-attributes"><bdi class="secno">21. </bdi>Custom Attributes</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-18"><bdi class="secno">21.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-18"><bdi class="secno">21.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-18"><bdi class="secno">21.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-18"><bdi class="secno">21.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-18"><bdi class="secno">21.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-18"><bdi class="secno">21.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-18"><bdi class="secno">21.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-18"><bdi class="secno">21.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-18"><bdi class="secno">21.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#feature-or-problem"><bdi class="secno">22. </bdi>Feature or Problem</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-19"><bdi class="secno">22.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#links-19"><bdi class="secno">22.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#status-19"><bdi class="secno">22.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-19"><bdi class="secno">22.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-19"><bdi class="secno">22.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-19"><bdi class="secno">22.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-19"><bdi class="secno">22.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-19"><bdi class="secno">22.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-19"><bdi class="secno">22.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">23. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Terms defined by this specification</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Terms defined by reference</a></li></ol></li></ol></nav>
     <section class="informative" id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
       
       <p>The initial slate of APIs that browsers shipped with web components "v1" left many important features and use-cases on a future to-do list, to be finalized out after the core custom element and shadow DOM features landed. While the web components GitHub issues and face-to-face meets have tracked and discussed many of these features individually, there hasn't been a comprehensive overview of what's left to "finish" web components.</p>
@@ -354,308 +286,1115 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         </tbody>
       </table>
     </section>
-     <section id="form-associated-custom-elements"><div class="header-wrapper"><h2 id="x2-form-associated-custom-elements"><bdi class="secno">2. </bdi>Form-Associated Custom Elements</h2><a class="self-link" href="#form-associated-custom-elements" aria-label="Permalink for Section 2."></a></div>
+    <section id="form-associated-custom-elements"><div class="header-wrapper"><h2 id="x2-form-associated-custom-elements"><bdi class="secno">2. </bdi>Form-Associated Custom Elements</h2><a class="self-link" href="#form-associated-custom-elements" aria-label="Permalink for Section 2."></a></div>
       
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/187">WICG/webcomponents#187</a></dd>
-        <dt>Priority:</dt>
-        <dd>Critical</dd>
-        <dt>Status:</dt>
-        <dd>Some implementation</dd>
-        <dd>Mozilla: <a href="https://mozilla.github.io/standards-positions/#form-participation-api" target="_blank">position</a></dd>
-      </dl>
+      <section class="respec-offending-element" title="All sections must start with a `h2-6` element." id="respec-offender-all-sections-must-start-with-a-h2-6-element">
+        <p><a href="https://w3c.github.io/webcomponents-cg/index.html#form-associated-custom-elements">Previous WCCG Report</a></p>
+      </section>
       <section id="description"><div class="header-wrapper"><h3 id="x2-1-description"><bdi class="secno">2.1 </bdi>Description</h3><a class="self-link" href="#description" aria-label="Permalink for Section 2.1"></a></div>
         
-        <p>Form-associated custom elements allow custom elements to participate in forms to the same degree as native elements, including integrations with the form’s validation, state, and submission as well as exposing the Accessibility Object Model to the element.</p>
-        <p>A sample use case can be found in <a href="https://css-tricks.com/creating-custom-form-controls-with-elementinternals/">this article by Caleb Williams</a>.</p>
+        <p>---</p>
       </section>
-      <section id="motivation"><div class="header-wrapper"><h3 id="x2-2-motivation"><bdi class="secno">2.2 </bdi>Motivation</h3><a class="self-link" href="#motivation" aria-label="Permalink for Section 2.2"></a></div>
+      <section id="links"><div class="header-wrapper"><h3 id="x2-2-links"><bdi class="secno">2.2 </bdi>Links</h3><a class="self-link" href="#links" aria-label="Permalink for Section 2.2"></a></div>
         
-        <p>One of the most common use cases for web components is creating form controls not available natively. Some examples include switches and credit card inputs.</p>
-        <p>There is no way for forms to fully integrate with form elements located in a different shadow root the same way they would with form elements in the same root. The only options available to achieve a similar result are:</p>
         <ul>
-          <li>The formdata event: this event only provides integration on form submission. Using this feature alone may also lead to accessibility issues due to the lack of cross-root ARIA.</li>
-          <li>
-            Setting a form element in light DOM (e.g. using slots): this gives web components authors two main options both of which will only work with standard form elements, mostly for form submission, and require both implementers and end users to write more code:
-            <ul>
-              <li>Visually hide the form element in light DOM and synchronize its value to a visible form element located inside the web component’s shadow root.</li>
-              <li>Have both the form element and its label located in slots and forgo the granular control shadow DOM gives you over how to allow for CSS customization.</li>
-            </ul>
-          </li>
+          <li>---</li>
         </ul>
-        <p>This situation has forced developers to either not use web components for form elements or create their own form systems that allow for full integration (e.g. many big web component libraries such as Lion or Shoelace provide form systems that integrate with their components). This limits the reach web components could have as plug-in form elements for projects created with different tech stacks.</p>
+      </section>
+      <section id="status"><div class="header-wrapper"><h3 id="x2-3-status"><bdi class="secno">2.3 </bdi>Status</h3><a class="self-link" href="#status" aria-label="Permalink for Section 2.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal"><div class="header-wrapper"><h3 id="x2-4-initial-api-summary-quick-api-proposal"><bdi class="secno">2.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal" aria-label="Permalink for Section 2.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios"><div class="header-wrapper"><h3 id="x2-5-key-scenarios"><bdi class="secno">2.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios" aria-label="Permalink for Section 2.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns"><div class="header-wrapper"><h3 id="x2-6-concerns"><bdi class="secno">2.6 </bdi>Concerns</h3><a class="self-link" href="#concerns" aria-label="Permalink for Section 2.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion"><div class="header-wrapper"><h3 id="x2-7-dissenting-opinion"><bdi class="secno">2.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion" aria-label="Permalink for Section 2.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs"><div class="header-wrapper"><h3 id="x2-8-related-specs"><bdi class="secno">2.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs" aria-label="Permalink for Section 2.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions"><div class="header-wrapper"><h3 id="x2-9-open-questions"><bdi class="secno">2.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions" aria-label="Permalink for Section 2.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
       </section>
     </section>
     <section id="cross-root-aria"><div class="header-wrapper"><h2 id="x3-cross-root-aria"><bdi class="secno">3. </bdi>Cross-root ARIA</h2><a class="self-link" href="#cross-root-aria" aria-label="Permalink for Section 3."></a></div>
       
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/aom/issues/169">WICG/aom#169</a></dd>
-        <dd><a href="https://github.com/WICG/aom/issues/107">WICG/aom#107</a></dd>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/917">WICG/webcomponents#917</a></dd>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/916">WICG/webcomponents#916</a></dd>
-        <dt>Priority:</dt>
-        <dd>Critical</dd>
-        <dt>Status:</dt>
-        <dd>Uncertain</dd>
-      </dl>
+      <section class="respec-offending-element" title="All sections must start with a `h2-6` element." id="respec-offender-all-sections-must-start-with-a-h2-6-element-0">
+        <p><a href="https://w3c.github.io/webcomponents-cg/index.html#cross-root-aria">Previous WCCG Report</a></p>
+      </section>
       <section id="description-0"><div class="header-wrapper"><h3 id="x3-1-description"><bdi class="secno">3.1 </bdi>Description</h3><a class="self-link" href="#description-0" aria-label="Permalink for Section 3.1"></a></div>
         
-        <ol>
-          <li>Shadow root encapsulation currently prevents references between elements in different roots. Cross-root ARIA references would re-enable this platform feature within shadow roots.</li>
-          <li>It's not possible to "forward" ARIA attributes from a custom element host into elements in the host's shadow root. For instance, a custom input that wants to allow users to customize the ARIA role, has no way to forward the role attribute to the encapsulated native input.</li>
-        </ol>
+        <p>---</p>
       </section>
-      <section id="motivation-0"><div class="header-wrapper"><h3 id="x3-2-motivation"><bdi class="secno">3.2 </bdi>Motivation</h3><a class="self-link" href="#motivation-0" aria-label="Permalink for Section 3.2"></a></div>
+      <section id="links-0"><div class="header-wrapper"><h3 id="x3-2-links"><bdi class="secno">3.2 </bdi>Links</h3><a class="self-link" href="#links-0" aria-label="Permalink for Section 3.2"></a></div>
         
-        <p>It's critically important that content on the web be accessible. Making web component content accessible currently requires many complicated and only partially-successful workarounds, such as:</p>
         <ul>
-          <li>Observing and moving ARIA-related attributes across elements (for role, etc.)</li>
-          <li>Using non-standard attributes for ARIA features, in order to apply them to elements in a shadow root.</li>
-          <li>Requiring that custom elements users wrap/slot elements so that ARIA attributes can be placed directly on them. This gets very complicated as the number of slotted inputs and levels of shadow root nesting increase.</li>
-          <li>Duplicating nodes across shadow root boundaries</li>
-          <li>Abandoning Shadow DOM</li>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-0"><div class="header-wrapper"><h3 id="x3-3-status"><bdi class="secno">3.3 </bdi>Status</h3><a class="self-link" href="#status-0" aria-label="Permalink for Section 3.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-0"><div class="header-wrapper"><h3 id="x3-4-initial-api-summary-quick-api-proposal"><bdi class="secno">3.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-0" aria-label="Permalink for Section 3.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-0"><div class="header-wrapper"><h3 id="x3-5-key-scenarios"><bdi class="secno">3.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-0" aria-label="Permalink for Section 3.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-0"><div class="header-wrapper"><h3 id="x3-6-concerns"><bdi class="secno">3.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-0" aria-label="Permalink for Section 3.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-0"><div class="header-wrapper"><h3 id="x3-7-dissenting-opinion"><bdi class="secno">3.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-0" aria-label="Permalink for Section 3.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-0"><div class="header-wrapper"><h3 id="x3-8-related-specs"><bdi class="secno">3.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-0" aria-label="Permalink for Section 3.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-0"><div class="header-wrapper"><h3 id="x3-9-open-questions"><bdi class="secno">3.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-0" aria-label="Permalink for Section 3.9"></a></div>
+        
+        <ul>
+          <li>---</li>
         </ul>
       </section>
     </section>
     <section id="constructable-stylesheets-adoptedstylesheets"><div class="header-wrapper"><h2 id="x4-constructable-stylesheets-adoptedstylesheets"><bdi class="secno">4. </bdi>Constructable Stylesheets &amp; adoptedStyleSheets</h2><a class="self-link" href="#constructable-stylesheets-adoptedstylesheets" aria-label="Permalink for Section 4."></a></div>
       
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/468">WICG/webcomponents#468</a></dd>
-        <dt>Priority:</dt>
-        <dd>Critical</dd>
-        <dt>Status:</dt>
-        <dd>Some implementation</dd>
-        <dd>Mozilla: <a href="https://mozilla.github.io/standards-positions/#construct-stylesheets" target="_blank">position</a></dd>
-      </dl>
+      <section class="respec-offending-element" title="All sections must start with a `h2-6` element." id="respec-offender-all-sections-must-start-with-a-h2-6-element-1">
+        <p><a href="https://w3c.github.io/webcomponents-cg/index.html#constructable-stylesheets-adoptedstylesheets">Previous WCCG Report</a></p>
+      </section>
       <section id="description-1"><div class="header-wrapper"><h3 id="x4-1-description"><bdi class="secno">4.1 </bdi>Description</h3><a class="self-link" href="#description-1" aria-label="Permalink for Section 4.1"></a></div>
         
-        <p>Constructable Stylesheets and <code>adoptedStyleSheets</code> enable adding styles directly to shadow roots without creating new DOM elements. Because a single stylesheet object can be adopted by multiple scopes, it also allows sharing of styles that can be centrally modified.</p>
+        <p>---</p>
       </section>
-      <section id="motivation-1"><div class="header-wrapper"><h3 id="x4-2-motivation"><bdi class="secno">4.2 </bdi>Motivation</h3><a class="self-link" href="#motivation-1" aria-label="Permalink for Section 4.2"></a></div>
+      <section id="links-1"><div class="header-wrapper"><h3 id="x4-2-links"><bdi class="secno">4.2 </bdi>Links</h3><a class="self-link" href="#links-1" aria-label="Permalink for Section 4.2"></a></div>
         
         <ul>
-          <li>There is no effective way to share styles across components while allowing them to be centrally modified.</li>
-          <li>Creating <code>&lt;style&gt;</code> elements for each style used in each shadow root has a measurable performance overhead.</li>
-          <li>CSS Module Scripts, another critical feature, depends on constructible stylesheets.</li>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-1"><div class="header-wrapper"><h3 id="x4-3-status"><bdi class="secno">4.3 </bdi>Status</h3><a class="self-link" href="#status-1" aria-label="Permalink for Section 4.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-1"><div class="header-wrapper"><h3 id="x4-4-initial-api-summary-quick-api-proposal"><bdi class="secno">4.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-1" aria-label="Permalink for Section 4.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-1"><div class="header-wrapper"><h3 id="x4-5-key-scenarios"><bdi class="secno">4.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-1" aria-label="Permalink for Section 4.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-1"><div class="header-wrapper"><h3 id="x4-6-concerns"><bdi class="secno">4.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-1" aria-label="Permalink for Section 4.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-1"><div class="header-wrapper"><h3 id="x4-7-dissenting-opinion"><bdi class="secno">4.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-1" aria-label="Permalink for Section 4.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-1"><div class="header-wrapper"><h3 id="x4-8-related-specs"><bdi class="secno">4.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-1" aria-label="Permalink for Section 4.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-1"><div class="header-wrapper"><h3 id="x4-9-open-questions"><bdi class="secno">4.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-1" aria-label="Permalink for Section 4.9"></a></div>
+        
+        <ul>
+          <li>---</li>
         </ul>
       </section>
     </section>
     <section id="css-module-scripts"><div class="header-wrapper"><h2 id="x5-css-module-scripts"><bdi class="secno">5. </bdi>CSS Module Scripts</h2><a class="self-link" href="#css-module-scripts" aria-label="Permalink for Section 5."></a></div>
       
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/759">WICG/webcomponents#759</a></dd>
-        <dt>Priority:</dt>
-        <dd>Critical</dd>
-        <dt>Status:</dt>
-        <dd>Some implementation</dd>
-        <dd>Mozilla: <a href="https://mozilla.github.io/standards-positions/#import-attributes" target="_blank">position</a></dd>
-      </dl>
+      <section class="respec-offending-element" title="All sections must start with a `h2-6` element." id="respec-offender-all-sections-must-start-with-a-h2-6-element-2">
+        <p><a href="https://w3c.github.io/webcomponents-cg/index.html#css-module-scripts">Previous WCCG Report</a></p>
+      </section>
       <section id="description-2"><div class="header-wrapper"><h3 id="x5-1-description"><bdi class="secno">5.1 </bdi>Description</h3><a class="self-link" href="#description-2" aria-label="Permalink for Section 5.1"></a></div>
         
-        <p>CSS Module Scripts allow JavaScript modules to import style sheets. They can then be applied to a document or shadow root using adoptedStyleSheets in the same way as constructible style sheets.</p>
-        <pre aria-busy="false"><code class="hljs javascript"><span class="hljs-keyword">import</span> styleSheet <span class="hljs-keyword">from</span> <span class="hljs-string">"./styles.css"</span> assert { <span class="hljs-attr">type</span>: <span class="hljs-string">"css"</span> };
-<span class="hljs-built_in">document</span>.adoptedStyleSheets = [ styleSheet ];</code></pre>
+        <p>---</p>
       </section>
-      <section id="motivation-2"><div class="header-wrapper"><h3 id="x5-2-motivation"><bdi class="secno">5.2 </bdi>Motivation</h3><a class="self-link" href="#motivation-2" aria-label="Permalink for Section 5.2"></a></div>
+      <section id="links-2"><div class="header-wrapper"><h3 id="x5-2-links"><bdi class="secno">5.2 </bdi>Links</h3><a class="self-link" href="#links-2" aria-label="Permalink for Section 5.2"></a></div>
         
         <ul>
-          <li>CSS modules will allow styles to be loaded in component definitions without adding <code>&lt;style&gt;</code> or <code>&lt;link&gt;</code> elements that need to be created in each element instance.</li>
-          <li>Authors today often use inlined CSS strings in JS modules, but many of them want to move the CSS into separate .css files.</li>
-          <li>Without CSS-in-JS it's difficult to ensure that CSS is loaded before the component is defined and rendered. CSS module scripts provide the same ordering guarantee.</li>
-          <li>Component authors may need to import a resource that is only available as an external .css file, and don't have control over the resource to wrap it in a JS module.</li>
+          <li>---</li>
         </ul>
-        <p>For further motivational details, see this explainer document: <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/css-modules-v1-explainer.md#why-are-css-modules-needed">webcomponents/css-modules-v1-explainer.md at gh-pages · WICG/webcomponents</a>.</p>
+      </section>
+      <section id="status-2"><div class="header-wrapper"><h3 id="x5-3-status"><bdi class="secno">5.3 </bdi>Status</h3><a class="self-link" href="#status-2" aria-label="Permalink for Section 5.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-2"><div class="header-wrapper"><h3 id="x5-4-initial-api-summary-quick-api-proposal"><bdi class="secno">5.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-2" aria-label="Permalink for Section 5.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-2"><div class="header-wrapper"><h3 id="x5-5-key-scenarios"><bdi class="secno">5.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-2" aria-label="Permalink for Section 5.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-2"><div class="header-wrapper"><h3 id="x5-6-concerns"><bdi class="secno">5.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-2" aria-label="Permalink for Section 5.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-2"><div class="header-wrapper"><h3 id="x5-7-dissenting-opinion"><bdi class="secno">5.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-2" aria-label="Permalink for Section 5.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-2"><div class="header-wrapper"><h3 id="x5-8-related-specs"><bdi class="secno">5.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-2" aria-label="Permalink for Section 5.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-2"><div class="header-wrapper"><h3 id="x5-9-open-questions"><bdi class="secno">5.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-2" aria-label="Permalink for Section 5.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
       </section>
     </section>
     <section id="scoped-element-registries"><div class="header-wrapper"><h2 id="x6-scoped-element-registries"><bdi class="secno">6. </bdi>Scoped Element Registries</h2><a class="self-link" href="#scoped-element-registries" aria-label="Permalink for Section 6."></a></div>
       
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/716">WICG/webcomponents#716</a></dd>
-        <dt>Priority:</dt>
-        <dd>Critical</dd>
-        <dt>Status:</dt>
-        <dd>Consensus</dd>
-      </dl>
+      <section class="respec-offending-element" title="All sections must start with a `h2-6` element." id="respec-offender-all-sections-must-start-with-a-h2-6-element-3">
+        <p><a href="https://w3c.github.io/webcomponents-cg/index.html#scoped-element-registries">Previous WCCG Report</a></p>
+      </section>
       <section id="description-3"><div class="header-wrapper"><h3 id="x6-1-description"><bdi class="secno">6.1 </bdi>Description</h3><a class="self-link" href="#description-3" aria-label="Permalink for Section 6.1"></a></div>
         
-        <p>Scoped element registries allow custom element definitions to be scoped to one or more shadow roots. This allows the same tag name to be used with different implementations in different parts of the page, greatly reducing tag name collisions.</p>
+        <p>---</p>
       </section>
-      <section id="motivation-3"><div class="header-wrapper"><h3 id="x6-2-motivation"><bdi class="secno">6.2 </bdi>Motivation</h3><a class="self-link" href="#motivation-3" aria-label="Permalink for Section 6.2"></a></div>
+      <section id="links-3"><div class="header-wrapper"><h3 id="x6-2-links"><bdi class="secno">6.2 </bdi>Links</h3><a class="self-link" href="#links-3" aria-label="Permalink for Section 6.2"></a></div>
         
-        <p>There are a number of situations where multiple definitions of an element may be loaded into a page, leading to errors when the second definition executes:</p>
         <ul>
-          <li>Unrelated name collisions: Unrelated web component libraries may attempt to register the same name; eg, <code>&lt;my-button&gt;</code>.</li>
-          <li>Versioning: Often different versions of a library are required as dependencies of an application. If any library defines a custom element, only one version of that element can be registered. This can cause bugs with incompatible versions of the element being used.</li>
-          <li>Distribution: Some elements are distributed via different channels, like CDNs and NPM. If a page consumes the library from multiple sources, that can lead to name collisions. The workarounds are not obvious.</li>
-          <li>Encapsulation: Some components define and use other elements as internal implementation helpers. These elements should not have to be defined in a public global scope.</li>
+          <li>---</li>
         </ul>
-        <p>A partial polyfill for scoped custom element registries is available, but it has a number of drawbacks, including lower performance, and a requirement that all definitions have the same set of observed attributes.</p>
+      </section>
+      <section id="status-3"><div class="header-wrapper"><h3 id="x6-3-status"><bdi class="secno">6.3 </bdi>Status</h3><a class="self-link" href="#status-3" aria-label="Permalink for Section 6.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-3"><div class="header-wrapper"><h3 id="x6-4-initial-api-summary-quick-api-proposal"><bdi class="secno">6.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-3" aria-label="Permalink for Section 6.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-3"><div class="header-wrapper"><h3 id="x6-5-key-scenarios"><bdi class="secno">6.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-3" aria-label="Permalink for Section 6.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-3"><div class="header-wrapper"><h3 id="x6-6-concerns"><bdi class="secno">6.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-3" aria-label="Permalink for Section 6.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-3"><div class="header-wrapper"><h3 id="x6-7-dissenting-opinion"><bdi class="secno">6.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-3" aria-label="Permalink for Section 6.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-3"><div class="header-wrapper"><h3 id="x6-8-related-specs"><bdi class="secno">6.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-3" aria-label="Permalink for Section 6.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-3"><div class="header-wrapper"><h3 id="x6-9-open-questions"><bdi class="secno">6.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-3" aria-label="Permalink for Section 6.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
       </section>
     </section>
     <section id="declarative-shadow-dom"><div class="header-wrapper"><h2 id="x7-declarative-shadow-dom"><bdi class="secno">7. </bdi>Declarative Shadow DOM</h2><a class="self-link" href="#declarative-shadow-dom" aria-label="Permalink for Section 7."></a></div>
       
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/whatwg/dom/issues/831">whatwg/dom#831</a></dd>
-        <dt>Priority:</dt>
-        <dd>Critical</dd>
-        <dt>Status:</dt>
-        <dd>Partial consensus, some implementation</dd>
-        <dd>Mozilla: <a href="https://mozilla.github.io/standards-positions/#declarative-shadow-dom" target="_blank">position</a></dd>
-      </dl>
+      <section class="respec-offending-element" title="All sections must start with a `h2-6` element." id="respec-offender-all-sections-must-start-with-a-h2-6-element-4">
+        <p><a href="https://w3c.github.io/webcomponents-cg/index.html#declarative-shadow-dom">Previous WCCG Report</a></p>
+      </section>
       <section id="description-4"><div class="header-wrapper"><h3 id="x7-1-description"><bdi class="secno">7.1 </bdi>Description</h3><a class="self-link" href="#description-4" aria-label="Permalink for Section 7.1"></a></div>
         
-        <p>Declarative Shadow DOM is a mechanism to express <a href="https://www.w3.org/TR/shadow-dom/">Shadow DOM</a> using only HTML, with no dependency on JavaScript, much like light DOM can be declaratively expressed today.</p>
-        <p><em>For details, see <a href="https://web.dev/declarative-shadow-dom/">this article</a> by Jason Miller and Mason Freed.</em></p>
+        <p>---</p>
       </section>
-      <section id="motivation-4"><div class="header-wrapper"><h3 id="x7-2-motivation"><bdi class="secno">7.2 </bdi>Motivation</h3><a class="self-link" href="#motivation-4" aria-label="Permalink for Section 7.2"></a></div>
+      <section id="links-4"><div class="header-wrapper"><h3 id="x7-2-links"><bdi class="secno">7.2 </bdi>Links</h3><a class="self-link" href="#links-4" aria-label="Permalink for Section 7.2"></a></div>
         
-        <p>Without Declarative Shadow DOM, web components depend on rendering environments that support JavaScript. This limits their use in:</p>
         <ul>
-          <li>Server-Side Rendering: Without Declarative Shadow DOM, servers cannot deliver complete websites that include web component content. Markup cannot be efficiently delivered and then hydrated with JavaScript client-side.</li>
-          <li>JavaScript-less environments: Many web components could be implemented without JavaScript, taking advantage of encapsulated DOM and styles. However, web components cannot currently be rendered by users who have JavaScript disabled. Developers who are more comfortable with markup than with scripting may avoid shadow DOM altogether due to its tight coupling with JavaScript.</li>
+          <li>---</li>
         </ul>
-        <p>Chrome has <a href="https://web.dev/declarative-shadow-dom/#detection-support">experimental support</a> and <a href="https://web.dev/declarative-shadow-dom/#polyfill">a polyfill</a> for Declarative Shadow DOM, but complete workarounds are not possible since Declarative Shadow DOM is a browser-level feature. Frameworks and libraries have hacked around this issue by prerendering sites, pages, or components in JavaScript-supporting environments prior to delivering HTML.</p>
+      </section>
+      <section id="status-4"><div class="header-wrapper"><h3 id="x7-3-status"><bdi class="secno">7.3 </bdi>Status</h3><a class="self-link" href="#status-4" aria-label="Permalink for Section 7.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-4"><div class="header-wrapper"><h3 id="x7-4-initial-api-summary-quick-api-proposal"><bdi class="secno">7.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-4" aria-label="Permalink for Section 7.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-4"><div class="header-wrapper"><h3 id="x7-5-key-scenarios"><bdi class="secno">7.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-4" aria-label="Permalink for Section 7.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-4"><div class="header-wrapper"><h3 id="x7-6-concerns"><bdi class="secno">7.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-4" aria-label="Permalink for Section 7.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-4"><div class="header-wrapper"><h3 id="x7-7-dissenting-opinion"><bdi class="secno">7.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-4" aria-label="Permalink for Section 7.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-4"><div class="header-wrapper"><h3 id="x7-8-related-specs"><bdi class="secno">7.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-4" aria-label="Permalink for Section 7.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-4"><div class="header-wrapper"><h3 id="x7-9-open-questions"><bdi class="secno">7.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-4" aria-label="Permalink for Section 7.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
       </section>
     </section>
     <section id="composed-selection"><div class="header-wrapper"><h2 id="x8-composed-selection"><bdi class="secno">8. </bdi>Composed Selection</h2><a class="self-link" href="#composed-selection" aria-label="Permalink for Section 8."></a></div>
       
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/79">WICG/webcomponents#79</a></dd>
-        <dt>Priority:</dt>
-        <dd>High</dd>
-        <dt>Status:</dt>
-        <dd>Partial consensus, divergent partial implementations</dd>
-      </dl>
+      <section class="respec-offending-element" title="All sections must start with a `h2-6` element." id="respec-offender-all-sections-must-start-with-a-h2-6-element-5">
+        <p><a href="https://w3c.github.io/webcomponents-cg/index.html#composed-selection">Previous WCCG Report</a></p>
+      </section>
       <section id="description-5"><div class="header-wrapper"><h3 id="x8-1-description"><bdi class="secno">8.1 </bdi>Description</h3><a class="self-link" href="#description-5" aria-label="Permalink for Section 8.1"></a></div>
         
-        <p>The ability to get a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Selection">Selection</a> from <code>shadowRoot.getSelection()</code> or <code>document.getSelection()</code>, then subsequently identify the selection range across composed trees of light and/or shadow DOM.</p>
-        <p>TPAC 18 resolved in <a href="https://github.com/WICG/webcomponents/issues/79#issuecomment-432974389">consensus</a> to add <code>getComposedRange()</code> to the existing Selection object (<a href="https://github.com/mfreed7/shadow-dom-selection#readme">explainer</a>). However, <code>Selection.getComposedRange()</code> is not yet implemented in any browser. Browsers also diverge in their implementations of <code>shadowRoot.getSelection</code>:</p>
+        <p>---</p>
+      </section>
+      <section id="links-5"><div class="header-wrapper"><h3 id="x8-2-links"><bdi class="secno">8.2 </bdi>Links</h3><a class="self-link" href="#links-5" aria-label="Permalink for Section 8.2"></a></div>
+        
         <ul>
-          <li>Chrome always sets <code>isCollapsed</code> to true.</li>
-          <li>Firefox has not implemented <code>shadowRoot.getSelection</code>, but returns shadow root anchorNodes from <code>document.getSelection</code>. This bug can be leveraged to <a href="https://github.com/GoogleChromeLabs/shadow-selection-polyfill">polyfill</a> <code>shadowRoot.getSelection</code>.</li>
-          <li>Safari does not implement <code>shadowRoot.getSelection</code> and cannot be polyfilled.</li>
+          <li>---</li>
         </ul>
       </section>
-      <section id="motivation-5"><div class="header-wrapper"><h3 id="x8-2-motivation"><bdi class="secno">8.2 </bdi>Motivation</h3><a class="self-link" href="#motivation-5" aria-label="Permalink for Section 8.2"></a></div>
+      <section id="status-5"><div class="header-wrapper"><h3 id="x8-3-status"><bdi class="secno">8.3 </bdi>Status</h3><a class="self-link" href="#status-5" aria-label="Permalink for Section 8.3"></a></div>
         
-        <p>Selection does not work consistently, or at all, across or within shadow roots. <strong>This makes fully-featured rich-text editors impossible to implement via web components.</strong> Some of the web’s most popular editors have issues that are blocked on this functionality:</p>
         <ul>
-          <li><a href="https://github.com/tinymce/tinymce/pull/4737#issuecomment-719317085">TinyMCE</a></li>
-          <li><a href="https://github.com/ckeditor/ckeditor5/pull/7846#issuecomment-675477977">CKEditor</a></li>
-          <li><a href="https://github.com/quilljs/quill/pull/1805">Quill</a></li>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-5"><div class="header-wrapper"><h3 id="x8-4-initial-api-summary-quick-api-proposal"><bdi class="secno">8.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-5" aria-label="Permalink for Section 8.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-5"><div class="header-wrapper"><h3 id="x8-5-key-scenarios"><bdi class="secno">8.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-5" aria-label="Permalink for Section 8.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-5"><div class="header-wrapper"><h3 id="x8-6-concerns"><bdi class="secno">8.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-5" aria-label="Permalink for Section 8.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-5"><div class="header-wrapper"><h3 id="x8-7-dissenting-opinion"><bdi class="secno">8.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-5" aria-label="Permalink for Section 8.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-5"><div class="header-wrapper"><h3 id="x8-8-related-specs"><bdi class="secno">8.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-5" aria-label="Permalink for Section 8.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-5"><div class="header-wrapper"><h3 id="x8-9-open-questions"><bdi class="secno">8.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-5" aria-label="Permalink for Section 8.9"></a></div>
+        
+        <ul>
+          <li>---</li>
         </ul>
       </section>
     </section>
     <section id="declarative-css-modules"><div class="header-wrapper"><h2 id="x9-declarative-css-modules"><bdi class="secno">9. </bdi>Declarative CSS Modules</h2><a class="self-link" href="#declarative-css-modules" aria-label="Permalink for Section 9."></a></div>
       
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/939">WICG/webcomponents#939</a></dd>
-        <dt>Priority:</dt>
-        <dd>High</dd>
-        <dt>Status:</dt>
-        <dd>Not Addressed</dd>
-      </dl>
+      <section class="respec-offending-element" title="All sections must start with a `h2-6` element." id="respec-offender-all-sections-must-start-with-a-h2-6-element-6">
+        <p><a href="https://w3c.github.io/webcomponents-cg/index.html#declarative-css-modules">Previous WCCG Report</a></p>
+      </section>
       <section id="description-6"><div class="header-wrapper"><h3 id="x9-1-description"><bdi class="secno">9.1 </bdi>Description</h3><a class="self-link" href="#description-6" aria-label="Permalink for Section 9.1"></a></div>
         
-        <p>Declarative shadow roots and constructible stylesheets need to be made to work together so that stylesheets added to shadow roots can be round-tripped through HTML serialization and deserialization.</p>
+        <p>---</p>
       </section>
-      <section id="motivation-6"><div class="header-wrapper"><h3 id="x9-2-motivation"><bdi class="secno">9.2 </bdi>Motivation</h3><a class="self-link" href="#motivation-6" aria-label="Permalink for Section 9.2"></a></div>
+      <section id="links-6"><div class="header-wrapper"><h3 id="x9-2-links"><bdi class="secno">9.2 </bdi>Links</h3><a class="self-link" href="#links-6" aria-label="Permalink for Section 9.2"></a></div>
         
-        <p>Currently, there is no way to associate a declarative shadow root with a constructed stylesheet. This means that when a custom element with a shadow root and adopted stylesheets is serialized to HTML, it either loses its styling or some additional code has to convert the adopted stylesheets to style tags and insert them into the markup.</p>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-6"><div class="header-wrapper"><h3 id="x9-3-status"><bdi class="secno">9.3 </bdi>Status</h3><a class="self-link" href="#status-6" aria-label="Permalink for Section 9.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-6"><div class="header-wrapper"><h3 id="x9-4-initial-api-summary-quick-api-proposal"><bdi class="secno">9.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-6" aria-label="Permalink for Section 9.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-6"><div class="header-wrapper"><h3 id="x9-5-key-scenarios"><bdi class="secno">9.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-6" aria-label="Permalink for Section 9.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-6"><div class="header-wrapper"><h3 id="x9-6-concerns"><bdi class="secno">9.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-6" aria-label="Permalink for Section 9.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-6"><div class="header-wrapper"><h3 id="x9-7-dissenting-opinion"><bdi class="secno">9.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-6" aria-label="Permalink for Section 9.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-6"><div class="header-wrapper"><h3 id="x9-8-related-specs"><bdi class="secno">9.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-6" aria-label="Permalink for Section 9.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-6"><div class="header-wrapper"><h3 id="x9-9-open-questions"><bdi class="secno">9.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-6" aria-label="Permalink for Section 9.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
       </section>
     </section>
     <section id="children-changed-callback"><div class="header-wrapper"><h2 id="x10-children-changed-callback"><bdi class="secno">10. </bdi>Children changed callback</h2><a class="self-link" href="#children-changed-callback" aria-label="Permalink for Section 10."></a></div>
       
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/809">WICG/webcomponents#809</a></dd>
-        <dt>Priority:</dt>
-        <dd>High</dd>
-        <dt>Status:</dt>
-        <dd>---</dd>
-      </dl>
+      <section class="respec-offending-element" title="All sections must start with a `h2-6` element." id="respec-offender-all-sections-must-start-with-a-h2-6-element-7">
+        <p><a href="https://w3c.github.io/webcomponents-cg/index.html#children-changed-callback">Previous WCCG Report</a></p>
+      </section>
       <section id="description-7"><div class="header-wrapper"><h3 id="x10-1-description"><bdi class="secno">10.1 </bdi>Description</h3><a class="self-link" href="#description-7" aria-label="Permalink for Section 10.1"></a></div>
         
-        <p>This is a proposal to add a new callback to the CEReaction extended attribute that would fire once an element's child has changed. This new callback would allow developers to deterministically know when child elements are added or removed, taking into account slotting.</p>
+        <p>---</p>
       </section>
-      <section id="motivation-7"><div class="header-wrapper"><h3 id="x10-2-motivation"><bdi class="secno">10.2 </bdi>Motivation</h3><a class="self-link" href="#motivation-7" aria-label="Permalink for Section 10.2"></a></div>
+      <section id="links-7"><div class="header-wrapper"><h3 id="x10-2-links"><bdi class="secno">10.2 </bdi>Links</h3><a class="self-link" href="#links-7" aria-label="Permalink for Section 10.2"></a></div>
         
         <ul>
-          <li>Simplicity: Currently, developers are using a combination of mutation observers and slotchange events to be notified when new elements have entered or removed from its scope. This would be replaced by a single callback function on the parent element.</li>
-          <li>Children upgraded: When new children enter the parents scope there is no way of deterministically knowing that the child element has been upgraded with its custom element definition. Developers resort to polling, promise callbacks or timeouts to then wait for the child to finish upgrading before calling its APIs. The proposed callback would contain elements that have already been upgraded.</li>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-7"><div class="header-wrapper"><h3 id="x10-3-status"><bdi class="secno">10.3 </bdi>Status</h3><a class="self-link" href="#status-7" aria-label="Permalink for Section 10.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-7"><div class="header-wrapper"><h3 id="x10-4-initial-api-summary-quick-api-proposal"><bdi class="secno">10.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-7" aria-label="Permalink for Section 10.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-7"><div class="header-wrapper"><h3 id="x10-5-key-scenarios"><bdi class="secno">10.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-7" aria-label="Permalink for Section 10.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-7"><div class="header-wrapper"><h3 id="x10-6-concerns"><bdi class="secno">10.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-7" aria-label="Permalink for Section 10.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-7"><div class="header-wrapper"><h3 id="x10-7-dissenting-opinion"><bdi class="secno">10.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-7" aria-label="Permalink for Section 10.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-7"><div class="header-wrapper"><h3 id="x10-8-related-specs"><bdi class="secno">10.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-7" aria-label="Permalink for Section 10.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-7"><div class="header-wrapper"><h3 id="x10-9-open-questions"><bdi class="secno">10.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-7" aria-label="Permalink for Section 10.9"></a></div>
+        
+        <ul>
+          <li>---</li>
         </ul>
       </section>
     </section>
     <section id="open-styling-of-shadow-roots"><div class="header-wrapper"><h2 id="x11-open-styling-of-shadow-roots"><bdi class="secno">11. </bdi>Open styling of shadow roots</h2><a class="self-link" href="#open-styling-of-shadow-roots" aria-label="Permalink for Section 11."></a></div>
       
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/909">WICG/webcomponents#909</a></dd>
-        <dt>Priority:</dt>
-        <dd>High</dd>
-        <dt>Status:</dt>
-        <dd>Not addressed</dd>
-      </dl>
+      <section class="respec-offending-element" title="All sections must start with a `h2-6` element." id="respec-offender-all-sections-must-start-with-a-h2-6-element-8">
+        <p><a href="https://w3c.github.io/webcomponents-cg/index.html#open-styling-of-shadow-roots">Previous WCCG Report</a></p>
+      </section>
       <section id="description-8"><div class="header-wrapper"><h3 id="x11-1-description"><bdi class="secno">11.1 </bdi>Description</h3><a class="self-link" href="#description-8" aria-label="Permalink for Section 11.1"></a></div>
         
-        <p>Open-styleable shadow roots would be a new mode on shadow roots that allow selectors from the shadow root's containing scope. This will allow component's internal DOM to be styled by page styles if there is a chain of open-styleable shadow roots up to the document scope - which in turn allow those components to be made to be compatible with existing pages so that projects can incrementally adopt shadow DOM.</p>
+        <p>---</p>
       </section>
-      <section id="motivation-8"><div class="header-wrapper"><h3 id="x11-2-motivation"><bdi class="secno">11.2 </bdi>Motivation</h3><a class="self-link" href="#motivation-8" aria-label="Permalink for Section 11.2"></a></div>
+      <section id="links-8"><div class="header-wrapper"><h3 id="x11-2-links"><bdi class="secno">11.2 </bdi>Links</h3><a class="self-link" href="#links-8" aria-label="Permalink for Section 11.2"></a></div>
         
-        <p>Many potential consumers and providers of web components have raised the issue that they need to make components styleable with existing, and potentially <em>unknown</em> stylesheets. This is a common occurrence with systems like Bootstrap, Tailwind, or corporate stylesheets. The stylesheet may be loaded at the page level and maintained and distributed by a different team than the team building components. This scenario is extremely common for projects that are trying to port existing components to web components.</p>
-        <p>A common request for a solution to this problem is to be able to opt shadow roots into including styles from the scope above them. A chain of these "open-styleable" shadow roots from the top-level down would allow page styles to select against nodes in the shadow root.</p>
-        <p>While this does loosen encapsulation a lot, it also preserves many of the benefits of shadow DOM including upper bound style encapsulation, lower bound encapsulation to non-open-styleable shadow roots, DOM composition with slotting, and providing a scope for custom element registrations, ARIA/focus delegation, event composition, attaching constructible stylesheets and more.</p>
-        <p>We estimate this is a extremely large blocker to shadow DOM adoption. The inability to style shadow roots is one of the most common complaints on various GitHub/Twitter/Chat comments.</p>
-        <p>There is theoretically a workaround where a component reads styles from its containing scope and copies them into its own shadow root. This is difficult to make reactive to changes in DOM structure and new styles being added in parent scopes, and requires script so doesn't work with declarative shadow DOM.</p>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-8"><div class="header-wrapper"><h3 id="x11-3-status"><bdi class="secno">11.3 </bdi>Status</h3><a class="self-link" href="#status-8" aria-label="Permalink for Section 11.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-8"><div class="header-wrapper"><h3 id="x11-4-initial-api-summary-quick-api-proposal"><bdi class="secno">11.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-8" aria-label="Permalink for Section 11.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-8"><div class="header-wrapper"><h3 id="x11-5-key-scenarios"><bdi class="secno">11.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-8" aria-label="Permalink for Section 11.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-8"><div class="header-wrapper"><h3 id="x11-6-concerns"><bdi class="secno">11.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-8" aria-label="Permalink for Section 11.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-8"><div class="header-wrapper"><h3 id="x11-7-dissenting-opinion"><bdi class="secno">11.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-8" aria-label="Permalink for Section 11.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-8"><div class="header-wrapper"><h3 id="x11-8-related-specs"><bdi class="secno">11.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-8" aria-label="Permalink for Section 11.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-8"><div class="header-wrapper"><h3 id="x11-9-open-questions"><bdi class="secno">11.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-8" aria-label="Permalink for Section 11.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
       </section>
     </section>
     <section id="declarative-custom-elements"><div class="header-wrapper"><h2 id="x12-declarative-custom-elements"><bdi class="secno">12. </bdi>Declarative custom elements</h2><a class="self-link" href="#declarative-custom-elements" aria-label="Permalink for Section 12."></a></div>
       
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Declarative-Custom-Elements-Strawman.md">Strawperson</a></dd>
-        <dt>Priority:</dt>
-        <dd>High</dd>
-        <dt>Status:</dt>
-        <dd>Not addressed</dd>
-      </dl>
+      <section class="respec-offending-element" title="All sections must start with a `h2-6` element." id="respec-offender-all-sections-must-start-with-a-h2-6-element-9">
+        <p><a href="https://w3c.github.io/webcomponents-cg/index.html#declarative-custom-elements">Previous WCCG Report</a></p>
+      </section>
       <section id="description-9"><div class="header-wrapper"><h3 id="x12-1-description"><bdi class="secno">12.1 </bdi>Description</h3><a class="self-link" href="#description-9" aria-label="Permalink for Section 12.1"></a></div>
         
-        <p>ְDevelopers would like to define a custom element, it’s shadow-root, and styles from HTML, without need for JavaScript.</p>
+        <p>---</p>
       </section>
-      <section id="motivation-9"><div class="header-wrapper"><h3 id="x12-2-motivation"><bdi class="secno">12.2 </bdi>Motivation</h3><a class="self-link" href="#motivation-9" aria-label="Permalink for Section 12.2"></a></div>
+      <section id="links-9"><div class="header-wrapper"><h3 id="x12-2-links"><bdi class="secno">12.2 </bdi>Links</h3><a class="self-link" href="#links-9" aria-label="Permalink for Section 12.2"></a></div>
         
-        <p>This would allow them to share reusable components easily without need for extra tooling, and to load them in <code>&lt;noscript&gt;</code> contexts. Declarative Shadow DOM allows developers to emulate this using build-tools, but requires repeating the declared shadow roots for each instance.</p>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-9"><div class="header-wrapper"><h3 id="x12-3-status"><bdi class="secno">12.3 </bdi>Status</h3><a class="self-link" href="#status-9" aria-label="Permalink for Section 12.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-9"><div class="header-wrapper"><h3 id="x12-4-initial-api-summary-quick-api-proposal"><bdi class="secno">12.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-9" aria-label="Permalink for Section 12.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-9"><div class="header-wrapper"><h3 id="x12-5-key-scenarios"><bdi class="secno">12.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-9" aria-label="Permalink for Section 12.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-9"><div class="header-wrapper"><h3 id="x12-6-concerns"><bdi class="secno">12.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-9" aria-label="Permalink for Section 12.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-9"><div class="header-wrapper"><h3 id="x12-7-dissenting-opinion"><bdi class="secno">12.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-9" aria-label="Permalink for Section 12.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-9"><div class="header-wrapper"><h3 id="x12-8-related-specs"><bdi class="secno">12.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-9" aria-label="Permalink for Section 12.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-9"><div class="header-wrapper"><h3 id="x12-9-open-questions"><bdi class="secno">12.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-9" aria-label="Permalink for Section 12.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
       </section>
     </section>
-    <section id="feature-or-problem"><div class="header-wrapper"><h2 id="x13-feature-or-problem"><bdi class="secno">13. </bdi>Feature or Problem</h2><a class="self-link" href="#feature-or-problem" aria-label="Permalink for Section 13."></a></div>
+    <section id="themeing"><div class="header-wrapper"><h2 id="x13-themeing"><bdi class="secno">13. </bdi>Themeing</h2><a class="self-link" href="#themeing" aria-label="Permalink for Section 13."></a></div>
       
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd>---</dd>
-        <dt>Priority:</dt>
-        <dd>---</dd>
-        <dt>Status:</dt>
-        <dd>---</dd>
-      </dl>
       <section id="description-10"><div class="header-wrapper"><h3 id="x13-1-description"><bdi class="secno">13.1 </bdi>Description</h3><a class="self-link" href="#description-10" aria-label="Permalink for Section 13.1"></a></div>
         
         <p>---</p>
       </section>
-      <section id="motivation-10"><div class="header-wrapper"><h3 id="x13-2-motivation"><bdi class="secno">13.2 </bdi>Motivation</h3><a class="self-link" href="#motivation-10" aria-label="Permalink for Section 13.2"></a></div>
+      <section id="links-10"><div class="header-wrapper"><h3 id="x13-2-links"><bdi class="secno">13.2 </bdi>Links</h3><a class="self-link" href="#links-10" aria-label="Permalink for Section 13.2"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-10"><div class="header-wrapper"><h3 id="x13-3-status"><bdi class="secno">13.3 </bdi>Status</h3><a class="self-link" href="#status-10" aria-label="Permalink for Section 13.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-10"><div class="header-wrapper"><h3 id="x13-4-initial-api-summary-quick-api-proposal"><bdi class="secno">13.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-10" aria-label="Permalink for Section 13.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-10"><div class="header-wrapper"><h3 id="x13-5-key-scenarios"><bdi class="secno">13.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-10" aria-label="Permalink for Section 13.5"></a></div>
         
         <p>---</p>
       </section>
+      <section id="concerns-10"><div class="header-wrapper"><h3 id="x13-6-concerns"><bdi class="secno">13.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-10" aria-label="Permalink for Section 13.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-10"><div class="header-wrapper"><h3 id="x13-7-dissenting-opinion"><bdi class="secno">13.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-10" aria-label="Permalink for Section 13.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-10"><div class="header-wrapper"><h3 id="x13-8-related-specs"><bdi class="secno">13.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-10" aria-label="Permalink for Section 13.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-10"><div class="header-wrapper"><h3 id="x13-9-open-questions"><bdi class="secno">13.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-10" aria-label="Permalink for Section 13.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
     </section>
-    <section id="conformance"><div class="header-wrapper"><h2 id="x14-conformance"><bdi class="secno">14. </bdi>Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 14."></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p>
+    <section id="styling-children-of-slotted-content"><div class="header-wrapper"><h2 id="x14-styling-children-of-slotted-content"><bdi class="secno">14. </bdi>Styling children of slotted content</h2><a class="self-link" href="#styling-children-of-slotted-content" aria-label="Permalink for Section 14."></a></div>
+      
+      <section id="description-11"><div class="header-wrapper"><h3 id="x14-1-description"><bdi class="secno">14.1 </bdi>Description</h3><a class="self-link" href="#description-11" aria-label="Permalink for Section 14.1"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="links-11"><div class="header-wrapper"><h3 id="x14-2-links"><bdi class="secno">14.2 </bdi>Links</h3><a class="self-link" href="#links-11" aria-label="Permalink for Section 14.2"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-11"><div class="header-wrapper"><h3 id="x14-3-status"><bdi class="secno">14.3 </bdi>Status</h3><a class="self-link" href="#status-11" aria-label="Permalink for Section 14.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-11"><div class="header-wrapper"><h3 id="x14-4-initial-api-summary-quick-api-proposal"><bdi class="secno">14.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-11" aria-label="Permalink for Section 14.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-11"><div class="header-wrapper"><h3 id="x14-5-key-scenarios"><bdi class="secno">14.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-11" aria-label="Permalink for Section 14.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-11"><div class="header-wrapper"><h3 id="x14-6-concerns"><bdi class="secno">14.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-11" aria-label="Permalink for Section 14.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-11"><div class="header-wrapper"><h3 id="x14-7-dissenting-opinion"><bdi class="secno">14.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-11" aria-label="Permalink for Section 14.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-11"><div class="header-wrapper"><h3 id="x14-8-related-specs"><bdi class="secno">14.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-11" aria-label="Permalink for Section 14.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-11"><div class="header-wrapper"><h3 id="x14-9-open-questions"><bdi class="secno">14.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-11" aria-label="Permalink for Section 14.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section id="custom-css-state"><div class="header-wrapper"><h2 id="x15-custom-css-state"><bdi class="secno">15. </bdi>Custom CSS State</h2><a class="self-link" href="#custom-css-state" aria-label="Permalink for Section 15."></a></div>
+      
+      <section id="description-12"><div class="header-wrapper"><h3 id="x15-1-description"><bdi class="secno">15.1 </bdi>Description</h3><a class="self-link" href="#description-12" aria-label="Permalink for Section 15.1"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="links-12"><div class="header-wrapper"><h3 id="x15-2-links"><bdi class="secno">15.2 </bdi>Links</h3><a class="self-link" href="#links-12" aria-label="Permalink for Section 15.2"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-12"><div class="header-wrapper"><h3 id="x15-3-status"><bdi class="secno">15.3 </bdi>Status</h3><a class="self-link" href="#status-12" aria-label="Permalink for Section 15.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-12"><div class="header-wrapper"><h3 id="x15-4-initial-api-summary-quick-api-proposal"><bdi class="secno">15.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-12" aria-label="Permalink for Section 15.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-12"><div class="header-wrapper"><h3 id="x15-5-key-scenarios"><bdi class="secno">15.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-12" aria-label="Permalink for Section 15.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-12"><div class="header-wrapper"><h3 id="x15-6-concerns"><bdi class="secno">15.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-12" aria-label="Permalink for Section 15.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-12"><div class="header-wrapper"><h3 id="x15-7-dissenting-opinion"><bdi class="secno">15.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-12" aria-label="Permalink for Section 15.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-12"><div class="header-wrapper"><h3 id="x15-8-related-specs"><bdi class="secno">15.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-12" aria-label="Permalink for Section 15.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-12"><div class="header-wrapper"><h3 id="x15-9-open-questions"><bdi class="secno">15.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-12" aria-label="Permalink for Section 15.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section id="imperative-slot-assignement"><div class="header-wrapper"><h2 id="x16-imperative-slot-assignement"><bdi class="secno">16. </bdi>Imperative Slot Assignement</h2><a class="self-link" href="#imperative-slot-assignement" aria-label="Permalink for Section 16."></a></div>
+      
+      <section id="description-13"><div class="header-wrapper"><h3 id="x16-1-description"><bdi class="secno">16.1 </bdi>Description</h3><a class="self-link" href="#description-13" aria-label="Permalink for Section 16.1"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="links-13"><div class="header-wrapper"><h3 id="x16-2-links"><bdi class="secno">16.2 </bdi>Links</h3><a class="self-link" href="#links-13" aria-label="Permalink for Section 16.2"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-13"><div class="header-wrapper"><h3 id="x16-3-status"><bdi class="secno">16.3 </bdi>Status</h3><a class="self-link" href="#status-13" aria-label="Permalink for Section 16.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-13"><div class="header-wrapper"><h3 id="x16-4-initial-api-summary-quick-api-proposal"><bdi class="secno">16.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-13" aria-label="Permalink for Section 16.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-13"><div class="header-wrapper"><h3 id="x16-5-key-scenarios"><bdi class="secno">16.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-13" aria-label="Permalink for Section 16.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-13"><div class="header-wrapper"><h3 id="x16-6-concerns"><bdi class="secno">16.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-13" aria-label="Permalink for Section 16.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-13"><div class="header-wrapper"><h3 id="x16-7-dissenting-opinion"><bdi class="secno">16.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-13" aria-label="Permalink for Section 16.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-13"><div class="header-wrapper"><h3 id="x16-8-related-specs"><bdi class="secno">16.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-13" aria-label="Permalink for Section 16.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-13"><div class="header-wrapper"><h3 id="x16-9-open-questions"><bdi class="secno">16.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-13" aria-label="Permalink for Section 16.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section id="css-properties-and-values-inside-shadow-root"><div class="header-wrapper"><h2 id="x17-css-properties-and-values-inside-shadow-root"><bdi class="secno">17. </bdi>CSS Properties and values inside shadow root</h2><a class="self-link" href="#css-properties-and-values-inside-shadow-root" aria-label="Permalink for Section 17."></a></div>
+      
+      <section id="description-14"><div class="header-wrapper"><h3 id="x17-1-description"><bdi class="secno">17.1 </bdi>Description</h3><a class="self-link" href="#description-14" aria-label="Permalink for Section 17.1"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="links-14"><div class="header-wrapper"><h3 id="x17-2-links"><bdi class="secno">17.2 </bdi>Links</h3><a class="self-link" href="#links-14" aria-label="Permalink for Section 17.2"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-14"><div class="header-wrapper"><h3 id="x17-3-status"><bdi class="secno">17.3 </bdi>Status</h3><a class="self-link" href="#status-14" aria-label="Permalink for Section 17.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-14"><div class="header-wrapper"><h3 id="x17-4-initial-api-summary-quick-api-proposal"><bdi class="secno">17.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-14" aria-label="Permalink for Section 17.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-14"><div class="header-wrapper"><h3 id="x17-5-key-scenarios"><bdi class="secno">17.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-14" aria-label="Permalink for Section 17.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-14"><div class="header-wrapper"><h3 id="x17-6-concerns"><bdi class="secno">17.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-14" aria-label="Permalink for Section 17.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-14"><div class="header-wrapper"><h3 id="x17-7-dissenting-opinion"><bdi class="secno">17.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-14" aria-label="Permalink for Section 17.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-14"><div class="header-wrapper"><h3 id="x17-8-related-specs"><bdi class="secno">17.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-14" aria-label="Permalink for Section 17.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-14"><div class="header-wrapper"><h3 id="x17-9-open-questions"><bdi class="secno">17.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-14" aria-label="Permalink for Section 17.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section id="lazy-custom-element-definitions"><div class="header-wrapper"><h2 id="x18-lazy-custom-element-definitions"><bdi class="secno">18. </bdi>Lazy custom element definitions</h2><a class="self-link" href="#lazy-custom-element-definitions" aria-label="Permalink for Section 18."></a></div>
+      
+      <section id="description-15"><div class="header-wrapper"><h3 id="x18-1-description"><bdi class="secno">18.1 </bdi>Description</h3><a class="self-link" href="#description-15" aria-label="Permalink for Section 18.1"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="links-15"><div class="header-wrapper"><h3 id="x18-2-links"><bdi class="secno">18.2 </bdi>Links</h3><a class="self-link" href="#links-15" aria-label="Permalink for Section 18.2"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-15"><div class="header-wrapper"><h3 id="x18-3-status"><bdi class="secno">18.3 </bdi>Status</h3><a class="self-link" href="#status-15" aria-label="Permalink for Section 18.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-15"><div class="header-wrapper"><h3 id="x18-4-initial-api-summary-quick-api-proposal"><bdi class="secno">18.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-15" aria-label="Permalink for Section 18.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-15"><div class="header-wrapper"><h3 id="x18-5-key-scenarios"><bdi class="secno">18.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-15" aria-label="Permalink for Section 18.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-15"><div class="header-wrapper"><h3 id="x18-6-concerns"><bdi class="secno">18.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-15" aria-label="Permalink for Section 18.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-15"><div class="header-wrapper"><h3 id="x18-7-dissenting-opinion"><bdi class="secno">18.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-15" aria-label="Permalink for Section 18.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-15"><div class="header-wrapper"><h3 id="x18-8-related-specs"><bdi class="secno">18.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-15" aria-label="Permalink for Section 18.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-15"><div class="header-wrapper"><h3 id="x18-9-open-questions"><bdi class="secno">18.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-15" aria-label="Permalink for Section 18.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section id="dom-parts"><div class="header-wrapper"><h2 id="x19-dom-parts"><bdi class="secno">19. </bdi>DOM Parts</h2><a class="self-link" href="#dom-parts" aria-label="Permalink for Section 19."></a></div>
+      
+      <section id="description-16"><div class="header-wrapper"><h3 id="x19-1-description"><bdi class="secno">19.1 </bdi>Description</h3><a class="self-link" href="#description-16" aria-label="Permalink for Section 19.1"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="links-16"><div class="header-wrapper"><h3 id="x19-2-links"><bdi class="secno">19.2 </bdi>Links</h3><a class="self-link" href="#links-16" aria-label="Permalink for Section 19.2"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-16"><div class="header-wrapper"><h3 id="x19-3-status"><bdi class="secno">19.3 </bdi>Status</h3><a class="self-link" href="#status-16" aria-label="Permalink for Section 19.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-16"><div class="header-wrapper"><h3 id="x19-4-initial-api-summary-quick-api-proposal"><bdi class="secno">19.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-16" aria-label="Permalink for Section 19.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-16"><div class="header-wrapper"><h3 id="x19-5-key-scenarios"><bdi class="secno">19.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-16" aria-label="Permalink for Section 19.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-16"><div class="header-wrapper"><h3 id="x19-6-concerns"><bdi class="secno">19.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-16" aria-label="Permalink for Section 19.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-16"><div class="header-wrapper"><h3 id="x19-7-dissenting-opinion"><bdi class="secno">19.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-16" aria-label="Permalink for Section 19.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-16"><div class="header-wrapper"><h3 id="x19-8-related-specs"><bdi class="secno">19.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-16" aria-label="Permalink for Section 19.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-16"><div class="header-wrapper"><h3 id="x19-9-open-questions"><bdi class="secno">19.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-16" aria-label="Permalink for Section 19.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section id="html-modules"><div class="header-wrapper"><h2 id="x20-html-modules"><bdi class="secno">20. </bdi>HTML modules</h2><a class="self-link" href="#html-modules" aria-label="Permalink for Section 20."></a></div>
+      
+      <section id="description-17"><div class="header-wrapper"><h3 id="x20-1-description"><bdi class="secno">20.1 </bdi>Description</h3><a class="self-link" href="#description-17" aria-label="Permalink for Section 20.1"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="links-17"><div class="header-wrapper"><h3 id="x20-2-links"><bdi class="secno">20.2 </bdi>Links</h3><a class="self-link" href="#links-17" aria-label="Permalink for Section 20.2"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-17"><div class="header-wrapper"><h3 id="x20-3-status"><bdi class="secno">20.3 </bdi>Status</h3><a class="self-link" href="#status-17" aria-label="Permalink for Section 20.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-17"><div class="header-wrapper"><h3 id="x20-4-initial-api-summary-quick-api-proposal"><bdi class="secno">20.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-17" aria-label="Permalink for Section 20.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-17"><div class="header-wrapper"><h3 id="x20-5-key-scenarios"><bdi class="secno">20.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-17" aria-label="Permalink for Section 20.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-17"><div class="header-wrapper"><h3 id="x20-6-concerns"><bdi class="secno">20.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-17" aria-label="Permalink for Section 20.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-17"><div class="header-wrapper"><h3 id="x20-7-dissenting-opinion"><bdi class="secno">20.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-17" aria-label="Permalink for Section 20.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-17"><div class="header-wrapper"><h3 id="x20-8-related-specs"><bdi class="secno">20.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-17" aria-label="Permalink for Section 20.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-17"><div class="header-wrapper"><h3 id="x20-9-open-questions"><bdi class="secno">20.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-17" aria-label="Permalink for Section 20.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section id="custom-attributes"><div class="header-wrapper"><h2 id="x21-custom-attributes"><bdi class="secno">21. </bdi>Custom Attributes</h2><a class="self-link" href="#custom-attributes" aria-label="Permalink for Section 21."></a></div>
+      
+      <section id="description-18"><div class="header-wrapper"><h3 id="x21-1-description"><bdi class="secno">21.1 </bdi>Description</h3><a class="self-link" href="#description-18" aria-label="Permalink for Section 21.1"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="links-18"><div class="header-wrapper"><h3 id="x21-2-links"><bdi class="secno">21.2 </bdi>Links</h3><a class="self-link" href="#links-18" aria-label="Permalink for Section 21.2"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-18"><div class="header-wrapper"><h3 id="x21-3-status"><bdi class="secno">21.3 </bdi>Status</h3><a class="self-link" href="#status-18" aria-label="Permalink for Section 21.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-18"><div class="header-wrapper"><h3 id="x21-4-initial-api-summary-quick-api-proposal"><bdi class="secno">21.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-18" aria-label="Permalink for Section 21.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-18"><div class="header-wrapper"><h3 id="x21-5-key-scenarios"><bdi class="secno">21.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-18" aria-label="Permalink for Section 21.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-18"><div class="header-wrapper"><h3 id="x21-6-concerns"><bdi class="secno">21.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-18" aria-label="Permalink for Section 21.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-18"><div class="header-wrapper"><h3 id="x21-7-dissenting-opinion"><bdi class="secno">21.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-18" aria-label="Permalink for Section 21.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-18"><div class="header-wrapper"><h3 id="x21-8-related-specs"><bdi class="secno">21.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-18" aria-label="Permalink for Section 21.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-18"><div class="header-wrapper"><h3 id="x21-9-open-questions"><bdi class="secno">21.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-18" aria-label="Permalink for Section 21.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="feature-or-problem"><div class="header-wrapper"><h2 id="x22-feature-or-problem"><bdi class="secno">22. </bdi>Feature or Problem</h2><a class="self-link" href="#feature-or-problem" aria-label="Permalink for Section 22."></a></div>
+      
+      <section class="respec-offending-element" title="All sections must start with a `h2-6` element." id="respec-offender-all-sections-must-start-with-a-h2-6-element-10">
+        <p><a href="https://w3c.github.io/webcomponents-cg/index.html#">Previous WCCG Report</a></p>
+      </section>
+      <section id="description-19"><div class="header-wrapper"><h3 id="x22-1-description"><bdi class="secno">22.1 </bdi>Description</h3><a class="self-link" href="#description-19" aria-label="Permalink for Section 22.1"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="links-19"><div class="header-wrapper"><h3 id="x22-2-links"><bdi class="secno">22.2 </bdi>Links</h3><a class="self-link" href="#links-19" aria-label="Permalink for Section 22.2"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="status-19"><div class="header-wrapper"><h3 id="x22-3-status"><bdi class="secno">22.3 </bdi>Status</h3><a class="self-link" href="#status-19" aria-label="Permalink for Section 22.3"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="initial-api-summary-quick-api-proposal-19"><div class="header-wrapper"><h3 id="x22-4-initial-api-summary-quick-api-proposal"><bdi class="secno">22.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-19" aria-label="Permalink for Section 22.4"></a></div>
+        
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section id="key-scenarios-19"><div class="header-wrapper"><h3 id="x22-5-key-scenarios"><bdi class="secno">22.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-19" aria-label="Permalink for Section 22.5"></a></div>
+        
+        <p>---</p>
+      </section>
+      <section id="concerns-19"><div class="header-wrapper"><h3 id="x22-6-concerns"><bdi class="secno">22.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-19" aria-label="Permalink for Section 22.6"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="dissenting-opinion-19"><div class="header-wrapper"><h3 id="x22-7-dissenting-opinion"><bdi class="secno">22.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-19" aria-label="Permalink for Section 22.7"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="related-specs-19"><div class="header-wrapper"><h3 id="x22-8-related-specs"><bdi class="secno">22.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-19" aria-label="Permalink for Section 22.8"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section id="open-questions-19"><div class="header-wrapper"><h3 id="x22-9-open-questions"><bdi class="secno">22.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-19" aria-label="Permalink for Section 22.9"></a></div>
+        
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section id="conformance"><div class="header-wrapper"><h2 id="x23-conformance"><bdi class="secno">23. </bdi>Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 23."></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p>
       <p>
         This is required for specifications that contain normative material.
       </p>
