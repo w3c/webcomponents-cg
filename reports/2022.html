@@ -109,7 +109,7 @@
               <th><a href="#children-changed-callback">Children changed callback</a></th>
               <td><a href="https://github.com/WICG/webcomponents/issues/809">WICG/webcomponents#809</a></td>
               <td>High</td>
-              <td>---</td>
+              <td>Uncertain</td>
             </tr>
             <tr>
               <th><a href="#open-styling-of-shadow-roots">Open styling of shadow roots</a></th>
@@ -661,51 +661,73 @@
           <dt>Previous WCCG Report(s)</dt>
           <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#children-changed-callback">2021</a></dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li><a href="https://github.com/WICG/webcomponents/issues/809">2019 discussion - open</a></li>
+              <li><a href="https://github.com/WICG/webcomponents/issues/619">December 2016 discussion - closed</a></li>
+              <li><a href="https://github.com/WICG/webcomponents/issues/551">August 2016 discussion regarding parsing timing - closed</a></li>
+              <li><a href="https://github.com/WICG/webcomponents/issues/550">August 2016 discussion - closed</a></li>
+            </ul>
+          </dd>
           <dt>Browser positions:</dt>
           <dd>---</dd>
+          <dt>Polyfills/Libraries</dt>
+          <dd><a href="https://github.com/WebReflection/html-parsed-element"> For the parsing behavior</a></dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
+        <p>Provide a callback that triggers whenever the parser finishes parsing children or when a new child is inserted or an old child is removed.</p>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li>Uncertain - no concrete proposal or consensus on spec</li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>No concrete API proposal exists so far but the discussions seem to refer to using the callback similar to the attributeChangedCallback.</p>
+        <p>A component using said callback would look like this:</p>
+        <pre class="javascript">
+          class ChildrenChangedCallbackSample extends HTMLElement {
+            childrenChangedCallback() {}
+          }
+        </pre>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <ul>
+          <li><strong>Children parsed</strong>: This proposal would act as a cross-browser method of detecting when a custom element's children have been fully parsed reliably.</li>
+          <li><strong>Children inserted/removed</strong>: This proposal would provide better ergonomics to react to insertion or removal of children nodes than using a MutationObserver.</li>
+        </ul>
       </section>
       <section>
         <h3>Concerns</h3>
         <ul>
-          <li>---</li>
+          <li>Too expensive to implement: this is no longer the case, all engines have mechanisms for this already</li>
+          <li>The addition of the parsing behavior might encourage assuming a set of initial children exists and not reacting to changes in them.</li>
         </ul>
       </section>
       <section>
         <h3>Dissenting Opinion</h3>
         <ul>
-          <li>---</li>
+          <li>Some people believe using a MutationObserver is enough to cover the insertion/removal cases and want to avoid creating a duplicate similar API for custom elements. But the async nature of MutationObserver seems to cause timing issues.</li>
+          <li>Some other people don't want to add this API if it will only cover the use case when the parser finishes parsing children. (See the second concern)</li>
         </ul>
       </section>
       <section>
         <h3>Related Specs</h3>
         <ul>
-          <li>---</li>
+          <li><a href="https://github.com/WICG/webcomponents/issues/933">slotchange event options</a></li>
         </ul>
       </section>
       <section>
         <h3>Open Questions</h3>
         <ul>
-          <li>---</li>
+          <li>Should this API really cover both use cases to begin with? Arguments for both sides have been mentioned in all referenced discussions with no conclusion</li>
+          <li>Should this be one or two separate callback functions?</li>
+          <li>Would it be better to implement this behavior as <a href="https://github.com/WICG/webcomponents/issues/933">part of the slotchange event as suggested in this other issue</a>? This might lead to engine security bugs so the callback seems a better option in that regard.</li>
         </ul>
       </section>
     </section>
