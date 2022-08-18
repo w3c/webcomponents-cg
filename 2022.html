@@ -99,6 +99,20 @@ ul.index code{color:inherit}
 </style>
 <meta name="description" content="This is required.">
 <style>
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
+.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
+.hljs-literal{color:#0b76c5}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
 var{position:relative;cursor:pointer}
 var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
 var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
@@ -113,6 +127,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     {
       "name": "Westbrook Johnson",
       "url": "https://westbrookjohnson.com"
+    },
+    {
+      "name": "Alan Dávalos",
+      "url": "https://github.com/alangdm"
     }
   ],
   "github": "w3c/webcomponents-cg",
@@ -120,8 +138,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "xref": "web-platform",
   "group": "webcomponents",
   "tocIntroductory": true,
-  "publishISODate": "2022-08-16T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 16 August 2022"
+  "publishISODate": "2022-08-18T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 18 August 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
   <body class="h-entry" data-cite="HTML INFRA URL WEBIDL DOM FETCH"><div class="head">
@@ -129,7 +147,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Web Components Community Group: 2022 Spec/API status</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2022-08-16">16 August 2022</time>
+      <time class="dt-published" datetime="2022-08-18">18 August 2022</time>
     </p>
     <dl>
       
@@ -141,8 +159,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       
       
       
-      <dt>Editor:</dt><dd class="editor p-author h-card vcard">
+      <dt>Editors:</dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://westbrookjohnson.com">Westbrook Johnson</a>
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://github.com/alangdm">Alan Dávalos</a>
   </dd>
       
       
@@ -265,7 +285,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
               <th><a href="#children-changed-callback">Children changed callback</a></th>
               <td><a href="https://github.com/WICG/webcomponents/issues/809">WICG/webcomponents#809</a></td>
               <td>High</td>
-              <td>---</td>
+              <td>Uncertain</td>
             </tr>
             <tr>
               <th><a href="#open-styling-of-shadow-roots">Open styling of shadow roots</a></th>
@@ -817,51 +837,71 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <dt>Previous WCCG Report(s)</dt>
           <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#children-changed-callback">2021</a></dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li><a href="https://github.com/WICG/webcomponents/issues/809">2019 discussion - open</a></li>
+              <li><a href="https://github.com/WICG/webcomponents/issues/619">December 2016 discussion - closed</a></li>
+              <li><a href="https://github.com/WICG/webcomponents/issues/551">August 2016 discussion regarding parsing timing - closed</a></li>
+              <li><a href="https://github.com/WICG/webcomponents/issues/550">August 2016 discussion - closed</a></li>
+            </ul>
+          </dd>
           <dt>Browser positions:</dt>
           <dd>---</dd>
+          <dt>Polyfills/Libraries</dt>
+          <dd><a href="https://github.com/WebReflection/html-parsed-element"> For the parsing behavior</a></dd>
         </dl>
       </section>
       <section id="description-7"><div class="header-wrapper"><h3 id="x10-2-description"><bdi class="secno">10.2 </bdi>Description</h3><a class="self-link" href="#description-7" aria-label="Permalink for Section 10.2"></a></div>
         
-        <p>---</p>
+        <p>Provide a callback that triggers whenever the parser finishes parsing children or when a new child is inserted or an old child is removed.</p>
       </section>
       <section id="status-7"><div class="header-wrapper"><h3 id="x10-3-status"><bdi class="secno">10.3 </bdi>Status</h3><a class="self-link" href="#status-7" aria-label="Permalink for Section 10.3"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Uncertain - no concrete proposal or consensus on spec</li>
         </ul>
       </section>
       <section id="initial-api-summary-quick-api-proposal-7"><div class="header-wrapper"><h3 id="x10-4-initial-api-summary-quick-api-proposal"><bdi class="secno">10.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-7" aria-label="Permalink for Section 10.4"></a></div>
         
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>No concrete API proposal exists so far but the discussions seem to refer to using the callback similar to the attributeChangedCallback.</p>
+        <p>A component using said callback would look like this:</p>
+        <pre aria-busy="false"><code class="hljs javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ChildrenChangedCallbackSample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLElement</span> </span>{
+  <span class="hljs-function"><span class="hljs-title">childrenChangedCallback</span>(<span class="hljs-params"></span>)</span> {}
+}</code></pre>
       </section>
       <section id="key-scenarios-7"><div class="header-wrapper"><h3 id="x10-5-key-scenarios"><bdi class="secno">10.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-7" aria-label="Permalink for Section 10.5"></a></div>
         
-        <p>---</p>
+        <ul>
+          <li><strong>Children parsed</strong>: This proposal would act as a cross-browser method of detecting when a custom element's children have been fully parsed reliably.</li>
+          <li><strong>Children inserted/removed</strong>: This proposal would provide better ergonomics to react to insertion or removal of children nodes than using a MutationObserver.</li>
+        </ul>
       </section>
       <section id="concerns-7"><div class="header-wrapper"><h3 id="x10-6-concerns"><bdi class="secno">10.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-7" aria-label="Permalink for Section 10.6"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Too expensive to implement: this is no longer the case, all engines have mechanisms for this already</li>
+          <li>The addition of the parsing behavior might encourage assuming a set of initial children exists and not reacting to changes in them.</li>
         </ul>
       </section>
       <section id="dissenting-opinion-7"><div class="header-wrapper"><h3 id="x10-7-dissenting-opinion"><bdi class="secno">10.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-7" aria-label="Permalink for Section 10.7"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Some people believe using a MutationObserver is enough to cover the insertion/removal cases and want to avoid creating a duplicate similar API for custom elements. But the async nature of MutationObserver seems to cause timing issues.</li>
+          <li>Some other people don't want to add this API if it will only cover the use case when the parser finishes parsing children. (See the second concern)</li>
         </ul>
       </section>
       <section id="related-specs-7"><div class="header-wrapper"><h3 id="x10-8-related-specs"><bdi class="secno">10.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-7" aria-label="Permalink for Section 10.8"></a></div>
         
         <ul>
-          <li>---</li>
+          <li><a href="https://github.com/WICG/webcomponents/issues/933">slotchange event options</a></li>
         </ul>
       </section>
       <section id="open-questions-7"><div class="header-wrapper"><h3 id="x10-9-open-questions"><bdi class="secno">10.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-7" aria-label="Permalink for Section 10.9"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Should this API really cover both use cases to begin with? Arguments for both sides have been mentioned in all referenced discussions with no conclusion</li>
+          <li>Should this be one or two separate callback functions?</li>
+          <li>Would it be better to implement this behavior as <a href="https://github.com/WICG/webcomponents/issues/933">part of the slotchange event as suggested in this other issue</a>? This might lead to engine security bugs so the callback seems a better option in that regard.</li>
         </ul>
       </section>
     </section>
