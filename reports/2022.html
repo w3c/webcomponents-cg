@@ -1364,51 +1364,148 @@
           <dt>Previous WCCG Report(s)</dt>
           <dd>N/A</dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/DOM-Parts.md">Initial Proposal</a>
+              </li>
+              <li>
+                <a href="https://docs.google.com/document/d/1UVtF1gM6XY-_NKm2_c045K803U3ZTjfyluLeToJlIUk/edit">Alternative Diffing Proposal</a>
+              </li>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/issues/902">Naming Discussion</a>
+              </li>
+            </ul>
+          </dd>
           <dt>Browser positions:</dt>
           <dd>---</dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
+        <p>A mechanism to insert or replace content at specific locations within the DOM tree.</p>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li>Strawperson proposal available.</li>
+          <li>General consensus is that this is needed and could be used by existing Web Component and Frontend libraries and frameworks.</li>
+          <li>Lots of bike shedding over naming.</li>
+          <li>There is a large number of open questions both on this feature and how it interacts with other proposals.</li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>The following is a summary of the core types from the proposal.</p>
+        <pre class="javascript">
+          interface Part {
+              attribute any value;
+              void commit();
+          };
+          
+          
+          interface NodePart : Part {
+              readonly attribute Node node;
+          };
+          
+          
+          interface AttributePart : Part {
+              constructor(Element element, DOMString qualifiedName, DOMString? namespace);
+              readonly attribute DOMString prefix;
+              readonly attribute DOMString localName;
+              readonly attribute DOMString namespaceURI;
+          };
+          
+          
+          interface ChildNodePart : Part {
+              constructor(Node node, Node? previousSibling, Node? nextSibling);
+              readonly attribute Node parentNode;
+              readonly attribute Node? previousSibling;
+              readonly attribute Node? nextSibling;
+          }
+          </pre>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <p>
+          <ul>
+            <li>
+              Enable batched updates to the DOM, usable by library/framework view engines. Library authors would be able to remove part of their user-land solution, shrinking libraries and reducing JS execution.
+            </li>
+            <li>
+              Needed as a steppingstone towards reactive bindings for custom elements.
+            </li>
+          </ul>
+        </p>
       </section>
       <section>
         <h3>Concerns</h3>
         <ul>
-          <li>---</li>
+          <li>
+            Naming the API as "Part" could cause confusion with CSS Shadow Parts. No consensus over naming reached yet.
+          </li>
         </ul>
       </section>
       <section>
         <h3>Dissenting Opinion</h3>
         <ul>
-          <li>---</li>
+          <li>
+            Some individuals, particularly from React-ish backgrounds, would prefer a diffing-based alternative to batched updates. However, there are several problems with the diffing proposal.
+            <ul>
+              <li>
+                The core proposal shows diffing between real DOM nodes, which is very heavy.
+              </li>
+              <li>
+                The diffing proposal acknowledges the above flaw and attempts to solve it by proposing a JavaScript API to create virtual DOMs but it's unclear why existing libraries can't be used for this.
+              </li>
+              <li>
+                It is not clear how this maps to fully declarative templates down the road, which are created in real DOM.
+              </li>
+            </ul>
+          </li>
         </ul>
       </section>
       <section>
         <h3>Related Specs</h3>
         <ul>
-          <li>---</li>
+          <li>
+            <a href="#declarative-shadow-dom">Declarative Shadow DOM</a>
+          </li>
+          <li>
+            <a href="#declarative-custom-elements">Declarative Custom Elements</a>
+          </li>
+          <li>
+            <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md">Template Instantiation</a>
+          </li>
+          <li>
+            <a href="#custom-attributes">Custom Attributes</a>
+          </li>
         </ul>
       </section>
       <section>
         <h3>Open Questions</h3>
         <ul>
-          <li>---</li>
+          <li>
+            How to handle attribute parts when there is a mixture of static and dynamic parts needed to assemble the attribute value?
+          </li>
+          <li>
+            How to handle child node updates when there is a mixture of elements, text, etc. that are potentially changing.
+          </li>
+          <li>
+            How to handle setting properties?
+          </li>
+          <li>
+            How do libraries and frameworks handle custom behaviors/directives?
+          </li>
+          <li>
+            How do we handle batches of updates and ordering of updates?
+          </li>
+          <li>
+            How do we clone templates to efficiently reproduce the template content and the proper part setup?
+          </li>
+          <li>
+            Could part references be shared with workers to allow DOM updates from workers?
+          </li>
         </ul>
       </section>
     </section>
