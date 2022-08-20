@@ -1573,51 +1573,126 @@
           <dt>Previous WCCG Report(s)</dt>
           <dd>N/A</dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/w3c/webcomponents-cg/discussions/31#discussioncomment-3163644">Discussion</a>
+              </li>
+              <li>
+                <a href="https://github.com/whatwg/html/issues/2271">Custom Attribute Name Rules</a>
+              </li>
+              <li>
+                <a href="https://github.com/whatwg/dom/issues/533#issuecomment-405530738">Node Connectedness comment about Custom Attributes</a>
+              </li>
+            </ul>
+          </dd>
           <dt>Browser positions:</dt>
           <dd>---</dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
+        <p>Enable developers to create reusable custom behaviors that that can be declaratively applied to any element.</p>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li>
+            No official proposal yet.
+          </li>
+          <li>
+            While there is no official issue for this yet, this feature request crops up in several discussions on other threads. In general, the community seems to be very interested in having something like this.
+          </li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>There is no issue or proposal yet. The following can serve as an initial idea, inspired by custom elements.</p>
+        <pre class="javascript">
+          class MaterialRipple extends Attr {
+            // ownerElement inherited from Attr
+            // name inherited from Attr
+            // value inherited from Attr
+            // ...
+        
+            connectedCallback () {
+              // called when the ownerElement is connected to the DOM
+            }
+        
+            disconnectedCallback () {
+              // called when the ownerElement is disconnected from the DOM
+            }
+        
+            attributeChangedCallback() {
+              // called when the value property of this attribute changes
+            }
+        }
+        
+        customAttributes.define("material-ripple", MaterialRipple);
+        </pre>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <p>
+          <ul>
+            <li>Enable more built-in patterns to be accomplishable by developer extensions. e.g. label for, img src</li>
+            <li>Enable behaviors to be written once and used on any element.</li>
+            <li>May serve as a better solution than the "is" capability of custom elements (which isn't fully supported).</li>
+          </ul>
+        </p>
       </section>
       <section>
         <h3>Concerns</h3>
-        <ul>
-          <li>---</li>
-        </ul>
+        <p>No concerns yet.</p>
       </section>
       <section>
         <h3>Dissenting Opinion</h3>
-        <ul>
-          <li>---</li>
-        </ul>
+        <p>No dissenting opinions yet.</p>
       </section>
       <section>
         <h3>Related Specs</h3>
         <ul>
-          <li>---</li>
+          <li>
+            <a href="#declarative-shadow-dom">Declarative Shadow DOM</a>
+          </li>
+          <li>
+            <a href="#lazy-custom-element-definitions">Lazy Custom Element Definitions</a>
+          </li>
+          <li>
+            <a href="#dom-parts">DOM Part API</a>
+          </li>
+          <li>
+            <a href="#scoped-element-registries">Scoped Custom Element Registries</a>
+          </li>
+          <li>
+            <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md">Template Instantiation</a>
+          </li>
         </ul>
       </section>
       <section>
         <h3>Open Questions</h3>
         <ul>
-          <li>---</li>
+          <li>
+            How should custom attributes be named? Can they follow the same hyphen convention as custom elements?
+          </li>
+          <li>
+            SVG has some CSS properties that it surfaces as attributes. How do we prevent conflicts?
+          </li>
+          <li>
+            It could be beneficial for a custom attribute to have access to the shadow DOM of a custom element, but is this a security issue?
+          </li>
+          <li>
+            Should we allow access to ElementInternals? Is that a security problem? Is there a limited version of this we could support? Do custom elements need to allow this? What about built-ins?
+          </li>
+          <li>
+            How to handle when "removeAttribute" is called?
+          </li>
+          <li>
+            Should there be special handling for boolean attributes?
+          </li>
+          <li>
+            Should there be a specific set of pre-defined attributes that can be opted into for custom elements. e.g. for, src
+          </li>
         </ul>
       </section>
     </section>
