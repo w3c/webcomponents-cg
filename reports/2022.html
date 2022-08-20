@@ -829,7 +829,7 @@
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
         <p>The following, copied from the original strapwerson proposal, demonstrates how a declarative custom element could be defined with the need for JavaScript.</p>
-        <pre class="javascript">&lt;definition&nbsp;name=&quot;percentage&#45;bar&quot;&gt;
+        <pre class="html">&lt;definition&nbsp;name=&quot;percentage&#45;bar&quot;&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;template&nbsp;shadowmode=&quot;closed&quot;&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;progressbar&quot;&nbsp;role=&quot;progressbar&quot;&nbsp;aria&#45;valuemin=&quot;0&quot;&nbsp;aria&#45;valuemax=&quot;100&quot;&nbsp;aria&#45;valuenow=&quot;{{root.attributes.percentage.value}}&quot;&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;bar&quot;&nbsp;style=&quot;width:&nbsp;{{root.attributes.percentage.value}}%&quot;&gt;&lt;/div&gt;
@@ -1204,51 +1204,155 @@
           <dt>Previous WCCG Report(s)</dt>
           <dd>N/A</dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/issues/782">Initial Proposal</a>
+              </li>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/issues/444">Alternative Proposal (closed)</a>
+              </li>
+              <li>
+                <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1460815">Firefox Internal Issue</a>
+              </li>
+            </ul>
+          </dd>
           <dt>Browser positions:</dt>
           <dd>---</dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
+        <p>
+          Enable the browser to automatically load a custom element definition when it first sees the associated tag.
+        </p>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li>
+            Strawperson proposal available.
+          </li>
+          <li>
+            There is further disagreement as to whether this feature is needed. However, the community generally tends to lean toward wanting some version of this.
+          </li>
+          <li>
+            There are many open questions around the feature-set as well as how it interoperates with other proposals.
+          </li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>Below is a definition for the proposed new CustomElementRegistry API.</p>
+        <pre class="javascript">
+          CustomElementRegistry#defineLazy(tagName: string, loader: () => Promise<CustomElementDefinition>);
+        </pre>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <p>
+          <ul>
+            <li>
+              Enable bundlers to split code based on the presence of dynamic import calls. Tools like guess.js can integrate with bundlers to provide statistical analysis of actual usage, optimizing bundles better. This proposal would enable that type of integration.
+            </li>
+            <li>
+              Enable consumers of web components to not have to worry about handling the loading of the code in every place where a component is used. This is important in systems where the content may leverage a potential large number of Web Components but where only a few are actually needed in any given experience. E.g. News sites, feeds, etc.
+            </li>
+            <li>
+              Firefox has an internal API for lazy loading definitions.
+            </li>
+          </ul>
+        </p>
       </section>
       <section>
         <h3>Concerns</h3>
         <ul>
-          <li>---</li>
+          <li>
+            This feature could make it easy to create a "loading pyramid". e.g. Component A loads, which causes B and C to load, which then cause D and E to load, etc.
+          </li>
         </ul>
       </section>
       <section>
         <h3>Dissenting Opinion</h3>
         <ul>
-          <li>---</li>
+          <li>
+            Breaks Principle of Least Surprise. If you see a component in the HTML, you expect to be able to interact with it. But this may fail due to the component not being loaded yet.
+          </li>
+          <li>
+            Seems backward to have the browser tell the experience when to load code, rather than the experience telling the browser.
+          </li>
+          <li>
+            Rather than focusing on this high level feature, we should instead add low-level APIs that enable building this feature with a few lines of code. Recognizes that MutationObserver is not sufficient, but isn't convinced about lazy definitions.
+          </li>
         </ul>
       </section>
       <section>
         <h3>Related Specs</h3>
         <ul>
-          <li>---</li>
+          <li>
+            <a href="#scoped-element-registries">Scoped Custom Element Registries</a>
+          </li>
+          <li>
+            <a href="#declarative-shadow-dom">Declarative Shadow DOM</a>
+          </li>
+          <li>
+            <a href="#children-changed-callback">Children Changed Callback</a> 
+          </li>
+          <li>
+            <a href="https://github.com/whatwg/dom/issues/533">Observable Node Connectedness</a>
+          </li>
+          <li>
+            <a href="https://github.com/webcomponents-cg/community-protocols/blob/main/proposals/pending-task.md">Pending Task Protocol</a>
+          </li>
         </ul>
       </section>
       <section>
         <h3>Open Questions</h3>
         <ul>
-          <li>---</li>
+          <li>
+            How do we handle ElementDefinitionOptions? CustomElementDefinition isn't defined in the proposal above. Does it include this? How?
+          </li>
+          <li>
+            Should there be a parallel API to unload a definition?
+          </li>
+          <li>
+            Should there be additional configuration options for load triggers?
+            <ul>
+              <li>
+                When certain attributes change.
+              </li>
+              <li>
+                When certain events are fired.
+              </li>
+              <li>
+                When scrolled into view.
+              </li>
+              <li>
+                When the mouse is close.
+              </li>
+            </ul>
+          </li>
+          <li>
+            How does this work with sync calls to document.createElement?
+          </li>
+          <li>
+            Should there be wild card registrations that can be used to load collections of components based on a pattern?
+          </li>
+          <li>
+            Could all of this be handled by a more general-purpose callback that was simply fired when an unknown element name is seen?
+          </li>
+          <li>
+            How do we handle lazy definitions when someone calls "get" on the CustomElementsRegistry?
+          </li>
+          <li>
+            If a component is lazy defined but has not yet loaded, what happens when someone tries to synchronously define an element with the same name?
+          </li>
+          <li>
+            How does a component know when all its lazily loaded children are done loading?
+          </li>
+          <li>
+            Should there be a more declarative API for this to tell the parser where to fine unknown elements?
+          </li>
         </ul>
       </section>
     </section>
