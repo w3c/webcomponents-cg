@@ -832,8 +832,8 @@
         <p>The following, copied from the original strapwerson proposal, demonstrates how a declarative custom element could be defined with the need for JavaScript.</p>
         <pre class="html">&lt;definition&nbsp;name=&quot;percentage&#45;bar&quot;&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;template&nbsp;shadowmode=&quot;closed&quot;&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;progressbar&quot;&nbsp;role=&quot;progressbar&quot;&nbsp;aria&#45;valuemin=&quot;0&quot;&nbsp;aria&#45;valuemax=&quot;100&quot;&nbsp;aria&#45;valuenow=&quot;{{root.attributes.percentage.value}}&quot;&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;bar&quot;&nbsp;style=&quot;width:&nbsp;{{root.attributes.percentage.value}}%&quot;&gt;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;progressbar&quot;&nbsp;role=&quot;progressbar&quot;&nbsp;aria&#45;valuemin=&quot;0&quot;&nbsp;aria&#45;valuemax=&quot;100&quot;&nbsp;aria&#45;valuenow=&quot;{{\root.attributes.percentage.value}}&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;bar&quot;&nbsp;style=&quot;width:&nbsp;{{\root.attributes.percentage.value}}%&quot;&gt;&lt;/div&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;label&quot;&gt;&lt;slot&gt;&lt;/slot&gt;&lt;/div&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;style&gt;
@@ -858,7 +858,7 @@
       <section>
         <h3>Concerns</h3>
         <ul>
-          <li>Binding syntax for attributes is extremely verbose. e.g. "{{root.attributes.percentage.value}}" is used instead of something terser like "{{percentage}}" .</li>
+          <li>Binding syntax for attributes is extremely verbose. e.g. "{{\root.attributes.percentage.value}}" is used instead of something terser like "{{\percentage}}" .</li>
           <li>Binding syntax doesn't look extensible.</li>
           <li>A lot of cooperation from tooling and plugin authors will be required to enable developer ergonomics and adoption.</li>
           <li>The current proposal's script model creates a second way of coding components with some different behavior from what we have today.</li>
