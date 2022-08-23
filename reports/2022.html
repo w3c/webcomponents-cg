@@ -228,7 +228,7 @@
             <a href="https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals/setFormValue">Firefox (shipped in version 90)</a>
           </li>
           <li>
-            Safari has <a href="https://github.com/WebKit/WebKit/pull/2690">merged a PR implementing the first part of the ElementInternals spec</a> which includes the form-associated custom elements behavior; however, the initial PR doesn't include the actual form-association APIs. The polyfill does check for the presence of the form-associated APIs separately from ElementInternals, so this is not likely to cause any issues if it is released in part.
+            <a href="https://github.com/WebKit/standards-positions/issues/47#issuecomment-1221419927">WebKit is in favor and has the feature in active development</a> and has <a href="https://github.com/WebKit/WebKit/pull/2690">merged a PR implementing the first part of <code>ElementInternals</code></a> which includes the form-associated custom elements behavior; however, the initial PR doesn't include the actual form-association APIs.
           </li>
         </ul>
       </section>
@@ -311,9 +311,6 @@ class FancyInput extends HTMLElement {
           <li><a href="https://github.com/whatwg/html/issues/5891">HTMLFormElement elements does not contain form-associated CustomElements when name attribute is shared</a></li>
           <li>The form-associated APIs currently have <a href="https://github.com/WICG/webcomponents/issues/814">no way for a developer to behave as a custom submit button</a>. Though there are <a href="https://twitter.com/justinfagnani/status/1510387984830386180">several</a> <a href="https://github.com/open-wc/form-participation/tree/main/packages/form-helpers#implicit-form-submit">workarounds</a>.</li>
         </ul>
-      </section>
-      <section>
-        <h3>Dissenting Opinion</h3>
       </section>
       <section>
         <h3>Related Specs</h3>
