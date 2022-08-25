@@ -133,6 +133,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "url": "https://github.com/alangdm"
     },
     {
+      "name": "Owen Buckley",
+      "url": "https://github.com/thescientist13"
+    },
+    {
       "name": "Caleb Williams",
       "url": "https://github.com/calebdwilliams"
     }
@@ -167,6 +171,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <a class="u-url url p-name fn" href="https://westbrookjohnson.com">Westbrook Johnson</a>
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://github.com/alangdm">Alan Dávalos</a>
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://github.com/thescientist13">Owen Buckley</a>
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://github.com/calebdwilliams">Caleb Williams</a>
   </dd>
@@ -762,57 +768,69 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <dt>Previous WCCG Report(s)</dt>
           <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#declarative-shadow-dom">2021</a></dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd><a href="https://github.com/whatwg/dom/issues/831">https://github.com/whatwg/dom/issues/831</a></dd>
           <dt>Browser positions:</dt>
-          <dd>---</dd>
+          <dd><a href="https://chromestatus.com/feature/5191745052606464">Chrome (Shipped)</a></dd>
+          <dd><a href="https://github.com/mozilla/standards-positions/issues/335">Mozilla</a></dd>
+          <dd><a href="https://github.com/WebKit/standards-positions/issues/12">Safari</a></dd>
         </dl>
       </section>
       <section id="description-4"><div class="header-wrapper"><h3 id="x7-2-description"><bdi class="secno">7.2 </bdi>Description</h3><a class="self-link" href="#description-4" aria-label="Permalink for Section 7.2"></a></div>
         
-        <p>---</p>
+        <p>Declarative Shadow DOM is a mechanism to express Shadow DOM using only HTML, with no dependency on JavaScript, much like light DOM can be declaratively expressed today.</p>
       </section>
       <section id="links-6"><div class="header-wrapper"><h3 id="x7-3-links"><bdi class="secno">7.3 </bdi>Links</h3><a class="self-link" href="#links-6" aria-label="Permalink for Section 7.3"></a></div>
         
         <ul>
-          <li>---</li>
+          <li><a href="https://web.dev/declarative-shadow-dom">Declarative Shadow DOM</a></li>
         </ul>
       </section>
       <section id="status-4"><div class="header-wrapper"><h3 id="x7-4-status"><bdi class="secno">7.4 </bdi>Status</h3><a class="self-link" href="#status-4" aria-label="Permalink for Section 7.4"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Partial consensus, some implementation</li>
         </ul>
       </section>
       <section id="initial-api-summary-quick-api-proposal-4"><div class="header-wrapper"><h3 id="x7-5-initial-api-summary-quick-api-proposal"><bdi class="secno">7.5 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-4" aria-label="Permalink for Section 7.5"></a></div>
         
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>
+          </p><pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">host-element</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">shadowroot</span>=<span class="hljs-string">"open"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Light content<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">host-element</span>&gt;</span></code></pre>
+        <p></p>
       </section>
       <section id="key-scenarios-4"><div class="header-wrapper"><h3 id="x7-6-key-scenarios"><bdi class="secno">7.6 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-4" aria-label="Permalink for Section 7.6"></a></div>
         
-        <p>---</p>
+        <p>Server-Side Rendering: Without Declarative Shadow DOM, servers cannot deliver complete websites that include web component content. Markup cannot be efficiently delivered and then hydrated with JavaScript client-side.</p>
+        <p>JavaScript-less environments: Many web components could be implemented without JavaScript, taking advantage of encapsulated DOM and styles. However, web components cannot currently be rendered by users who have JavaScript disabled. Developers who are more comfortable with markup than with scripting may avoid shadow DOM altogether due to its tight coupling with JavaScript..</p>
       </section>
       <section id="concerns-4"><div class="header-wrapper"><h3 id="x7-7-concerns"><bdi class="secno">7.7 </bdi>Concerns</h3><a class="self-link" href="#concerns-4" aria-label="Permalink for Section 7.7"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Mozilla considers this to be non-harmful, though debates the merits on ROI to developers weighed against the added complexity to be added to the HTML parser from a performance perspective.</li>
+          <li>Safari would like to see compatibility with Scoped Element Registry addressed first.</li>
         </ul>
       </section>
       <section id="dissenting-opinion-3"><div class="header-wrapper"><h3 id="x7-8-dissenting-opinion"><bdi class="secno">7.8 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-3" aria-label="Permalink for Section 7.8"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>N / A</li>
         </ul>
       </section>
       <section id="related-specs-4"><div class="header-wrapper"><h3 id="x7-9-related-specs"><bdi class="secno">7.9 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-4" aria-label="Permalink for Section 7.9"></a></div>
         
         <ul>
-          <li>---</li>
+          <li><a href="https://github.com/WICG/webcomponents/issues/716">Scoped Element Registries</a></li>
         </ul>
       </section>
       <section id="open-questions-4"><div class="header-wrapper"><h3 id="x7-10-open-questions"><bdi class="secno">7.10 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-4" aria-label="Permalink for Section 7.10"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Mozilla would like to see more <a href="https://github.com/whatwg/dom/issues/831#issuecomment-988394185">real world uses cases</a> of Declarative Shadow DOM in the wild.  Which is a bit of a catch-22 when it is only supported in one browser and requires a polyfill.</li>
+          <li>Safari would like to <a href="https://github.com/whatwg/dom/issues/831#issuecomment-797845645">get consensus on the solution for Scoped Element Registries first.</a></li>
         </ul>
       </section>
     </section>
