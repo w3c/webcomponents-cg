@@ -24,6 +24,10 @@
             url: "https://github.com/alangdm",
           },
           {
+            name: "Rob Eisenberg",
+            url: "https://github.com/eisenbergeffect",
+          },
+          {
             name: "Owen Buckley",
             url: "https://github.com/thescientist13",
           },
@@ -167,15 +171,15 @@
             </tr>
             <tr>
               <th><a href="#lazy-custom-element-definitions">Lazy custom element definitions</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/782">WICG/webcomponents#782</a></td>
               <td></td>
-              <td></td>
-              <td></td>
+              <td>Uncertain</td>
             </tr>
             <tr>
               <th><a href="#dom-parts">DOM Parts</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/DOM-Parts.md">DOM Part API - First Step of Template Instantiation</a></td>
               <td></td>
-              <td></td>
-              <td></td>
+              <td>Uncertain</td>
             </tr>
             <tr>
               <th><a href="#html-modules">HTML modules</a></th>
@@ -185,9 +189,9 @@
             </tr>
             <tr>
               <th><a href="#custom-attributes">Custom Attributes</a></th>
+              <td><a href="https://github.com/w3c/webcomponents-cg/discussions/31#discussioncomment-3163644">Web Components CG Discussion</a></td>
               <td></td>
-              <td></td>
-              <td></td>
+              <td>Not addressed</td>
             </tr>
             <tr>
               <th>---</th>
@@ -924,51 +928,117 @@ class FancyInput extends HTMLElement {
           <dt>Previous WCCG Report(s)</dt>
           <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#declarative-custom-elements">2021</a></dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Declarative-Custom-Elements-Strawman.md">Initial Proposal</a></li>
+              <li><a href="https://github.com/Westbrook/custom-element-proposals/pull/1">Single File Component Explainer</a></li>
+              <li><a href="https://github.com/WICG/webcomponents/issues/645">Cross-over with HTML Modules</a></li>
+              <li><a href="https://github.com/w3c/webcomponents-cg/issues/32">Discussion</a></li>
+            </ul>
+          </dd>
           <dt>Browser positions:</dt>
           <dd>---</dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
+        <p>A method of creating custom elements completely with declarative HTML, not requiring JavaScript.</p>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li>Strawperson proposal available.</li>
+          <li>Dependent on many other proposals that are not yet finished.</li>
+          <li>Many people would like to have something like this but it seems too early due to the number of unfinished dependencies.</li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>The following, copied from the original strapwerson proposal, demonstrates how a declarative custom element could be defined with the need for JavaScript.</p>
+        <pre class="html">&lt;definition&nbsp;name=&quot;percentage&#45;bar&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;template&nbsp;shadowmode=&quot;closed&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;progressbar&quot;&nbsp;role=&quot;progressbar&quot;&nbsp;aria&#45;valuemin=&quot;0&quot;&nbsp;aria&#45;valuemax=&quot;100&quot;&nbsp;aria&#45;valuenow=&quot;{{\root.attributes.percentage.value}}&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;bar&quot;&nbsp;style=&quot;width:&nbsp;{{\root.attributes.percentage.value}}%&quot;&gt;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;label&quot;&gt;&lt;slot&gt;&lt;/slot&gt;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;style&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:host&nbsp;{&nbsp;display:&nbsp;inline&#45;block&nbsp;!important;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#progressbar&nbsp;{&nbsp;position:&nbsp;relative;&nbsp;display:&nbsp;block;&nbsp;width:&nbsp;100%;&nbsp;height:&nbsp;100%;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#bar&nbsp;{&nbsp;background&#45;color:&nbsp;#36f;&nbsp;height:&nbsp;100%;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#label&nbsp;{&nbsp;position:&nbsp;absolute;&nbsp;top:&nbsp;0px;&nbsp;left:&nbsp;0px;&nbsp;width:&nbsp;100%;&nbsp;height:&nbsp;100%;&nbsp;text&#45;align:&nbsp;center;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/style&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/template&gt;
+&lt;/definition&gt;
+        </pre>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <ul>
+          <li>Create reusable custom elements without needing to load or run JavaScript.</li>
+          <li>Use custom elements in noscript contexts.</li>
+          <li>Open up new opportunities for more efficient server-side-rendering. e.g. Smaller html payloads due to less duplication of HTML</li>
+          <li>Codify framework "single file component" patterns in the platform.</li>
+        </ul>
       </section>
       <section>
         <h3>Concerns</h3>
         <ul>
-          <li>---</li>
+          <li>Binding syntax for attributes is extremely verbose. e.g. "{{\root.attributes.percentage.value}}" is used instead of something terser like "{{\percentage}}" .</li>
+          <li>Binding syntax doesn't look extensible.</li>
+          <li>A lot of cooperation from tooling and plugin authors will be required to enable developer ergonomics and adoption.</li>
+          <li>The current proposal's script model creates a second way of coding components with some different behavior from what we have today.</li>
+          <li>The current proposal conflicts in syntax with Declarative Shadow DOM.</li>
         </ul>
       </section>
       <section>
         <h3>Dissenting Opinion</h3>
-        <ul>
-          <li>---</li>
-        </ul>
+        <p>No dissenting opinions yet.</p>
       </section>
       <section>
         <h3>Related Specs</h3>
         <ul>
-          <li>---</li>
+          <li>
+            <a href="https://html.spec.whatwg.org/multipage/scripting.html#htmltemplateelement">HTML Template Element</a>
+          </li>
+          <li>
+            <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#form-associated-custom-elements">Form Associated Custom Elements</a>
+          </li>
+          <li>
+            <a href="https://wicg.github.io/custom-state-pseudo-class/#customstateset">Custom State Set</a>
+          </li>
+          <li>
+            <a href="#declarative-css-modules">Declarative CSS Modules</a>
+          </li>
+          <li>
+            <a href="#dom-parts">DOM Part API</a>
+          </li>
+          <li>
+            <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md">Template Instantiation</a>
+          </li>
+          <li>
+            <a href="#scoped-element-registries">Scoped Custom Element Registries</a>
+          </li>
+          <li>
+            <a href="#lazy-custom-element-definitions">Lazy Custom Element Definitions</a>
+          </li>
+          <li>
+            <a href="#cross-root-aria">Cross Root Aria</a>
+          </li>
+          <li>
+            <a href="#html-modules">HTML Modules</a>
+          </li>
         </ul>
       </section>
       <section>
         <h3>Open Questions</h3>
         <ul>
-          <li>---</li>
+          <li>Shouldn't attributes be declared instead of inferred through the bindings?</li>
+          <li>How to handle boolean attributes and reflected attributes?</li>
+          <li>If script is provided through src, how should loading be handled? Does it block or can it be partially upgraded?</li>
+          <li>How does this support aria roles, degegated aria, and cross-root aria?</li>
+          <li>How is form association handled?</li>
+          <li>When script is provided, how does it interact with or gain access to the template and styles?</li>
+          <li>Should there be ways to ship definitions along with a data set or top-level template so that small payloads of data can be automatically combined with template and element declarations without the need for JS?</li>
         </ul>
       </section>
     </section>
@@ -1260,51 +1330,155 @@ class FancyInput extends HTMLElement {
           <dt>Previous WCCG Report(s)</dt>
           <dd>N/A</dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/issues/782">Initial Proposal</a>
+              </li>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/issues/444">Alternative Proposal (closed)</a>
+              </li>
+              <li>
+                <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1460815">Firefox Internal Issue</a>
+              </li>
+            </ul>
+          </dd>
           <dt>Browser positions:</dt>
           <dd>---</dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
+        <p>
+          Enable the browser to automatically load a custom element definition when it first sees the associated tag.
+        </p>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li>
+            Strawperson proposal available.
+          </li>
+          <li>
+            There is further disagreement as to whether this feature is needed. However, the community generally tends to lean toward wanting some version of this.
+          </li>
+          <li>
+            There are many open questions around the feature-set as well as how it interoperates with other proposals.
+          </li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>Below is a definition for the proposed new CustomElementRegistry API.</p>
+        <pre class="javascript">
+          CustomElementRegistry#defineLazy(tagName: string, loader: () => Promise<CustomElementDefinition>);
+        </pre>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <p>
+          <ul>
+            <li>
+              Enable bundlers to split code based on the presence of dynamic import calls. Tools like guess.js can integrate with bundlers to provide statistical analysis of actual usage, optimizing bundles better. This proposal would enable that type of integration.
+            </li>
+            <li>
+              Enable consumers of web components to not have to worry about handling the loading of the code in every place where a component is used. This is important in systems where the content may leverage a potential large number of Web Components but where only a few are actually needed in any given experience. E.g. News sites, feeds, etc.
+            </li>
+            <li>
+              Firefox has an internal API for lazy loading definitions.
+            </li>
+          </ul>
+        </p>
       </section>
       <section>
         <h3>Concerns</h3>
         <ul>
-          <li>---</li>
+          <li>
+            This feature could make it easy to create a "loading pyramid". e.g. Component A loads, which causes B and C to load, which then cause D and E to load, etc.
+          </li>
         </ul>
       </section>
       <section>
         <h3>Dissenting Opinion</h3>
         <ul>
-          <li>---</li>
+          <li>
+            Breaks Principle of Least Surprise. If you see a component in the HTML, you expect to be able to interact with it. But this may fail due to the component not being loaded yet.
+          </li>
+          <li>
+            Seems backward to have the browser tell the experience when to load code, rather than the experience telling the browser.
+          </li>
+          <li>
+            Rather than focusing on this high level feature, we should instead add low-level APIs that enable building this feature with a few lines of code. Recognizes that MutationObserver is not sufficient, but isn't convinced about lazy definitions.
+          </li>
         </ul>
       </section>
       <section>
         <h3>Related Specs</h3>
         <ul>
-          <li>---</li>
+          <li>
+            <a href="#scoped-element-registries">Scoped Custom Element Registries</a>
+          </li>
+          <li>
+            <a href="#declarative-shadow-dom">Declarative Shadow DOM</a>
+          </li>
+          <li>
+            <a href="#children-changed-callback">Children Changed Callback</a> 
+          </li>
+          <li>
+            <a href="https://github.com/whatwg/dom/issues/533">Observable Node Connectedness</a>
+          </li>
+          <li>
+            <a href="https://github.com/webcomponents-cg/community-protocols/blob/main/proposals/pending-task.md">Pending Task Protocol</a>
+          </li>
         </ul>
       </section>
       <section>
         <h3>Open Questions</h3>
         <ul>
-          <li>---</li>
+          <li>
+            How do we handle ElementDefinitionOptions? CustomElementDefinition isn't defined in the proposal above. Does it include this? How?
+          </li>
+          <li>
+            Should there be a parallel API to unload a definition?
+          </li>
+          <li>
+            Should there be additional configuration options for load triggers?
+            <ul>
+              <li>
+                When certain attributes change.
+              </li>
+              <li>
+                When certain events are fired.
+              </li>
+              <li>
+                When scrolled into view.
+              </li>
+              <li>
+                When the mouse is close.
+              </li>
+            </ul>
+          </li>
+          <li>
+            How does this work with sync calls to document.createElement?
+          </li>
+          <li>
+            Should there be wild card registrations that can be used to load collections of components based on a pattern?
+          </li>
+          <li>
+            Could all of this be handled by a more general-purpose callback that was simply fired when an unknown element name is seen?
+          </li>
+          <li>
+            How do we handle lazy definitions when someone calls "get" on the CustomElementsRegistry?
+          </li>
+          <li>
+            If a component is lazy defined but has not yet loaded, what happens when someone tries to synchronously define an element with the same name?
+          </li>
+          <li>
+            How does a component know when all its lazily loaded children are done loading?
+          </li>
+          <li>
+            Should there be a more declarative API for this to tell the parser where to fine unknown elements?
+          </li>
         </ul>
       </section>
     </section>
@@ -1316,51 +1490,148 @@ class FancyInput extends HTMLElement {
           <dt>Previous WCCG Report(s)</dt>
           <dd>N/A</dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/DOM-Parts.md">Initial Proposal</a>
+              </li>
+              <li>
+                <a href="https://docs.google.com/document/d/1UVtF1gM6XY-_NKm2_c045K803U3ZTjfyluLeToJlIUk/edit">Alternative Diffing Proposal</a>
+              </li>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/issues/902">Naming Discussion</a>
+              </li>
+            </ul>
+          </dd>
           <dt>Browser positions:</dt>
           <dd>---</dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
+        <p>A mechanism to insert or replace content at specific locations within the DOM tree.</p>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li>Strawperson proposal available.</li>
+          <li>General consensus is that this is needed and could be used by existing Web Component and Frontend libraries and frameworks.</li>
+          <li>Lots of bike shedding over naming.</li>
+          <li>There is a large number of open questions both on this feature and how it interacts with other proposals.</li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>The following is a summary of the core types from the proposal.</p>
+        <pre class="javascript">
+          interface Part {
+              attribute any value;
+              void commit();
+          };
+          
+          
+          interface NodePart : Part {
+              readonly attribute Node node;
+          };
+          
+          
+          interface AttributePart : Part {
+              constructor(Element element, DOMString qualifiedName, DOMString? namespace);
+              readonly attribute DOMString prefix;
+              readonly attribute DOMString localName;
+              readonly attribute DOMString namespaceURI;
+          };
+          
+          
+          interface ChildNodePart : Part {
+              constructor(Node node, Node? previousSibling, Node? nextSibling);
+              readonly attribute Node parentNode;
+              readonly attribute Node? previousSibling;
+              readonly attribute Node? nextSibling;
+          }
+          </pre>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <p>
+          <ul>
+            <li>
+              Enable batched updates to the DOM, usable by library/framework view engines. Library authors would be able to remove part of their user-land solution, shrinking libraries and reducing JS execution.
+            </li>
+            <li>
+              Needed as a steppingstone towards reactive bindings for custom elements.
+            </li>
+          </ul>
+        </p>
       </section>
       <section>
         <h3>Concerns</h3>
         <ul>
-          <li>---</li>
+          <li>
+            Naming the API as "Part" could cause confusion with CSS Shadow Parts. No consensus over naming reached yet.
+          </li>
         </ul>
       </section>
       <section>
         <h3>Dissenting Opinion</h3>
         <ul>
-          <li>---</li>
+          <li>
+            Some individuals, particularly from React-ish backgrounds, would prefer a diffing-based alternative to batched updates. However, there are several problems with the diffing proposal.
+            <ul>
+              <li>
+                The core proposal shows diffing between real DOM nodes, which is very heavy.
+              </li>
+              <li>
+                The diffing proposal acknowledges the above flaw and attempts to solve it by proposing a JavaScript API to create virtual DOMs but it's unclear why existing libraries can't be used for this.
+              </li>
+              <li>
+                It is not clear how this maps to fully declarative templates down the road, which are created in real DOM.
+              </li>
+            </ul>
+          </li>
         </ul>
       </section>
       <section>
         <h3>Related Specs</h3>
         <ul>
-          <li>---</li>
+          <li>
+            <a href="#declarative-shadow-dom">Declarative Shadow DOM</a>
+          </li>
+          <li>
+            <a href="#declarative-custom-elements">Declarative Custom Elements</a>
+          </li>
+          <li>
+            <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md">Template Instantiation</a>
+          </li>
+          <li>
+            <a href="#custom-attributes">Custom Attributes</a>
+          </li>
         </ul>
       </section>
       <section>
         <h3>Open Questions</h3>
         <ul>
-          <li>---</li>
+          <li>
+            How to handle attribute parts when there is a mixture of static and dynamic parts needed to assemble the attribute value?
+          </li>
+          <li>
+            How to handle child node updates when there is a mixture of elements, text, etc. that are potentially changing.
+          </li>
+          <li>
+            How to handle setting properties?
+          </li>
+          <li>
+            How do libraries and frameworks handle custom behaviors/directives?
+          </li>
+          <li>
+            How do we handle batches of updates and ordering of updates?
+          </li>
+          <li>
+            How do we clone templates to efficiently reproduce the template content and the proper part setup?
+          </li>
+          <li>
+            Could part references be shared with workers to allow DOM updates from workers?
+          </li>
         </ul>
       </section>
     </section>
@@ -1428,51 +1699,126 @@ class FancyInput extends HTMLElement {
           <dt>Previous WCCG Report(s)</dt>
           <dd>N/A</dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/w3c/webcomponents-cg/discussions/31#discussioncomment-3163644">Discussion</a>
+              </li>
+              <li>
+                <a href="https://github.com/whatwg/html/issues/2271">Custom Attribute Name Rules</a>
+              </li>
+              <li>
+                <a href="https://github.com/whatwg/dom/issues/533#issuecomment-405530738">Node Connectedness comment about Custom Attributes</a>
+              </li>
+            </ul>
+          </dd>
           <dt>Browser positions:</dt>
           <dd>---</dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
+        <p>Enable developers to create reusable custom behaviors that that can be declaratively applied to any element.</p>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li>
+            No official proposal yet.
+          </li>
+          <li>
+            While there is no official issue for this yet, this feature request crops up in several discussions on other threads. In general, the community seems to be very interested in having something like this.
+          </li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>There is no issue or proposal yet. The following can serve as an initial idea, inspired by custom elements.</p>
+        <pre class="javascript">
+          class MaterialRipple extends Attr {
+            // ownerElement inherited from Attr
+            // name inherited from Attr
+            // value inherited from Attr
+            // ...
+        
+            connectedCallback () {
+              // called when the ownerElement is connected to the DOM
+            }
+        
+            disconnectedCallback () {
+              // called when the ownerElement is disconnected from the DOM
+            }
+        
+            attributeChangedCallback() {
+              // called when the value property of this attribute changes
+            }
+        }
+        
+        customAttributes.define("material-ripple", MaterialRipple);
+        </pre>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <p>
+          <ul>
+            <li>Enable more built-in patterns to be accomplishable by developer extensions. e.g. label for, img src</li>
+            <li>Enable behaviors to be written once and used on any element.</li>
+            <li>May serve as a better solution than the "is" capability of custom elements (which isn't fully supported).</li>
+          </ul>
+        </p>
       </section>
       <section>
         <h3>Concerns</h3>
-        <ul>
-          <li>---</li>
-        </ul>
+        <p>No concerns yet.</p>
       </section>
       <section>
         <h3>Dissenting Opinion</h3>
-        <ul>
-          <li>---</li>
-        </ul>
+        <p>No dissenting opinions yet.</p>
       </section>
       <section>
         <h3>Related Specs</h3>
         <ul>
-          <li>---</li>
+          <li>
+            <a href="#declarative-shadow-dom">Declarative Shadow DOM</a>
+          </li>
+          <li>
+            <a href="#lazy-custom-element-definitions">Lazy Custom Element Definitions</a>
+          </li>
+          <li>
+            <a href="#dom-parts">DOM Part API</a>
+          </li>
+          <li>
+            <a href="#scoped-element-registries">Scoped Custom Element Registries</a>
+          </li>
+          <li>
+            <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md">Template Instantiation</a>
+          </li>
         </ul>
       </section>
       <section>
         <h3>Open Questions</h3>
         <ul>
-          <li>---</li>
+          <li>
+            How should custom attributes be named? Can they follow the same hyphen convention as custom elements?
+          </li>
+          <li>
+            SVG has some CSS properties that it surfaces as attributes. How do we prevent conflicts?
+          </li>
+          <li>
+            It could be beneficial for a custom attribute to have access to the shadow DOM of a custom element, but is this a security issue?
+          </li>
+          <li>
+            Should we allow access to ElementInternals? Is that a security problem? Is there a limited version of this we could support? Do custom elements need to allow this? What about built-ins?
+          </li>
+          <li>
+            How to handle when "removeAttribute" is called?
+          </li>
+          <li>
+            Should there be special handling for boolean attributes?
+          </li>
+          <li>
+            Should there be a specific set of pre-defined attributes that can be opted into for custom elements. e.g. for, src
+          </li>
         </ul>
       </section>
     </section>
