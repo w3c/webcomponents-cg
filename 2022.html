@@ -133,6 +133,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "url": "https://github.com/alangdm"
     },
     {
+      "name": "Rob Eisenberg",
+      "url": "https://github.com/eisenbergeffect"
+    },
+    {
       "name": "Owen Buckley",
       "url": "https://github.com/thescientist13"
     },
@@ -171,6 +175,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <a class="u-url url p-name fn" href="https://westbrookjohnson.com">Westbrook Johnson</a>
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://github.com/alangdm">Alan Dávalos</a>
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://github.com/eisenbergeffect">Rob Eisenberg</a>
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://github.com/thescientist13">Owen Buckley</a>
   </dd><dd class="editor p-author h-card vcard">
@@ -343,15 +349,15 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             </tr>
             <tr>
               <th><a href="#lazy-custom-element-definitions">Lazy custom element definitions</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/782">WICG/webcomponents#782</a></td>
               <td></td>
-              <td></td>
-              <td></td>
+              <td>Uncertain</td>
             </tr>
             <tr>
               <th><a href="#dom-parts">DOM Parts</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/DOM-Parts.md">DOM Part API - First Step of Template Instantiation</a></td>
               <td></td>
-              <td></td>
-              <td></td>
+              <td>Uncertain</td>
             </tr>
             <tr>
               <th><a href="#html-modules">HTML modules</a></th>
@@ -361,9 +367,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             </tr>
             <tr>
               <th><a href="#custom-attributes">Custom Attributes</a></th>
+              <td><a href="https://github.com/w3c/webcomponents-cg/discussions/31#discussioncomment-3163644">Web Components CG Discussion</a></td>
               <td></td>
-              <td></td>
-              <td></td>
+              <td>Not addressed</td>
             </tr>
             <tr>
               <th>---</th>
@@ -1092,51 +1098,116 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <dt>Previous WCCG Report(s)</dt>
           <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#declarative-custom-elements">2021</a></dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Declarative-Custom-Elements-Strawman.md">Initial Proposal</a></li>
+              <li><a href="https://github.com/Westbrook/custom-element-proposals/pull/1">Single File Component Explainer</a></li>
+              <li><a href="https://github.com/WICG/webcomponents/issues/645">Cross-over with HTML Modules</a></li>
+              <li><a href="https://github.com/w3c/webcomponents-cg/issues/32">Discussion</a></li>
+            </ul>
+          </dd>
           <dt>Browser positions:</dt>
           <dd>---</dd>
         </dl>
       </section>
       <section id="description-9"><div class="header-wrapper"><h3 id="x12-2-description"><bdi class="secno">12.2 </bdi>Description</h3><a class="self-link" href="#description-9" aria-label="Permalink for Section 12.2"></a></div>
         
-        <p>---</p>
+        <p>A method of creating custom elements completely with declarative HTML, not requiring JavaScript.</p>
       </section>
       <section id="status-9"><div class="header-wrapper"><h3 id="x12-3-status"><bdi class="secno">12.3 </bdi>Status</h3><a class="self-link" href="#status-9" aria-label="Permalink for Section 12.3"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Strawperson proposal available.</li>
+          <li>Dependent on many other proposals that are not yet finished.</li>
+          <li>Many people would like to have something like this but it seems too early due to the number of unfinished dependencies.</li>
         </ul>
       </section>
       <section id="initial-api-summary-quick-api-proposal-9"><div class="header-wrapper"><h3 id="x12-4-initial-api-summary-quick-api-proposal"><bdi class="secno">12.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-9" aria-label="Permalink for Section 12.4"></a></div>
         
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>The following, copied from the original strapwerson proposal, demonstrates how a declarative custom element could be defined with the need for JavaScript.</p>
+        <pre aria-busy="false"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">definition</span>&nbsp;<span class="hljs-attr">name</span>=<span class="hljs-string">"percentage-bar"</span>&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&nbsp;<span class="hljs-attr">shadowmode</span>=<span class="hljs-string">"closed"</span>&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&nbsp;<span class="hljs-attr">id</span>=<span class="hljs-string">"progressbar"</span>&nbsp;<span class="hljs-attr">role</span>=<span class="hljs-string">"progressbar"</span>&nbsp;<span class="hljs-attr">aria-valuemin</span>=<span class="hljs-string">"0"</span>&nbsp;<span class="hljs-attr">aria-valuemax</span>=<span class="hljs-string">"100"</span>&nbsp;<span class="hljs-attr">aria-valuenow</span>=<span class="hljs-string">"{{\root.attributes.percentage.value}}"</span>&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&nbsp;<span class="hljs-attr">id</span>=<span class="hljs-string">"bar"</span>&nbsp;<span class="hljs-attr">style</span>=<span class="hljs-string">"width:&nbsp;{{\root.attributes.percentage.value}}%"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&nbsp;<span class="hljs-attr">id</span>=<span class="hljs-string">"label"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-selector-pseudo">:host</span>&nbsp;{&nbsp;<span class="hljs-attribute">display</span>:&nbsp;inline-block&nbsp;<span class="hljs-meta">!important</span>;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-selector-id">#progressbar</span>&nbsp;{&nbsp;<span class="hljs-attribute">position</span>:&nbsp;relative;&nbsp;<span class="hljs-attribute">display</span>:&nbsp;block;&nbsp;<span class="hljs-attribute">width</span>:&nbsp;<span class="hljs-number">100%</span>;&nbsp;<span class="hljs-attribute">height</span>:&nbsp;<span class="hljs-number">100%</span>;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-selector-id">#bar</span>&nbsp;{&nbsp;<span class="hljs-attribute">background-color</span>:&nbsp;<span class="hljs-number">#36f</span>;&nbsp;<span class="hljs-attribute">height</span>:&nbsp;<span class="hljs-number">100%</span>;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-selector-id">#label</span>&nbsp;{&nbsp;<span class="hljs-attribute">position</span>:&nbsp;absolute;&nbsp;<span class="hljs-attribute">top</span>:&nbsp;<span class="hljs-number">0px</span>;&nbsp;<span class="hljs-attribute">left</span>:&nbsp;<span class="hljs-number">0px</span>;&nbsp;<span class="hljs-attribute">width</span>:&nbsp;<span class="hljs-number">100%</span>;&nbsp;<span class="hljs-attribute">height</span>:&nbsp;<span class="hljs-number">100%</span>;&nbsp;<span class="hljs-attribute">text-align</span>:&nbsp;center;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">definition</span>&gt;</span></code></pre>
       </section>
       <section id="key-scenarios-9"><div class="header-wrapper"><h3 id="x12-5-key-scenarios"><bdi class="secno">12.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-9" aria-label="Permalink for Section 12.5"></a></div>
         
-        <p>---</p>
+        <ul>
+          <li>Create reusable custom elements without needing to load or run JavaScript.</li>
+          <li>Use custom elements in noscript contexts.</li>
+          <li>Open up new opportunities for more efficient server-side-rendering. e.g. Smaller html payloads due to less duplication of HTML</li>
+          <li>Codify framework "single file component" patterns in the platform.</li>
+        </ul>
       </section>
       <section id="concerns-9"><div class="header-wrapper"><h3 id="x12-6-concerns"><bdi class="secno">12.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-9" aria-label="Permalink for Section 12.6"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Binding syntax for attributes is extremely verbose. e.g. "{{root.attributes.percentage.value}}" is used instead of something terser like "{{percentage}}" .</li>
+          <li>Binding syntax doesn't look extensible.</li>
+          <li>A lot of cooperation from tooling and plugin authors will be required to enable developer ergonomics and adoption.</li>
+          <li>The current proposal's script model creates a second way of coding components with some different behavior from what we have today.</li>
+          <li>The current proposal conflicts in syntax with Declarative Shadow DOM.</li>
         </ul>
       </section>
       <section id="dissenting-opinion-8"><div class="header-wrapper"><h3 id="x12-7-dissenting-opinion"><bdi class="secno">12.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-8" aria-label="Permalink for Section 12.7"></a></div>
         
-        <ul>
-          <li>---</li>
-        </ul>
+        <p>No dissenting opinions yet.</p>
       </section>
       <section id="related-specs-9"><div class="header-wrapper"><h3 id="x12-8-related-specs"><bdi class="secno">12.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-9" aria-label="Permalink for Section 12.8"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>
+            <a href="https://html.spec.whatwg.org/multipage/scripting.html#htmltemplateelement">HTML Template Element</a>
+          </li>
+          <li>
+            <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#form-associated-custom-elements">Form Associated Custom Elements</a>
+          </li>
+          <li>
+            <a href="https://wicg.github.io/custom-state-pseudo-class/#customstateset">Custom State Set</a>
+          </li>
+          <li>
+            <a href="#declarative-css-modules">Declarative CSS Modules</a>
+          </li>
+          <li>
+            <a href="#dom-parts">DOM Part API</a>
+          </li>
+          <li>
+            <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md">Template Instantiation</a>
+          </li>
+          <li>
+            <a href="#scoped-element-registries">Scoped Custom Element Registries</a>
+          </li>
+          <li>
+            <a href="#lazy-custom-element-definitions">Lazy Custom Element Definitions</a>
+          </li>
+          <li>
+            <a href="#cross-root-aria">Cross Root Aria</a>
+          </li>
+          <li>
+            <a href="#html-modules">HTML Modules</a>
+          </li>
         </ul>
       </section>
       <section id="open-questions-9"><div class="header-wrapper"><h3 id="x12-9-open-questions"><bdi class="secno">12.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-9" aria-label="Permalink for Section 12.9"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Shouldn't attributes be declared instead of inferred through the bindings?</li>
+          <li>How to handle boolean attributes and reflected attributes?</li>
+          <li>If script is provided through src, how should loading be handled? Does it block or can it be partially upgraded?</li>
+          <li>How does this support aria roles, degegated aria, and cross-root aria?</li>
+          <li>How is form association handled?</li>
+          <li>When script is provided, how does it interact with or gain access to the template and styles?</li>
+          <li>Should there be ways to ship definitions along with a data set or top-level template so that small payloads of data can be automatically combined with template and element declarations without the need for JS?</li>
         </ul>
       </section>
     </section>
@@ -1428,51 +1499,154 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <dt>Previous WCCG Report(s)</dt>
           <dd>N/A</dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/issues/782">Initial Proposal</a>
+              </li>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/issues/444">Alternative Proposal (closed)</a>
+              </li>
+              <li>
+                <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1460815">Firefox Internal Issue</a>
+              </li>
+            </ul>
+          </dd>
           <dt>Browser positions:</dt>
           <dd>---</dd>
         </dl>
       </section>
       <section id="description-15"><div class="header-wrapper"><h3 id="x18-2-description"><bdi class="secno">18.2 </bdi>Description</h3><a class="self-link" href="#description-15" aria-label="Permalink for Section 18.2"></a></div>
         
-        <p>---</p>
+        <p>
+          Enable the browser to automatically load a custom element definition when it first sees the associated tag.
+        </p>
       </section>
       <section id="status-15"><div class="header-wrapper"><h3 id="x18-3-status"><bdi class="secno">18.3 </bdi>Status</h3><a class="self-link" href="#status-15" aria-label="Permalink for Section 18.3"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>
+            Strawperson proposal available.
+          </li>
+          <li>
+            There is further disagreement as to whether this feature is needed. However, the community generally tends to lean toward wanting some version of this.
+          </li>
+          <li>
+            There are many open questions around the feature-set as well as how it interoperates with other proposals.
+          </li>
         </ul>
       </section>
       <section id="initial-api-summary-quick-api-proposal-15"><div class="header-wrapper"><h3 id="x18-4-initial-api-summary-quick-api-proposal"><bdi class="secno">18.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-15" aria-label="Permalink for Section 18.4"></a></div>
         
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>Below is a definition for the proposed new CustomElementRegistry API.</p>
+        <pre aria-busy="false"><code class="hljs javascript">  CustomElementRegistry#defineLazy(tagName: string, <span class="hljs-attr">loader</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">Promise</span>);
+</code></pre>
       </section>
       <section id="key-scenarios-15"><div class="header-wrapper"><h3 id="x18-5-key-scenarios"><bdi class="secno">18.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-15" aria-label="Permalink for Section 18.5"></a></div>
         
-        <p>---</p>
+        <p>
+          </p><ul>
+            <li>
+              Enable bundlers to split code based on the presence of dynamic import calls. Tools like guess.js can integrate with bundlers to provide statistical analysis of actual usage, optimizing bundles better. This proposal would enable that type of integration.
+            </li>
+            <li>
+              Enable consumers of web components to not have to worry about handling the loading of the code in every place where a component is used. This is important in systems where the content may leverage a potential large number of Web Components but where only a few are actually needed in any given experience. E.g. News sites, feeds, etc.
+            </li>
+            <li>
+              Firefox has an internal API for lazy loading definitions.
+            </li>
+          </ul>
+        <p></p>
       </section>
       <section id="concerns-15"><div class="header-wrapper"><h3 id="x18-6-concerns"><bdi class="secno">18.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-15" aria-label="Permalink for Section 18.6"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>
+            This feature could make it easy to create a "loading pyramid". e.g. Component A loads, which causes B and C to load, which then cause D and E to load, etc.
+          </li>
         </ul>
       </section>
       <section id="dissenting-opinion-14"><div class="header-wrapper"><h3 id="x18-7-dissenting-opinion"><bdi class="secno">18.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-14" aria-label="Permalink for Section 18.7"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>
+            Breaks Principle of Least Surprise. If you see a component in the HTML, you expect to be able to interact with it. But this may fail due to the component not being loaded yet.
+          </li>
+          <li>
+            Seems backward to have the browser tell the experience when to load code, rather than the experience telling the browser.
+          </li>
+          <li>
+            Rather than focusing on this high level feature, we should instead add low-level APIs that enable building this feature with a few lines of code. Recognizes that MutationObserver is not sufficient, but isn't convinced about lazy definitions.
+          </li>
         </ul>
       </section>
       <section id="related-specs-15"><div class="header-wrapper"><h3 id="x18-8-related-specs"><bdi class="secno">18.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-15" aria-label="Permalink for Section 18.8"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>
+            <a href="#scoped-element-registries">Scoped Custom Element Registries</a>
+          </li>
+          <li>
+            <a href="#declarative-shadow-dom">Declarative Shadow DOM</a>
+          </li>
+          <li>
+            <a href="#children-changed-callback">Children Changed Callback</a> 
+          </li>
+          <li>
+            <a href="https://github.com/whatwg/dom/issues/533">Observable Node Connectedness</a>
+          </li>
+          <li>
+            <a href="https://github.com/webcomponents-cg/community-protocols/blob/main/proposals/pending-task.md">Pending Task Protocol</a>
+          </li>
         </ul>
       </section>
       <section id="open-questions-15"><div class="header-wrapper"><h3 id="x18-9-open-questions"><bdi class="secno">18.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-15" aria-label="Permalink for Section 18.9"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>
+            How do we handle ElementDefinitionOptions? CustomElementDefinition isn't defined in the proposal above. Does it include this? How?
+          </li>
+          <li>
+            Should there be a parallel API to unload a definition?
+          </li>
+          <li>
+            Should there be additional configuration options for load triggers?
+            <ul>
+              <li>
+                When certain attributes change.
+              </li>
+              <li>
+                When certain events are fired.
+              </li>
+              <li>
+                When scrolled into view.
+              </li>
+              <li>
+                When the mouse is close.
+              </li>
+            </ul>
+          </li>
+          <li>
+            How does this work with sync calls to document.createElement?
+          </li>
+          <li>
+            Should there be wild card registrations that can be used to load collections of components based on a pattern?
+          </li>
+          <li>
+            Could all of this be handled by a more general-purpose callback that was simply fired when an unknown element name is seen?
+          </li>
+          <li>
+            How do we handle lazy definitions when someone calls "get" on the CustomElementsRegistry?
+          </li>
+          <li>
+            If a component is lazy defined but has not yet loaded, what happens when someone tries to synchronously define an element with the same name?
+          </li>
+          <li>
+            How does a component know when all its lazily loaded children are done loading?
+          </li>
+          <li>
+            Should there be a more declarative API for this to tell the parser where to fine unknown elements?
+          </li>
         </ul>
       </section>
     </section>
@@ -1484,51 +1658,146 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <dt>Previous WCCG Report(s)</dt>
           <dd>N/A</dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/DOM-Parts.md">Initial Proposal</a>
+              </li>
+              <li>
+                <a href="https://docs.google.com/document/d/1UVtF1gM6XY-_NKm2_c045K803U3ZTjfyluLeToJlIUk/edit">Alternative Diffing Proposal</a>
+              </li>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/issues/902">Naming Discussion</a>
+              </li>
+            </ul>
+          </dd>
           <dt>Browser positions:</dt>
           <dd>---</dd>
         </dl>
       </section>
       <section id="description-16"><div class="header-wrapper"><h3 id="x19-2-description"><bdi class="secno">19.2 </bdi>Description</h3><a class="self-link" href="#description-16" aria-label="Permalink for Section 19.2"></a></div>
         
-        <p>---</p>
+        <p>A mechanism to insert or replace content at specific locations within the DOM tree.</p>
       </section>
       <section id="status-16"><div class="header-wrapper"><h3 id="x19-3-status"><bdi class="secno">19.3 </bdi>Status</h3><a class="self-link" href="#status-16" aria-label="Permalink for Section 19.3"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Strawperson proposal available.</li>
+          <li>General consensus is that this is needed and could be used by existing Web Component and Frontend libraries and frameworks.</li>
+          <li>Lots of bike shedding over naming.</li>
+          <li>There is a large number of open questions both on this feature and how it interacts with other proposals.</li>
         </ul>
       </section>
       <section id="initial-api-summary-quick-api-proposal-16"><div class="header-wrapper"><h3 id="x19-4-initial-api-summary-quick-api-proposal"><bdi class="secno">19.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-16" aria-label="Permalink for Section 19.4"></a></div>
         
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>The following is a summary of the core types from the proposal.</p>
+        <pre aria-busy="false"><code class="hljs javascript">interface Part {
+    attribute any value;
+    <span class="hljs-keyword">void</span> commit();
+};
+
+
+interface NodePart : Part {
+    readonly attribute Node node;
+};
+
+
+interface AttributePart : Part {
+    <span class="hljs-title">constructor</span>(<span class="hljs-params">Element element, DOMString qualifiedName, DOMString? namespace</span>);
+    readonly attribute DOMString prefix;
+    readonly attribute DOMString localName;
+    readonly attribute DOMString namespaceURI;
+};
+
+
+interface ChildNodePart : Part {
+    <span class="hljs-title">constructor</span>(<span class="hljs-params">Node node, Node? previousSibling, Node? nextSibling</span>);
+    readonly attribute Node parentNode;
+    readonly attribute Node? previousSibling;
+    readonly attribute Node? nextSibling;
+}</code></pre>
       </section>
       <section id="key-scenarios-16"><div class="header-wrapper"><h3 id="x19-5-key-scenarios"><bdi class="secno">19.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-16" aria-label="Permalink for Section 19.5"></a></div>
         
-        <p>---</p>
+        <p>
+          </p><ul>
+            <li>
+              Enable batched updates to the DOM, usable by library/framework view engines. Library authors would be able to remove part of their user-land solution, shrinking libraries and reducing JS execution.
+            </li>
+            <li>
+              Needed as a steppingstone towards reactive bindings for custom elements.
+            </li>
+          </ul>
+        <p></p>
       </section>
       <section id="concerns-16"><div class="header-wrapper"><h3 id="x19-6-concerns"><bdi class="secno">19.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-16" aria-label="Permalink for Section 19.6"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>
+            Naming the API as "Part" could cause confusion with CSS Shadow Parts. No consensus over naming reached yet.
+          </li>
         </ul>
       </section>
       <section id="dissenting-opinion-15"><div class="header-wrapper"><h3 id="x19-7-dissenting-opinion"><bdi class="secno">19.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-15" aria-label="Permalink for Section 19.7"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>
+            Some individuals, particularly from React-ish backgrounds, would prefer a diffing-based alternative to batched updates. However, there are several problems with the diffing proposal.
+            <ul>
+              <li>
+                The core proposal shows diffing between real DOM nodes, which is very heavy.
+              </li>
+              <li>
+                The diffing proposal acknowledges the above flaw and attempts to solve it by proposing a JavaScript API to create virtual DOMs but it's unclear why existing libraries can't be used for this.
+              </li>
+              <li>
+                It is not clear how this maps to fully declarative templates down the road, which are created in real DOM.
+              </li>
+            </ul>
+          </li>
         </ul>
       </section>
       <section id="related-specs-16"><div class="header-wrapper"><h3 id="x19-8-related-specs"><bdi class="secno">19.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-16" aria-label="Permalink for Section 19.8"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>
+            <a href="#declarative-shadow-dom">Declarative Shadow DOM</a>
+          </li>
+          <li>
+            <a href="#declarative-custom-elements">Declarative Custom Elements</a>
+          </li>
+          <li>
+            <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md">Template Instantiation</a>
+          </li>
+          <li>
+            <a href="#custom-attributes">Custom Attributes</a>
+          </li>
         </ul>
       </section>
       <section id="open-questions-16"><div class="header-wrapper"><h3 id="x19-9-open-questions"><bdi class="secno">19.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-16" aria-label="Permalink for Section 19.9"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>
+            How to handle attribute parts when there is a mixture of static and dynamic parts needed to assemble the attribute value?
+          </li>
+          <li>
+            How to handle child node updates when there is a mixture of elements, text, etc. that are potentially changing.
+          </li>
+          <li>
+            How to handle setting properties?
+          </li>
+          <li>
+            How do libraries and frameworks handle custom behaviors/directives?
+          </li>
+          <li>
+            How do we handle batches of updates and ordering of updates?
+          </li>
+          <li>
+            How do we clone templates to efficiently reproduce the template content and the proper part setup?
+          </li>
+          <li>
+            Could part references be shared with workers to allow DOM updates from workers?
+          </li>
         </ul>
       </section>
     </section>
@@ -1596,51 +1865,124 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <dt>Previous WCCG Report(s)</dt>
           <dd>N/A</dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/w3c/webcomponents-cg/discussions/31#discussioncomment-3163644">Discussion</a>
+              </li>
+              <li>
+                <a href="https://github.com/whatwg/html/issues/2271">Custom Attribute Name Rules</a>
+              </li>
+              <li>
+                <a href="https://github.com/whatwg/dom/issues/533#issuecomment-405530738">Node Connectedness comment about Custom Attributes</a>
+              </li>
+            </ul>
+          </dd>
           <dt>Browser positions:</dt>
           <dd>---</dd>
         </dl>
       </section>
       <section id="description-18"><div class="header-wrapper"><h3 id="x21-2-description"><bdi class="secno">21.2 </bdi>Description</h3><a class="self-link" href="#description-18" aria-label="Permalink for Section 21.2"></a></div>
         
-        <p>---</p>
+        <p>Enable developers to create reusable custom behaviors that that can be declaratively applied to any element.</p>
       </section>
       <section id="status-18"><div class="header-wrapper"><h3 id="x21-3-status"><bdi class="secno">21.3 </bdi>Status</h3><a class="self-link" href="#status-18" aria-label="Permalink for Section 21.3"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>
+            No official proposal yet.
+          </li>
+          <li>
+            While there is no official issue for this yet, this feature request crops up in several discussions on other threads. In general, the community seems to be very interested in having something like this.
+          </li>
         </ul>
       </section>
       <section id="initial-api-summary-quick-api-proposal-18"><div class="header-wrapper"><h3 id="x21-4-initial-api-summary-quick-api-proposal"><bdi class="secno">21.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-18" aria-label="Permalink for Section 21.4"></a></div>
         
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>There is no issue or proposal yet. The following can serve as an initial idea, inspired by custom elements.</p>
+        <pre aria-busy="false"><code class="hljs javascript">  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MaterialRipple</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Attr</span> </span>{
+    <span class="hljs-comment">// ownerElement inherited from Attr</span>
+    <span class="hljs-comment">// name inherited from Attr</span>
+    <span class="hljs-comment">// value inherited from Attr</span>
+    <span class="hljs-comment">// ...</span>
+
+    connectedCallback () {
+      <span class="hljs-comment">// called when the ownerElement is connected to the DOM</span>
+    }
+
+    disconnectedCallback () {
+      <span class="hljs-comment">// called when the ownerElement is disconnected from the DOM</span>
+    }
+
+    <span class="hljs-function"><span class="hljs-title">attributeChangedCallback</span>(<span class="hljs-params"></span>)</span> {
+      <span class="hljs-comment">// called when the value property of this attribute changes</span>
+    }
+}
+
+customAttributes.define(<span class="hljs-string">"material-ripple"</span>, MaterialRipple);</code></pre>
       </section>
       <section id="key-scenarios-18"><div class="header-wrapper"><h3 id="x21-5-key-scenarios"><bdi class="secno">21.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-18" aria-label="Permalink for Section 21.5"></a></div>
         
-        <p>---</p>
+        <p>
+          </p><ul>
+            <li>Enable more built-in patterns to be accomplishable by developer extensions. e.g. label for, img src</li>
+            <li>Enable behaviors to be written once and used on any element.</li>
+            <li>May serve as a better solution than the "is" capability of custom elements (which isn't fully supported).</li>
+          </ul>
+        <p></p>
       </section>
       <section id="concerns-18"><div class="header-wrapper"><h3 id="x21-6-concerns"><bdi class="secno">21.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-18" aria-label="Permalink for Section 21.6"></a></div>
         
-        <ul>
-          <li>---</li>
-        </ul>
+        <p>No concerns yet.</p>
       </section>
       <section id="dissenting-opinion-17"><div class="header-wrapper"><h3 id="x21-7-dissenting-opinion"><bdi class="secno">21.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-17" aria-label="Permalink for Section 21.7"></a></div>
         
-        <ul>
-          <li>---</li>
-        </ul>
+        <p>No dissenting opinions yet.</p>
       </section>
       <section id="related-specs-18"><div class="header-wrapper"><h3 id="x21-8-related-specs"><bdi class="secno">21.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-18" aria-label="Permalink for Section 21.8"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>
+            <a href="#declarative-shadow-dom">Declarative Shadow DOM</a>
+          </li>
+          <li>
+            <a href="#lazy-custom-element-definitions">Lazy Custom Element Definitions</a>
+          </li>
+          <li>
+            <a href="#dom-parts">DOM Part API</a>
+          </li>
+          <li>
+            <a href="#scoped-element-registries">Scoped Custom Element Registries</a>
+          </li>
+          <li>
+            <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md">Template Instantiation</a>
+          </li>
         </ul>
       </section>
       <section id="open-questions-18"><div class="header-wrapper"><h3 id="x21-9-open-questions"><bdi class="secno">21.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-18" aria-label="Permalink for Section 21.9"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>
+            How should custom attributes be named? Can they follow the same hyphen convention as custom elements?
+          </li>
+          <li>
+            SVG has some CSS properties that it surfaces as attributes. How do we prevent conflicts?
+          </li>
+          <li>
+            It could be beneficial for a custom attribute to have access to the shadow DOM of a custom element, but is this a security issue?
+          </li>
+          <li>
+            Should we allow access to ElementInternals? Is that a security problem? Is there a limited version of this we could support? Do custom elements need to allow this? What about built-ins?
+          </li>
+          <li>
+            How to handle when "removeAttribute" is called?
+          </li>
+          <li>
+            Should there be special handling for boolean attributes?
+          </li>
+          <li>
+            Should there be a specific set of pre-defined attributes that can be opted into for custom elements. e.g. for, src
+          </li>
         </ul>
       </section>
     </section>
