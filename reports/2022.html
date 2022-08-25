@@ -24,6 +24,10 @@
             url: "https://github.com/alangdm",
           },
           {
+            name: "Owen Buckley",
+            url: "https://github.com/thescientist13",
+          },
+          {
             name: "Caleb Williams",
             url: "https://github.com/calebdwilliams"
           }
@@ -592,57 +596,71 @@ class FancyInput extends HTMLElement {
           <dt>Previous WCCG Report(s)</dt>
           <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#declarative-shadow-dom">2021</a></dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd><a href="https://github.com/whatwg/dom/issues/831">https://github.com/whatwg/dom/issues/831</a></dd>
           <dt>Browser positions:</dt>
-          <dd>---</dd>
+          <dd><a href="https://chromestatus.com/feature/5191745052606464">Chrome (Shipped)</a></dd>
+          <dd><a href="https://github.com/mozilla/standards-positions/issues/335">Mozilla</a></dd>
+          <dd><a href="https://github.com/WebKit/standards-positions/issues/12">Safari</a></dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
+        <p>Declarative Shadow DOM is a mechanism to express Shadow DOM using only HTML, with no dependency on JavaScript, much like light DOM can be declaratively expressed today.</p>
       </section>
       <section>
         <h3>Links</h3>
         <ul>
-          <li>---</li>
+          <li><a href="https://web.dev/declarative-shadow-dom">Declarative Shadow DOM</a></li>
         </ul>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li>Partial consensus, some implementation</li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>
+          <pre>
+            &lt;host-element&gt;
+              &lt;template shadowroot="open"&gt;
+                &lt;slot&gt;&lt;/slot&gt;
+              &lt;/template&gt;
+              &lt;h2>Light content&lt;/h2>&gt;
+            &lt;/host-element>
+          </pre>
+        </p>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <p>Server-Side Rendering: Without Declarative Shadow DOM, servers cannot deliver complete websites that include web component content. Markup cannot be efficiently delivered and then hydrated with JavaScript client-side.</p>
+        <p>JavaScript-less environments: Many web components could be implemented without JavaScript, taking advantage of encapsulated DOM and styles. However, web components cannot currently be rendered by users who have JavaScript disabled. Developers who are more comfortable with markup than with scripting may avoid shadow DOM altogether due to its tight coupling with JavaScript..</p>
       </section>
       <section>
         <h3>Concerns</h3>
         <ul>
-          <li>---</li>
+          <li>Mozilla considers this to be non-harmful, though debates the merits on ROI to developers weighed against the added complexity to be added to the HTML parser from a performance perspective.</li>
+          <li>Safari would like to see compatibility with Scoped Element Registry addressed first.</li>
         </ul>
       </section>
       <section>
         <h3>Dissenting Opinion</h3>
         <ul>
-          <li>---</li>
+          <li>N / A</li>
         </ul>
       </section>
       <section>
         <h3>Related Specs</h3>
         <ul>
-          <li>---</li>
+          <li><a href="https://github.com/WICG/webcomponents/issues/716">Scoped Element Registries</a></li>
         </ul>
       </section>
       <section>
         <h3>Open Questions</h3>
         <ul>
-          <li>---</li>
+          <li>Mozilla would like to see more <a href="https://github.com/whatwg/dom/issues/831#issuecomment-988394185">real world uses cases</a> of Declarative Shadow DOM in the wild.  Which is a bit of a catch-22 when it is only supported in one browser and requires a polyfill.</li>
+          <li>Safari would like to <a href="https://github.com/whatwg/dom/issues/831#issuecomment-797845645">get consensus on the solution for Scoped Element Registries first.</a></li>
         </ul>
       </section>
     </section>
