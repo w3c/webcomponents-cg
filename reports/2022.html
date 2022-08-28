@@ -426,45 +426,66 @@ class FancyInput extends HTMLElement {
           <dt>Previous WCCG Report(s)</dt>
           <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#constructable-stylesheets-adoptedstylesheets">2021</a></dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd><a href="https://github.com/WICG/webcomponents/issues/468">WICG/webcomponents#468</a></dd>
           <dt>Browser positions:</dt>
-          <dd>---</dd>
+          <dd><a href="https://chromestatus.com/feature/5394843094220800" target="_blank">Chrome (Shipped)</a></dd>
+          <dd><a href="https://github.com/mozilla/standards-positions/issues/103" target="_blank">Mozilla (Shipped)</a></dd>
+          <dd><a href="https://github.com/WebKit/standards-positions/issues/42" target="_blank">Safari</a></dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
+        <p><a href="https://wicg.github.io/construct-stylesheets/" target="_blank">Constructable Stylesheets</a> and adoptedStyleSheets enable adding styles directly to shadow roots without creating new DOM elements. Because a single stylesheet object can be adopted by multiple scopes, it also allows sharing of styles that can be centrally modified.</p>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li>Partial consensus; shipped in both <a href="https://web.dev/constructable-stylesheets/" target="_blank">Chrome</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1520690" target="_blank">Firefox</a></li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>The following is <a href="https://web.dev/constructable-stylesheets/#using-constructed-stylesheets" target="_blank">an example</a> of what this would look like in practice.</p>
+        <pre>
+          const sheet = new CSSStyleSheet();
+          sheet.replaceSync('a { color: red; }');
+          
+          // Apply the stylesheet to a document:
+          document.adoptedStyleSheets = [sheet];
+          
+          // Apply the stylesheet to a Shadow Root:
+          const node = document.createElement('div');
+          const shadow = node.attachShadow({ mode: 'open' });
+          shadow.adoptedStyleSheets = [sheet];
+        </pre>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <ul>
+          <li>There is no effective way to share styles across components while allowing them to be centrally modified.</li>
+          <li>Creating `&lt;style&gt;` elements for each style used in each shadow root has a measurable performance overhead.</li>
+          <li>CSS Module Scripts, another critical feature, depends on constructible stylesheets.</li>
+        </ul>
       </section>
       <section>
         <h3>Concerns</h3>
-        <ul>
-          <li>---</li>
-        </ul>
+        <p>From their standards position tracker, Safari has highlighted some of the following concerns:</p>
+          <ul>
+            <li>Issues related to <a href="https://github.com/WICG/construct-stylesheets/issues/45" target="_blank">race conditions</a> with adopting stylesheets and if the adoptedStyleSheets array should be directly mutable or not</li>
+            <li>There is concern that it is <a href="https://github.com/whatwg/dom/pull/892#pullrequestreview-593774559" target="_blank">incompatible with Declarative Shadow DOM</a>.</li>
+            <li>Outstanding questions around <a href="https://github.com/WICG/webcomponents/issues/870" target="_blank"><em>@import</em> statements in CSS Modules</a>.</li>
+          </ul>
+        </p>
       </section>
       <section>
         <h3>Dissenting Opinion</h3>
-        <ul>
-          <li>---</li>
-        </ul>
+        <li>---</li>
       </section>
       <section>
         <h3>Related Specs</h3>
         <ul>
-          <li>---</li>
+          <li><a href="/#declarative-shadow-dom" target="_blank">Declarative Shadow DOM</a></li>
+          <li><a href="/#css-module-scripts" target="_blank">CSS Module Scripts</a></li>
         </ul>
       </section>
       <section>
