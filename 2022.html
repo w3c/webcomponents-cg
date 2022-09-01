@@ -150,8 +150,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "xref": "web-platform",
   "group": "webcomponents",
   "tocIntroductory": true,
-  "publishISODate": "2022-08-25T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 25 August 2022"
+  "publishISODate": "2022-09-01T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 01 September 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
   <body class="h-entry" data-cite="HTML INFRA URL WEBIDL DOM FETCH"><div class="head">
@@ -159,7 +159,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Web Components Community Group: 2022 Spec/API status</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2022-08-25">25 August 2022</time>
+      <time class="dt-published" datetime="2022-09-01">01 September 2022</time>
     </p>
     <dl>
       
@@ -718,19 +718,33 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <dt>Previous WCCG Report(s)</dt>
           <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#scoped-element-registries">2021</a></dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd><a href="https://github.com/WICG/webcomponents/issues/716">WICG/webcomponents#716</a></dd>
           <dt>Browser positions:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/WebKit/standards-positions/issues/38">WebKit</a>
+              </li>
+              <li>
+                <a href="https://groups.google.com/a/chromium.org/g/blink-dev/c/um-9YjJWyEQ/m/MhKN0L7FAgAJ">Chromium</a>
+              </li>
+              <li>
+                <a href="https://github.com/mozilla/standards-positions/issues/424">Mozilla</a>
+              </li>              
+            </ul>
+          </dd>
         </dl>
       </section>
       <section id="description-3"><div class="header-wrapper"><h3 id="x6-2-description"><bdi class="secno">6.2 </bdi>Description</h3><a class="self-link" href="#description-3" aria-label="Permalink for Section 6.2"></a></div>
         
-        <p>---</p>
+        <p>Scoped element registries allow custom element definitions to be scoped to one or more shadow roots. This allows the same tag name to be used with different implementations in different parts of the page, greatly reducing tag name collisions.</p>
       </section>
       <section id="status-3"><div class="header-wrapper"><h3 id="x6-3-status"><bdi class="secno">6.3 </bdi>Status</h3><a class="self-link" href="#status-3" aria-label="Permalink for Section 6.3"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Chromium: prototyping</li>
+          <li>WebKit: ?</li>
+          <li>Mozilla: ?</li>
         </ul>
       </section>
       <section id="initial-api-summary-quick-api-proposal-3"><div class="header-wrapper"><h3 id="x6-4-initial-api-summary-quick-api-proposal"><bdi class="secno">6.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-3" aria-label="Permalink for Section 6.4"></a></div>
@@ -739,18 +753,24 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </section>
       <section id="key-scenarios-3"><div class="header-wrapper"><h3 id="x6-5-key-scenarios"><bdi class="secno">6.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-3" aria-label="Permalink for Section 6.5"></a></div>
         
-        <p>---</p>
+        <ul>
+          <li>Building an app npm lbiraries that define elements. npm may duplicate packages and therefore custom element definitions.</li>
+          <li>Complex multi-team applications. Sub-teams often develop and deploy subsystems separately and may include multiple copies of libraries that define custom elements.</li>
+          <li>Complex elements with other custom elements as internal implementation detail. These elements may not want to take up names in the global registry for their sub-components.</li>
+          <li>Distributing elements via npm and CDNs. If both distribution methods are used on a page, one will error. npm usage can be directed to use scoped registries to avoid collisions.</li>
+          <li>Plug in systems. Plug-ins might bring their own custom element definitions which should not collide with the application or other plugins.</li>
+        </ul>
       </section>
       <section id="concerns-3"><div class="header-wrapper"><h3 id="x6-6-concerns"><bdi class="secno">6.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-3" aria-label="Permalink for Section 6.6"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Interaction with declarative shadow DOM (addressed)</li>
         </ul>
       </section>
       <section id="dissenting-opinion-2"><div class="header-wrapper"><h3 id="x6-7-dissenting-opinion"><bdi class="secno">6.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-2" aria-label="Permalink for Section 6.7"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>None</li>
         </ul>
       </section>
       <section id="related-specs-3"><div class="header-wrapper"><h3 id="x6-8-related-specs"><bdi class="secno">6.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-3" aria-label="Permalink for Section 6.8"></a></div>
@@ -762,7 +782,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <section id="open-questions-3"><div class="header-wrapper"><h3 id="x6-9-open-questions"><bdi class="secno">6.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-3" aria-label="Permalink for Section 6.9"></a></div>
         
         <ul>
-          <li>---</li>
+          <li><a href="https://github.com/WICG/webcomponents/issues/914">[scoped-registries] Interaction with declarative shadow DOM #914</a></li>
+          <li><a href="https://github.com/WICG/webcomponents/issues/907">Scoped Custom Element Registry: Moving elements with shadow roots between documents #907</a></li>
+          <li><a href="https://github.com/WICG/webcomponents/issues/923">[scoped-registries] Element upgrade ordering #923</a></li>
         </ul>
       </section>
     </section>
