@@ -544,19 +544,33 @@ class FancyInput extends HTMLElement {
           <dt>Previous WCCG Report(s)</dt>
           <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#scoped-element-registries">2021</a></dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd><a href="https://github.com/WICG/webcomponents/issues/716">WICG/webcomponents#716</a></dd>
           <dt>Browser positions:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/WebKit/standards-positions/issues/38">WebKit</a>
+              </li>
+              <li>
+                <a href="https://groups.google.com/a/chromium.org/g/blink-dev/c/um-9YjJWyEQ/m/MhKN0L7FAgAJ">Chromium</a>
+              </li>
+              <li>
+                <a href="https://github.com/mozilla/standards-positions/issues/424">Mozilla</a>
+              </li>              
+            </ul>
+          </dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
+        <p>Scoped element registries allow custom element definitions to be scoped to one or more shadow roots. This allows the same tag name to be used with different implementations in different parts of the page, greatly reducing tag name collisions.</p>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li>Chromium: prototyping</li>
+          <li>WebKit: ?</li>
+          <li>Mozilla: ?</li>
         </ul>
       </section>
       <section>
@@ -565,18 +579,24 @@ class FancyInput extends HTMLElement {
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <ul>
+          <li>Building an app npm lbiraries that define elements. npm may duplicate packages and therefore custom element definitions.</li>
+          <li>Complex multi-team applications. Sub-teams often develop and deploy subsystems separately and may include multiple copies of libraries that define custom elements.</li>
+          <li>Complex elements with other custom elements as internal implementation detail. These elements may not want to take up names in the global registry for their sub-components.</li>
+          <li>Distributing elements via npm and CDNs. If both distribution methods are used on a page, one will error. npm usage can be directed to use scoped registries to avoid collisions.</li>
+          <li>Plug in systems. Plug-ins might bring their own custom element definitions which should not collide with the application or other plugins.</li>
+        </ul>
       </section>
       <section>
         <h3>Concerns</h3>
         <ul>
-          <li>---</li>
+          <li>Interaction with declarative shadow DOM (addressed)</li>
         </ul>
       </section>
       <section>
         <h3>Dissenting Opinion</h3>
         <ul>
-          <li>---</li>
+          <li>None</li>
         </ul>
       </section>
       <section>
@@ -588,7 +608,9 @@ class FancyInput extends HTMLElement {
       <section>
         <h3>Open Questions</h3>
         <ul>
-          <li>---</li>
+          <li><a href="https://github.com/WICG/webcomponents/issues/914">[scoped-registries] Interaction with declarative shadow DOM #914</a></li>
+          <li><a href="https://github.com/WICG/webcomponents/issues/907">Scoped Custom Element Registry: Moving elements with shadow roots between documents #907</a></li>
+          <li><a href="https://github.com/WICG/webcomponents/issues/923">[scoped-registries] Element upgrade ordering #923</a></li>
         </ul>
       </section>
     </section>
