@@ -393,7 +393,64 @@ class FancyInput extends HTMLElement {
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <h4>Delegation API</h4>
+        <p>HTML</p>
+        <pre>
+          <code>
+            &lt;span id="foo">Description!&lt;/span>
+            &lt;template id="template1">
+              &lt;input id="input" autoarialabel autoariadescribedby />
+              &lt;span autoarialabel>Another target&lt;/span>
+            &lt;/template>
+            &lt;x-foo aria-label="Hello!" aria-describedby="foo">&lt;/x-foo>
+          </code>
+        </pre>
+        <p>JS</p>
+        <pre>
+          <code>
+            const template = document.getElementById('template1');
+
+            class XFoo extends HTMLElement {
+              constructor() {
+                super();
+                this.attachShadow({ mode: "open", delegatesAriaLabel: true, delegatesAriaDescribedBy: true });
+                this.shadowRoot.appendChild(template.content.cloneNode(true));
+              }
+            }
+
+            customElements.define("x-foo", XFoo);
+          </code>
+        </pre>
+        <h4>Reflection API</h4>
+        <p>HTML</p>
+        <pre>
+          <code>
+            &lt;input aria-controlls="foo" aria-activedescendent="foo">Description!&lt;/span>
+            &lt;template id="template1">
+              &lt;ul reflectariacontrols>
+                &lt;li>Item 1&lt;/li>
+                &lt;li reflectariaactivedescendent>Item 2&lt;/li>
+                &lt;li>Item 3&lt;/li>
+              </ul>
+            &lt;/template>
+            &lt;x-foo id="foo">&lt;/x-foo>
+          </code>
+        </pre>
+        <p>JS</p>
+        <pre>
+          <code>
+            const template = document.getElementById('template1');
+
+            class XFoo extends HTMLElement {
+              constructor() {
+                super();
+                this.attachShadow({ mode: "open", reflectsAriaControls: true, reflectsAriaActivedescendent: true });
+                this.shadowRoot.appendChild(template.content.cloneNode(true));
+              }
+            }
+            customElements.define("x-foo", XFoo);
+          </code>
+        </pre>
       </section>
       <section>
         <h3>Key Scenarios</h3>
