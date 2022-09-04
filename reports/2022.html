@@ -264,11 +264,11 @@
         <p>The form-associated custom elements APIs are implemented within the attachInternals method on the HTMLElement prototype. Calling attachInternals returns an instance of an ElementInternals object which grants developers the ability to interact with form elements provided they designate their element as a form-associated element.</p>
         <pre>
           <code>
-    %gt;form>
-      %gt;fancy-input name="fancy">%gt;/fancy-input>
-    %gt;/form>
+    &lt;form>
+      &lt;fancy-input name="fancy">&lt;/fancy-input>
+    &lt;/form>
     
-    %gt;script>
+    &lt;script>
       class FancyInput extends HTMLElement {
         static get formAssociated() {
           return true;
@@ -289,7 +289,7 @@
         
         console.log(formData.get('fancy')); // logs 'I can participate in a form!'
       });
-    %gt;/script>
+    &lt;/script>
           </code>
         </pre>
         <p>The <code>setFormValue</code> method can accept several types of data including strings, <code>FileData</code> and <code>FormData</code> objects, the latter of which can allow a nested form to participate with a parent in its entirety.</p>
