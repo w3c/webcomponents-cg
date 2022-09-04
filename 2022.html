@@ -150,8 +150,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "xref": "web-platform",
   "group": "webcomponents",
   "tocIntroductory": true,
-  "publishISODate": "2022-09-02T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 02 September 2022"
+  "publishISODate": "2022-09-04T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 04 September 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
   <body class="h-entry" data-cite="HTML INFRA URL WEBIDL DOM FETCH"><div class="head">
@@ -159,7 +159,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Web Components Community Group: 2022 Spec/API status</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2022-09-02">02 September 2022</time>
+      <time class="dt-published" datetime="2022-09-04">04 September 2022</time>
     </p>
     <dl>
       
@@ -647,34 +647,54 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <dt>Previous WCCG Report(s)</dt>
           <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#constructable-stylesheets-adoptedstylesheets">2021</a></dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd><a href="https://github.com/WICG/webcomponents/issues/468">WICG/webcomponents#468</a></dd>
           <dt>Browser positions:</dt>
-          <dd>---</dd>
+          <dd><a href="https://chromestatus.com/feature/5394843094220800" target="_blank">Chrome (Shipped)</a></dd>
+          <dd><a href="https://github.com/mozilla/standards-positions/issues/103" target="_blank">Mozilla (Shipped)</a></dd>
+          <dd><a href="https://github.com/WebKit/standards-positions/issues/42" target="_blank">Safari</a></dd>
         </dl>
       </section>
       <section id="description-1"><div class="header-wrapper"><h3 id="x4-2-description"><bdi class="secno">4.2 </bdi>Description</h3><a class="self-link" href="#description-1" aria-label="Permalink for Section 4.2"></a></div>
         
-        <p>---</p>
+        <p><a href="https://wicg.github.io/construct-stylesheets/" target="_blank">Constructable Stylesheets</a> and adoptedStyleSheets enable adding styles directly to DOM trees, e.g. <code>document</code> and shadow roots, without creating new DOM elements. Because a single stylesheet object can be adopted by multiple scopes, it also allows sharing of styles that can be centrally modified.</p>
       </section>
       <section id="status-1"><div class="header-wrapper"><h3 id="x4-3-status"><bdi class="secno">4.3 </bdi>Status</h3><a class="self-link" href="#status-1" aria-label="Permalink for Section 4.3"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Partial consensus; shipped in both <a href="https://web.dev/constructable-stylesheets/" target="_blank">Chrome</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1520690" target="_blank">Firefox</a></li>
         </ul>
       </section>
       <section id="initial-api-summary-quick-api-proposal-1"><div class="header-wrapper"><h3 id="x4-4-initial-api-summary-quick-api-proposal"><bdi class="secno">4.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-1" aria-label="Permalink for Section 4.4"></a></div>
         
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>The following is <a href="https://web.dev/constructable-stylesheets/#using-constructed-stylesheets" target="_blank">an example</a> of what this would look like in practice.</p>
+        <pre aria-busy="false"><code class="hljs javascript"><span class="hljs-keyword">const</span> sheet = <span class="hljs-keyword">new</span> CSSStyleSheet();
+sheet.replaceSync(<span class="hljs-string">'a { color: red; }'</span>);
+
+<span class="hljs-comment">// Apply the stylesheet to a document:</span>
+<span class="hljs-built_in">document</span>.adoptedStyleSheets = [sheet];
+
+<span class="hljs-comment">// Apply the stylesheet to a Shadow Root:</span>
+<span class="hljs-keyword">const</span> node = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'div'</span>);
+<span class="hljs-keyword">const</span> shadow = node.attachShadow({ <span class="hljs-attr">mode</span>: <span class="hljs-string">'open'</span> });
+shadow.adoptedStyleSheets = [sheet];</code></pre>
       </section>
       <section id="key-scenarios-1"><div class="header-wrapper"><h3 id="x4-5-key-scenarios"><bdi class="secno">4.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-1" aria-label="Permalink for Section 4.5"></a></div>
         
-        <p>---</p>
+        <ul>
+          <li>There is no effective way to share styles across components while allowing them to be centrally modified.</li>
+          <li>Creating <code>&lt;style&gt;</code> elements for each style used in each shadow root has a measurable performance overhead.</li>
+          <li>CSS Module Scripts, another critical feature, depends on constructible stylesheets.</li>
+        </ul>
       </section>
       <section id="concerns-0"><div class="header-wrapper"><h3 id="x4-6-concerns"><bdi class="secno">4.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-0" aria-label="Permalink for Section 4.6"></a></div>
         
-        <ul>
-          <li>---</li>
-        </ul>
+        <p>From their standards position tracker, Safari has highlighted some of the following concerns:</p>
+          <ul>
+            <li>Issues related to <a href="https://github.com/WICG/construct-stylesheets/issues/45" target="_blank">race conditions</a> with adopting stylesheets and if the adoptedStyleSheets array should be directly mutable or not</li>
+            <li>There is concern that it is <a href="https://github.com/whatwg/dom/pull/892#pullrequestreview-593774559" target="_blank">incompatible with Declarative Shadow DOM</a>.</li>
+            <li>Outstanding questions around <a href="https://github.com/WICG/webcomponents/issues/870" target="_blank"><em>@import</em> statements in CSS Modules</a>.</li>
+          </ul>
+        <p></p>
       </section>
       <section id="dissenting-opinion"><div class="header-wrapper"><h3 id="x4-7-dissenting-opinion"><bdi class="secno">4.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion" aria-label="Permalink for Section 4.7"></a></div>
         
@@ -685,7 +705,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <section id="related-specs-1"><div class="header-wrapper"><h3 id="x4-8-related-specs"><bdi class="secno">4.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-1" aria-label="Permalink for Section 4.8"></a></div>
         
         <ul>
-          <li>---</li>
+          <li><a href="/#declarative-shadow-dom" target="_blank">Declarative Shadow DOM</a></li>
+          <li><a href="/#css-module-scripts" target="_blank">CSS Module Scripts</a></li>
         </ul>
       </section>
       <section id="open-questions-1"><div class="header-wrapper"><h3 id="x4-9-open-questions"><bdi class="secno">4.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-1" aria-label="Permalink for Section 4.9"></a></div>
