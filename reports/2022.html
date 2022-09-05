@@ -1322,51 +1322,101 @@ class FancyInput extends HTMLElement {
           <dt>Previous WCCG Report(s)</dt>
           <dd>N/A</dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>https://github.com/WICG/webcomponents/issues/738</dd>
           <dt>Browser positions:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li>
+                <strong>Chrome</strong> &mdash; shipped
+              </li>
+              <li>
+                <strong>Firefox</strong> &mdash;
+              </li>
+              <li>
+                <strong>Webkit</strong> &mdash; <a href="https://github.com/WebKit/standards-positions/issues/56">WebKit position</a>
+              </li>
+            </ul>
+          </dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
+        
+        <blockquote cite="https://wicg.github.io/custom-state-pseudo-class/#motivation">
+          <p>Build-in elements provided by user agents have certain “states” that can change over time depending on user interaction and other factors, and are exposed to web authors through pseudo classes. For example, some form controls have the “invalid” state, which is exposed through the :invalid pseudo-class.</p>
+  
+          <p>Like built-in elements, custom elements can have various states to be in too, and custom element authors want to expose these states in a similar fashion as the built-in elements.</p>
+        </blockquote>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li>A <a href="https://wicg.github.io/custom-state-pseudo-class/#exposing">draft of the spec has been written in WICG</a>.</li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>The <code>CustomStateSet</code> API allows component authors to expose internal component state for use in styling or other element-matching operations (such as <code>querySelector</code></p>
+
+        <p>This is different from a custom element sprouting a class (via <code>this.classList.add</code> in any state added to the custom element can be seen as internal (similar to the <code>:checked</code> pseud-selector for input elements).</code></p>
+
+        <p>To allow for this operation, a set-like API is exposed at <code>ElementInternals.prototype.states</code>, meaning that only custom elements can apply custom states. An example might look like the following:</p>
+
+        <pre>
+          <code>
+class FancyElement extends HTMLElement {
+  #internals = this.attachInternals();
+
+  constructor() {
+    super();
+    
+    const root = this.attachShadow({ mode: 'open' });
+    const button = document.createElement('button');
+    button.innerText = 'Add clicked state';
+    button.setAttribute('part', 'btn');
+    root.append(button);
+
+    this.addEventListener('click', function wasClicked() {
+      this.#internals.states.add('--clicked');
+      this.removeEventListener('click', wasClicked);
+    });
+  }
+}
+customElements.define('fancy-element', FancyElement);
+          </code>
+        </pre>
+
+        <p>Consumers of the <code>fancy-element</code> code can now take advantage of the <code>:--clicked</code> state in CSS or in any DOM querying API to modify or select the relevant element once clicked.</p>
+
+        <p>For example, to change the background of the element's <code>btn</code> part, a consuming developer could apply the following CSS:</p>
+
+        <pre>
+          <code>
+:--clicked::part(btn) {
+  background: rebeccapurple;
+}
+          </code>
+        </pre>
+        
+        <p>Alternatively, a consuming developer could call <code>document.querySelectorAll(':--clicked')</code> to target all elements with the custom state.</p>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <ul>
+          <li>Allow custom element authors to expose internal state for use in CSS</li>
+          <li>Allow custom element authros to expose internal state for use in DOM selection operations</li>
+        </ul>
       </section>
       <section>
         <h3>Concerns</h3>
         <ul>
-          <li>---</li>
-        </ul>
-      </section>
-      <section>
-        <h3>Dissenting Opinion</h3>
-        <ul>
-          <li>---</li>
+          <li>Most of the concerns around this topic are related to syntax rather than functionality. For example, some prefer the selector to match state to be something along the lines of <code>:state(--state)</code>; however, it appears as if the current status is fairly accepted right now.</li>
         </ul>
       </section>
       <section>
         <h3>Related Specs</h3>
         <ul>
-          <li>---</li>
-        </ul>
-      </section>
-      <section>
-        <h3>Open Questions</h3>
-        <ul>
-          <li>---</li>
+          <li><a href="https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-face-example">Form-associated custom elements</a></li>
         </ul>
       </section>
     </section>
