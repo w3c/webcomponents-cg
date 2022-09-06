@@ -140,7 +140,7 @@
               <td>Not addressed</td>
             </tr>
             <tr>
-              <th><a href="#themeing">Themeing</a></th>
+              <th><a href="#theming">Theming</a></th>
               <td><a href="https://github.com/WICG/webcomponents/issues/864">WICG/webcomponents#864</a></td>
               <td></td>
               <td>Uncertain</td>
@@ -1120,7 +1120,7 @@ class FancyInput extends HTMLElement {
       </section>
     </section>
     <section>
-      <h2>Themeing</h2>
+      <h2>Theming</h2>
       <section>
         <h3>Links</h3>
         <dl>
@@ -1160,7 +1160,7 @@ class FancyInput extends HTMLElement {
         <pre class="css">
           :root::theme(button) { ... }
         </pre>
-        <p>Further discussions after ::theme was initially dropped from the spec have also suggested <a href="https://github.com/WICG/webcomponents/issues/864#issuecomment-591484810">creating new media query types for themeing</a> for better readability and allowing for versioning.</p>
+        <p>Further discussions after ::theme was initially dropped from the spec have also suggested <a href="https://github.com/WICG/webcomponents/issues/864#issuecomment-591484810">creating new media query types for theming</a> for better readability and allowing for versioning.</p>
         <pre class="css">
           @media (theme-name: vaadin) and (theme-version: 2.0) {
             :is(vaadin-text-field, vaadin-select):dir(rtl)::part(input-field)::after {
@@ -1177,20 +1177,20 @@ class FancyInput extends HTMLElement {
       <section>
         <h3>Key Scenarios</h3>
         <ul>
-          <li>Page-wide themeing when using component libraries: CSS variables and shadow parts somewhat allow for this to happen. However, CSS variables are too granular so you end up using too many of them. Shadow parts on the other hand require extensive forwarding which can make maintenance difficult for library authors.</li>
+          <li>Page-wide theming when using component libraries: CSS variables and shadow parts somewhat allow for this to happen. However, CSS variables are too granular so you end up using too many of them. Shadow parts on the other hand require extensive forwarding which can make maintenance difficult for library authors.</li>
         </ul>
       </section>
       <section>
         <h3>Concerns</h3>
         <ul>
-          <li>Limited themeing: Many component authors would want to have a way to limit which CSS properties are subject to a theme.</li>
-          <li>Versioning and interactions with scoped registries: A themeing solution would need to consider the possibility of multiple versions of a same component coexisting in a complex application.</li>
+          <li>Limited theming: Many component authors would want to have a way to limit which CSS properties are subject to a theme.</li>
+          <li>Versioning and interactions with scoped registries: A theming solution would need to consider the possibility of multiple versions of a same component coexisting in a complex application.</li>
         </ul>
       </section>
       <section>
         <h3>Dissenting Opinion</h3>
         <ul>
-          <li>Some people seem to consider open shadow root styling would solve most of their themeing-related issues.</li>
+          <li>Some people seem to consider open shadow root styling would solve most of their theming-related issues.</li>
         </ul>
       </section>
       <section>
