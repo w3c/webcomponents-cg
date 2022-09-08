@@ -579,39 +579,48 @@ class FancyInput extends HTMLElement {
           <dt>Previous WCCG Report(s)</dt>
           <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#css-module-scripts">2021</a></dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd><a href="https://github.com/WICG/webcomponents/issues/759">WICG/webcomponents#759</a></dd>
           <dt>Browser positions:</dt>
-          <dd>---</dd>
+          <dd><a href="https://web.dev/css-module-scripts/">Chrome</a></dd>
+          <dd><a href="https://mozilla.github.io/standards-positions/#import-attributes">Firefox</a></dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
-      </section>
-      <section>
-        <h3>Links</h3>
-        <ul>
-          <li>---</li>
-        </ul>
+        <p>CSS Module Scripts allow JavaScript modules to import style sheets. They can then be applied to a document or shadow root using adoptedStyleSheets in the same way as constructible style sheets.</p>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li><a href="https://chromestatus.com/feature/5948572598009856">Chrome (shipped)</a></li>
+          <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1720570">Firefox</a></li>
+          <li><a href="https://bugs.webkit.org/show_bug.cgi?id=227967">Safari</a></li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <pre class="javascript">
+          import styleSheet from "./styles.css" assert { type: "css" };
+
+          document.adoptedStyleSheets = [ styleSheet ];
+        </pre>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <h3>Motivation</h3>
+        <ul>
+          <li>CSS modules will allow styles to be loaded in component definitions without adding `&lt;style&gt;` or `&lt;link&gt;` elements that need to be created in each element instance.</li>
+          <li>Authors today often use inlined CSS strings in JS modules, but many of them want to move the CSS into separate .css files.</li>
+          <li>Without CSS-in-JS it's difficult to ensure that CSS is loaded before the component is defined and rendered. CSS module scripts provide the same ordering guarantee.</li>
+          <li>Component authors may need to import a resource that is only available as an external .css file, and don't have control over the resource to wrap it in a JS module.</li>
+        </ul>
+        <p>For further motivational details, see this explainer document: <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/css-modules-v1-explainer.md#why-are-css-modules-needed">webcomponents/css-modules-v1-explainer.md at gh-pages · WICG/webcomponents</a>.</p>
       </section>
       <section>
         <h3>Concerns</h3>
         <ul>
-          <li>---</li>
+          <li>Safari has a security concern regarding <a href="https://github.com/w3ctag/design-reviews/issues/405#issuecomment-535478821">the result of a loaded module.</a></li>
+          <li>Safari wants to better understand <a href="https://github.com/w3ctag/design-reviews/issues/405#issuecomment-561304217">how to handle <code>@import</code> statements in CSS Modules.</a></li>
         </ul>
       </section>
       <section>
@@ -623,7 +632,7 @@ class FancyInput extends HTMLElement {
       <section>
         <h3>Related Specs</h3>
         <ul>
-          <li>---</li>
+          <li>This has a pre-requisite on <a href="#constructable-stylesheets-adoptedstylesheets">Constructable Stylesheets</a> landing.</li>
         </ul>
       </section>
       <section>
