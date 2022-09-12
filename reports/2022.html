@@ -159,10 +159,10 @@
               <td>Not addressed</td>
             </tr>
             <tr>
-              <th><a href="#themeing">Themeing</a></th>
+              <th><a href="#theming">Theming</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/864">WICG/webcomponents#864</a></td>
               <td></td>
-              <td></td>
-              <td></td>
+              <td>Uncertain</td>
             </tr>
             <tr>
               <th><a href="#styling-children-of-slotted-content">Styling children of slotted content</a></th>
@@ -273,20 +273,20 @@
         static get formAssociated() {
           return true;
         }
-      
+
         constructor() {
           super();
           this.#internals = this.attachInternals();
           this.#internals.setFormValue('I can participate in a form!');
         }
       }
-    
+
       customElements.define('fancy-input', FancyInput);
-      
+
       document.querySelector('form').addEventListener('submit', event => {
         event.preventDefault();
         const formData = new FormData(event.target);
-        
+
         console.log(formData.get('fancy')); // logs 'I can participate in a form!'
       });
     &lt;/script>
@@ -308,11 +308,11 @@ class FancyInput extends HTMLElement {
     this.#internals.setFormValue('I can participate in a form!');
     const button = document.createElement('button');
     root.append(button);
-    
+
     button.addEventListener('click', this.#onClick);
     this.button = button;
   }
-  
+
   #onClick = () => {
     if (this.#internals.invalid) {
       this.#internals.setValidity(); // Marks the element as valid
@@ -653,7 +653,7 @@ class FancyInput extends HTMLElement {
               </li>
               <li>
                 <a href="https://github.com/mozilla/standards-positions/issues/424">Mozilla</a>
-              </li>              
+              </li>
             </ul>
           </dd>
         </dl>
@@ -1162,58 +1162,90 @@ class FancyInput extends HTMLElement {
       </section>
     </section>
     <section>
-      <h2>Themeing</h2>
+      <h2>Theming</h2>
       <section>
         <h3>Links</h3>
         <dl>
           <dt>Previous WCCG Report(s)</dt>
           <dd>N/A</dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd>
+            <ul>
+              <li><a href="https://github.com/WICG/webcomponents/issues/864">2020 discussion - open</a></li>
+            </ul>
+          </dd>
           <dt>Browser positions:</dt>
-          <dd>---</dd>
+          <dd>N/A</dd>
+          <dt>Explainers</dt>
+          <dd><a href="https://github.com/fergald/docs/blob/master/explainers/css-shadow-parts-1.md">Original explainer</a></dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
+        <p>Provide a solution for deep cross-shadow root styling of web components without the forwarding needed using ::part or the granularity needed using CSS variables.</p>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li>Uncertain - Dropped from spec once but discussions are ongoing.</li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>The original proposal suggested using a similar syntax as with shadow parts.</p>
+        <pre class="html">
+          &lt;x-button>
+            #shadow-root
+            &lt;button theme="button">&lt;/button>
+          &lt;/x-button>
+        </pre>
+        <pre class="css">
+          :root::theme(button) { ... }
+        </pre>
+        <p>Further discussions after ::theme was initially dropped from the spec have also suggested <a href="https://github.com/WICG/webcomponents/issues/864#issuecomment-591484810">creating new media query types for theming</a> for better readability and allowing for versioning.</p>
+        <pre class="css">
+          @media (theme-name: vaadin) and (theme-version: 2.0) {
+            :is(vaadin-text-field, vaadin-select):dir(rtl)::part(input-field)::after {
+              transform-origin: 0% 0;
+            }
+          }
+        </pre>
+        <pre class="javascript">
+          // registering the theme on the author side
+          this.attachShadow({ mode: 'open', theme: { name: 'vaadin', version: '2.0' }});
+        </pre>
+        <p>The media query solution wouldn't completely eliminate the need for the ::theme selector as it doesn't solve the issue with exporting shadow parts.</p>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <ul>
+          <li>Page-wide theming when using component libraries: CSS variables and shadow parts somewhat allow for this to happen. However, CSS variables are too granular so you end up using too many of them. Shadow parts on the other hand require extensive forwarding which can make maintenance difficult for library authors.</li>
+        </ul>
       </section>
       <section>
         <h3>Concerns</h3>
         <ul>
-          <li>---</li>
+          <li>Limited theming: Many component authors would want to have a way to limit which CSS properties are subject to a theme.</li>
+          <li>Versioning and interactions with scoped registries: A theming solution would need to consider the possibility of multiple versions of a same component coexisting in a complex application.</li>
         </ul>
       </section>
       <section>
         <h3>Dissenting Opinion</h3>
         <ul>
-          <li>---</li>
+          <li>Some people seem to consider open shadow root styling would solve most of their theming-related issues.</li>
         </ul>
       </section>
       <section>
         <h3>Related Specs</h3>
         <ul>
-          <li>---</li>
+          <li><a href="https://www.w3.org/TR/css-shadow-parts-1/">CSS Shadow Parts</a></li>
         </ul>
       </section>
       <section>
         <h3>Open Questions</h3>
         <ul>
-          <li>---</li>
+          <li>How necessary is a functionality to limit what CSS properties apply? Would this be an allow-list or a block-list?</li>
+          <li>How to work around having multiple versions of the same component? Using a versioning system for themes? Interact with scoped element registries?</li>
         </ul>
       </section>
     </section>
@@ -1541,7 +1573,7 @@ class FancyInput extends HTMLElement {
             <a href="#declarative-shadow-dom">Declarative Shadow DOM</a>
           </li>
           <li>
-            <a href="#children-changed-callback">Children Changed Callback</a> 
+            <a href="#children-changed-callback">Children Changed Callback</a>
           </li>
           <li>
             <a href="https://github.com/whatwg/dom/issues/533">Observable Node Connectedness</a>
@@ -1647,21 +1679,21 @@ class FancyInput extends HTMLElement {
               attribute any value;
               void commit();
           };
-          
-          
+
+
           interface NodePart : Part {
               readonly attribute Node node;
           };
-          
-          
+
+
           interface AttributePart : Part {
               constructor(Element element, DOMString qualifiedName, DOMString? namespace);
               readonly attribute DOMString prefix;
               readonly attribute DOMString localName;
               readonly attribute DOMString namespaceURI;
           };
-          
-          
+
+
           interface ChildNodePart : Part {
               constructor(Node node, Node? previousSibling, Node? nextSibling);
               readonly attribute Node parentNode;
@@ -1859,20 +1891,20 @@ class FancyInput extends HTMLElement {
             // name inherited from Attr
             // value inherited from Attr
             // ...
-        
+
             connectedCallback () {
               // called when the ownerElement is connected to the DOM
             }
-        
+
             disconnectedCallback () {
               // called when the ownerElement is disconnected from the DOM
             }
-        
+
             attributeChangedCallback() {
               // called when the value property of this attribute changes
             }
         }
-        
+
         customAttributes.define("material-ripple", MaterialRipple);
         </pre>
       </section>
