@@ -150,8 +150,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "xref": "web-platform",
   "group": "webcomponents",
   "tocIntroductory": true,
-  "publishISODate": "2022-09-12T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 12 September 2022"
+  "publishISODate": "2022-09-13T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 13 September 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
   <body class="h-entry" data-cite="HTML INFRA URL WEBIDL DOM FETCH"><div class="head">
@@ -159,7 +159,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Web Components Community Group: 2022 Spec/API status</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2022-09-12">12 September 2022</time>
+      <time class="dt-published" datetime="2022-09-13">13 September 2022</time>
     </p>
     <dl>
       
@@ -380,9 +380,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             </tr>
             <tr>
               <th><a href="#html-modules">HTML modules</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/645">WICG/webcomponents#645</a></td>
               <td></td>
-              <td></td>
-              <td></td>
+              <td>Partial consensus, no implementations</td>
             </tr>
             <tr>
               <th><a href="#custom-attributes">Custom Attributes</a></th>
@@ -1942,33 +1942,44 @@ interface ChildNodePart : Part {
           <dt>Previous WCCG Report(s)</dt>
           <dd>N/A</dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd><a href="https://github.com/WICG/webcomponents/issues/645">HTML Modules</a></dd>
           <dt>Browser positions:</dt>
-          <dd>---</dd>
+          <dd><a href="https://chromestatus.com/feature/4854408103854080">Chrome</a></dd>
+          <dd><a href="https://mozilla.github.io/standards-positions/#html-modules">Firefox</a></dd>
+          <dd><a href="https://webkit.org/status/#feature-html-import">Safari</a></dd>
         </dl>
       </section>
       <section id="description-17"><div class="header-wrapper"><h3 id="x20-2-description"><bdi class="secno">20.2 </bdi>Description</h3><a class="self-link" href="#description-17" aria-label="Permalink for Section 20.2"></a></div>
         
-        <p>---</p>
+        <p>HTML Modules would provide a means of referencing HTML through the web's module system.  For Web Components specifically, this would allow the usage of <code>import</code> to load and initialize the template of a custom element, much in the same way <a href="#css-module-scripts">CSS Modules</a> would work for an <code>adoptedStyleSheet</code>.</p>
+        <p>Additionally, this could open up the concept of <a href="https://github.com/WICG/webcomponents/issues/645#issuecomment-343601237">Single File Components (SFC)</a> to the web.</p>
       </section>
       <section id="status-17"><div class="header-wrapper"><h3 id="x20-3-status"><bdi class="secno">20.3 </bdi>Status</h3><a class="self-link" href="#status-17" aria-label="Permalink for Section 20.3"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Chrome (shipped, but not aligned with ESM)</li>
         </ul>
       </section>
       <section id="initial-api-summary-quick-api-proposal-17"><div class="header-wrapper"><h3 id="x20-4-initial-api-summary-quick-api-proposal"><bdi class="secno">20.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-17" aria-label="Permalink for Section 20.4"></a></div>
         
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <pre aria-busy="false"><code class="hljs javascript"><span class="hljs-keyword">import</span> template <span class="hljs-keyword">from</span> <span class="hljs-string">'my-template.html'</span> <span class="hljs-keyword">as</span> HTMLTemplateElement;
+
+MyCustomElement <span class="hljs-keyword">extends</span> HTMLElement {
+  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params"></span>)</span> {
+    <span class="hljs-keyword">const</span> root = <span class="hljs-built_in">this</span>.attachShadow({<span class="hljs-attr">mode</span>: <span class="hljs-string">'closed'</span>});
+    root.appendChild(<span class="hljs-built_in">document</span>.importNode(template));
+  }
+}</code></pre>
       </section>
       <section id="key-scenarios-17"><div class="header-wrapper"><h3 id="x20-5-key-scenarios"><bdi class="secno">20.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-17" aria-label="Permalink for Section 20.5"></a></div>
         
-        <p>---</p>
+        <p>The primary motivation for HTML Modules is to round out ESM so that all of the three main web languages (HTML / CSS / JS) can be leveraged through a module system.  For Web Components, this is especially helpful for scenarios related to Server Side Rendering or any form of templating, static or otherwise.  Having a common mechanism in JavaScript to author and use Web Components makes for a great experience all around.</p>
+        <p>Additionally it will work great if you prefer to separate your technologies (e.g. <em>my-component.(js|css|html)</em> ), or your (CSS|HTML)-in-JS</p> in one file.
       </section>
       <section id="concerns-16"><div class="header-wrapper"><h3 id="x20-6-concerns"><bdi class="secno">20.6 </bdi>Concerns</h3><a class="self-link" href="#concerns-16" aria-label="Permalink for Section 20.6"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>Main concern is that now that ESM and Import Assertions are a thing, it is recognized that the proposal for HTML Modules needs to be re-drafted accordingly.</li>
         </ul>
       </section>
       <section id="dissenting-opinion-15"><div class="header-wrapper"><h3 id="x20-7-dissenting-opinion"><bdi class="secno">20.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-15" aria-label="Permalink for Section 20.7"></a></div>
@@ -1980,13 +1991,18 @@ interface ChildNodePart : Part {
       <section id="related-specs-17"><div class="header-wrapper"><h3 id="x20-8-related-specs"><bdi class="secno">20.8 </bdi>Related Specs</h3><a class="self-link" href="#related-specs-17" aria-label="Permalink for Section 20.8"></a></div>
         
         <ul>
-          <li>---</li>
+          <li><a href="#css-module-scripts">CSS Modules</a></li>
+          <li><a href="#declarative-shadow-dom">Declarative Shadow DOM</a></li>
+          <li><a href="#declarative-custom-elements">Declarative Custom Elements</a></li>
         </ul>
       </section>
       <section id="open-questions-17"><div class="header-wrapper"><h3 id="x20-9-open-questions"><bdi class="secno">20.9 </bdi>Open Questions</h3><a class="self-link" href="#open-questions-17" aria-label="Permalink for Section 20.9"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>What sort of "scope" should the imported HTML be allowed to have?  Should it execute inline script tags?</li>
+          <li>What should the inline API look like for this?</li>
+          <li>How to treat the incoming HTML; as a <code>Document</code>?  As a string? (see the scope concern above)</li>
+          <li>Would / should this align with the the import assertions spec, like with CSS Modules?</li>
         </ul>
       </section>
     </section>
