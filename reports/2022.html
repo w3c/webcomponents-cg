@@ -177,10 +177,10 @@
               <td></td>
             </tr>
             <tr>
-              <th><a href="#imperative-slot-assignement">Imperative Slot Assignement</a></th>
+              <th><a href="#imperative-slot-assignment">Imperative Slot Assignment</a></th>
+              <td><a href="https://github.com/whatwg/html/issues/3534" target="_blank">whatwg/html#3534</a></td>
               <td></td>
-              <td></td>
-              <td></td>
+              <td>Partial Implementation</td>
             </tr>
             <tr>
               <th><a href="#css-properties-and-values-inside-shadow-root">CSS Properties and values inside shadow root</a></th>
@@ -1371,16 +1371,16 @@ class FancyInput extends HTMLElement {
       </section>
     </section>
     <section>
-      <h2>Imperative Slot Assignement</h2>
+      <h2>Imperative Slot Assignment</h2>
       <section>
         <h3>Links</h3>
         <dl>
           <dt>Previous WCCG Report(s)</dt>
           <dd>N/A</dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd><a href="https://github.com/whatwg/html/issues/3534">whatwg/html#3534</a></dd>
           <dt>Browser positions:</dt>
-          <dd>---</dd>
+          <dd><a href="https://github.com/mozilla/standards-positions/issues/335" target="_blank">Firefox</a></dd>
         </dl>
       </section>
       <section>
@@ -1390,16 +1390,26 @@ class FancyInput extends HTMLElement {
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li><a href="https://chromestatus.com/feature/5711021289242624" target="_blank">Chrome</a> (Shipped)</li>
+          <li><a href="" target="_blank">Firefox</a> (Shipped)</li>
+          <li><a href="https://webkit.org/status/#feature-imperative-slot-api" target="_blank">Safari (Shipped?)</a></li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <p>Currently the Slot API only supports a declarative API, meaning that slot usage can only be expressed through adding the name attribute on an element.  But there are valid cases where from multiple sources of slotted content, the Web Components author may want to programmatically set the content of a slot instead.  Take <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Imperative-Shadow-DOM-Distribution-API.md" target="_blank">this example</a> from the proposal.</p>
+        <pre class="html">
+          &lt;custom-tab show-panel="2"&gt;
+            &lt;tab-panel>&lt;/tab-panel&gt;
+            &lt;tab-panel>&lt;/tab-panel&gt;
+            &lt;tab-panel>&lt;/tab-panel&gt;
+          &lt;/custom-tab&gt;
+        </pre>
+        <p>Without an imperative API, how would an author be able to set the contents of a single available slot to the selected panel index?</p>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <p>Some of the scenarios called out in the proposal include not having to pre-compute the slot names ahead of time, as well as being able to conditionally load content into a slot.</p>
       </section>
       <section>
         <h3>Concerns</h3>
@@ -1422,7 +1432,7 @@ class FancyInput extends HTMLElement {
       <section>
         <h3>Open Questions</h3>
         <ul>
-          <li>---</li>
+          <li>What is Safari's timeline for shipping?  Their feature tracker confirms it is supported, but <a href="https://codepen.io/Westbrook/pen/GRvbWzM">this example</a> doesn't work on iOS.</li>
         </ul>
       </section>
     </section>
