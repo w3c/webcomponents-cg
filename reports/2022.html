@@ -290,51 +290,80 @@
           <dt>Previous WCCG Report(s)</dt>
           <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#composed-selection">2021</a></dd>
           <dt>GitHub issues:</dt>
-          <dd>---</dd>
+          <dd><a href="https://github.com/WICG/webcomponents/issues/79">Selection APIs for Shadow DOM (main issue)</a></dd>
+          <dd><a href="https://github.com/w3c/selection-api/issues/98">Add getComposedRange to Selection</a></dd>
+          <dd><a href="https://github.com/w3c/selection-api/issues/99">Change setBaseAndExtent</a></dd>
           <dt>Browser positions:</dt>
-          <dd>---</dd>
+          <dd><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1430308">Mozilla open bug: Implement Selection.getComposedRange()</a></dd>
+          <dd><a href="https://bugs.webkit.org/show_bug.cgi?id=163921">Webkit open bug: Add selection API that works across shadow boundaries</a></dd>
         </dl>
       </section>
       <section>
         <h3>Description</h3>
-        <p>---</p>
+        <p>
+          Since existing Selection APIs can represent only a single selection in a document,
+          bound to a single Range,
+          the need for an API to represent ranges over a composed tree has been generally acknowledged since at least 2015.
+        </p><p>
+          This introduces a new API,
+          `getComposedRange()`, that can return a `StaticRange` with endpoints in different shadow trees.
+          It modifies several existing selection APIs,
+          like `setBaseAndExtent()`,
+          to support composed trees in a backwards-compatible way.
+        </p>
+        <p>
+          It also specifies a consistent behavior for `getSelection()`,
+          which currently behaves differently across browsers when applied to a shadow root.
+        </p>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>---</li>
+          <li>
+            Consensus on
+            <a href="https://github.com/mfreed7/shadow-dom-selection/blob/main/README.md">The Shadow Selection API</a>,
+            but no spec or implementations.
+          </li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <pre class="javascript">
+          customElements.define('x-editor', class extends HTMLElement {
+            connectedCallback() {
+              super.connectedCallback();
+              document.addEventListener('selectionchange', () => {
+                const selection = window.getSelection();
+                const range = selection.getComposedRange({ shadowRoots: [ this.shadowRoot ] });
+                // use shadow-aware `range` to evaluate selection within this component
+              })
+            }
+          });
+        </pre>
       </section>
       <section>
         <h3>Key Scenarios</h3>
-        <p>---</p>
+        <p>
+          Selection does not work across or within shadow roots.
+          <strong>This makes fully-featured rich-text editors impossible to implement with web components.</strong>
+          Some of the web's most popular editors have issues that are blocked on this functionality:
+        </p>
+        <ul>
+          <li><a href="https://github.com/tinymce/tinymce/pull/4737#issuecomment-719317085">TinyMCE</a></li>
+          <li><a href="https://github.com/ckeditor/ckeditor5/pull/7846#issuecomment-675477977">CKEditor</a></li>
+          <li><a href="https://github.com/quilljs/quill/pull/1805">Quill</a></li>
+        </ul>
       </section>
       <section>
         <h3>Concerns</h3>
         <ul>
-          <li>---</li>
-        </ul>
-      </section>
-      <section>
-        <h3>Dissenting Opinion</h3>
-        <ul>
-          <li>---</li>
-        </ul>
-      </section>
-      <section>
-        <h3>Related Specs</h3>
-        <ul>
-          <li>---</li>
-        </ul>
-      </section>
-      <section>
-        <h3>Open Questions</h3>
-        <ul>
-          <li>---</li>
+          <li>
+            Aligning all browsers behind a spec will change behavior in the wild
+            in any cases where cross-tree nodes are already being used.
+            However, since cross-root selection behavior is currently unspecified
+            and works differently in every browser,
+            the impact of this is expected to be small.
+          </li>
         </ul>
       </section>
     </section>
