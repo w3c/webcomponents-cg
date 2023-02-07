@@ -15,8 +15,10 @@ jobs:
       max-parallel: 1
       matrix:
         include:
-          - source: reports/2021.html
+          - source: reports/status.html
             destination: index.html
+          - source: reports/2021.html
+            destination: 2021.html
           - source: reports/2022.html
             destination: 2022.html
     steps:
