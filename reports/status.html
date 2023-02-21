@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Web Components Community Group: 2021 Spec/API status</title>
+    <title>Web Components Community Group</title>
     <script
       src="https://www.w3.org/Tools/respec/respec-w3c"
       class="remove"
@@ -24,37 +24,21 @@
             url: "https://github.com/alangdm",
           },
           {
+            name: "Rob Eisenberg",
+            url: "https://github.com/eisenbergeffect",
+          },
+          {
             name: "Owen Buckley",
             url: "https://github.com/thescientist13",
           },
           {
-            name: "William Riley",
-            url: "https://github.com/splitinfinities",
+            name: "Caleb Williams",
+            url: "https://github.com/calebdwilliams"
           },
           {
             name: "Justin Fagnani",
-            url: "https://github.com/justinfagnani",
-          },
-          {
-            name: "Jordan Austin",
-            url: "https://github.com/jordanaustin",
-          },
-          {
-            name: "Dan Clark",
-            url: "https://github.com/dandclark",
-          },
-          {
-            name: "Hunter Loftis",
-            url: "https://github.com/hunterloftis",
-          },
-          {
-            name: "Michael Potter",
-            url: "https://github.com/heymp",
-          },
-          {
-            name: "Benny Powers",
-            url: "https://github.com/bennypowers",
-          },
+            url: "https://github.com/justinfagnani"
+          }
         ],
         github: "w3c/webcomponents-cg",
         shortName: "webcomponents-cg",
@@ -66,414 +50,20 @@
   </head>
   <body>
     <section id="abstract">
-      <p>This is required.</p>
+      <p>The Web Components Community Group publishes yearly reports on the status a web components APIs and their presence in browsers.</p>
     </section>
     <section id="sotd">
-      <p>This is required.</p>
+      <p>This is a record of all currently available reports.</p>
     </section>
     <section class="informative">
-      <h2>Introduction</h2>
-      <p>The initial slate of APIs that browsers shipped with web components "v1" left many important features and use-cases on a future to-do list, to be finalized out after the core custom element and shadow DOM features landed. While the web components GitHub issues and face-to-face meets have tracked and discussed many of these features individually, there hasn't been a comprehensive overview of what's left to "finish" web components.</p>
-      <p>This document tries to highlight the main features that are lacking from the web components spec that either block adoption for more developers and frameworks, or cause pain points for existing developers.</p>
-      <p>It's worth noting that many of these pain points are directly related to Shadow DOM's encapsulation. While there are many benefits to some types of widely shared components to strong encapsulation, the friction of strong encapsulation has prevented most developers from adopting Shadow DOM, to the point of there being alternate proposals for style scoping that don't use Shadow DOM. We urge browser vendors to recognize these barriers and work to make Shadow DOM more usable by more developers.</p>
-      <table>
-        <thead>
-          <tr>
-            <th>Feature or Problem</th>
-            <th>GitHub Issue(s)</th>
-            <th>Priority</th>
-            <th>Status(?)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th><a href="#form-associated-custom-elements">Form-Associated Custom Elements</a></th>
-            <td><a href="https://github.com/WICG/webcomponents/issues/187">WICG/webcomponents#187</a></td>
-            <td>Critical</td>
-            <td>Some implementation</td>
-          </tr>
-          <tr>
-            <th><a href="#cross-root-aria">Cross-root ARIA</a></th>
-            <td>
-              <a href="https://github.com/WICG/aom/issues/169">WICG/aom#169</a><br>
-              <a href="https://github.com/WICG/aom/issues/107">WICG/aom#107</a><br>
-              <a href="https://github.com/WICG/webcomponents/issues/917">WICG/webcomponents#917</a><br>
-              <a href="https://github.com/WICG/webcomponents/issues/916">WICG/webcomponents#916</a>
-            </td>
-            <td>Critical</td>
-            <td>Uncertain</td>
-          </tr>
-          <tr>
-            <th><a href="http://localhost:8080/status.html#constructable-stylesheets-adoptedstylesheets">Constructable Stylesheets & adoptedStyleSheets</a></th>
-            <td><a href="https://github.com/WICG/webcomponents/issues/169">WICG/webcomponents#468</a></td>
-            <td>Critical</td>
-            <td>Some implementation</td>
-          </tr>
-          <tr>
-            <th><a href="#css-module-scripts">CSS Module Scripts</a></th>
-            <td><a href="https://github.com/WICG/webcomponents/issues/759">WICG/webcomponents#759</a></td>
-            <td>Critical</td>
-            <td>Some implementation</td>
-          </tr>
-          <tr>
-            <th><a href="#scoped-element-registries">Scoped Element Registries</a></th>
-            <td><a href="https://github.com/WICG/webcomponents/issues/716">WICG/webcomponents#716</a></td>
-            <td>Critical</td>
-            <td>Consensus</td>
-          </tr>
-          <tr>
-            <th><a href="#declarative-shadow-dom">Declarative Shadow DOM</a></th>
-            <td><a href="https://github.com/whatwg/dom/issues/831">whatwg/dom#831</a></td>
-            <td>Critical</td>
-            <td>Partial consensus, some implementation</td>
-          </tr>
-          <tr>
-            <th><a href="#composed-selection">Composed Selection</a></th>
-            <td><a href="https://github.com/WICG/webcomponents/issues/79">WICG/webcomponents#79</a></td>
-            <td>High</td>
-            <td>Partial consensus, divergent partial implementations</td>
-          </tr>
-          <tr>
-            <th>Declarative CSS Modules</th>
-            <td><a href="https://github.com/WICG/webcomponents/issues/939">WICG/webcomponents#939</a></td>
-            <td>High</td>
-            <td>Not Addressed</td>
-          </tr>
-          <tr>
-            <th><a href="#children-changed-callback">Children changed callback</a></th>
-            <td><a href="https://github.com/WICG/webcomponents/issues/809">WICG/webcomponents#809</a></td>
-            <td>High</td>
-            <td>---</td>
-          </tr>
-          <tr>
-            <th><a href="#open-styling-of-shadow-roots">Open styling of shadow roots</a></th>
-            <td><a href="https://github.com/WICG/webcomponents/issues/909">WICG/webcomponents#909</a></td>
-            <td>High</td>
-            <td>Not addressed</td>
-          </tr>
-          <tr>
-            <th><a href="#declarative-custom-elements">Declarative custom elements</a></th>
-            <td><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Declarative-Custom-Elements-Strawman.md">Strawperson</a></td>
-            <td>High</td>
-            <td>Not addressed</td>
-          </tr>
-          <tr>
-            <th>---</th>
-            <td>---</td>
-            <td>---</td>
-            <td>---</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-     <section>
-      <h2>Form-Associated Custom Elements</h2>
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/187">WICG/webcomponents#187</a></dd>
-        <dt>Priority:</dt>
-        <dd>Critical</dd>
-        <dt>Status:</dt>
-        <dd>Some implementation</dd>
-        <dd>Mozilla: <a href="https://mozilla.github.io/standards-positions/#form-participation-api" target="_blank">position</a></dd>
-      </dl>
+      <h2>Web Components Community Group</h2>
       <section>
-        <h3>Description</h3>
-        <p>Form-associated custom elements allow custom elements to participate in forms to the same degree as native elements, including integrations with the form’s validation, state, and submission as well as exposing the Accessibility Object Model to the element.</p>
-        <p>A sample use case can be found in <a href="https://css-tricks.com/creating-custom-form-controls-with-elementinternals/">this article by Caleb Williams</a>.</p>
-      </section>
-      <section>
-        <h3>Motivation</h3>
-        <p>One of the most common use cases for web components is creating form controls not available natively. Some examples include switches and credit card inputs.</p>
-        <p>There is no way for forms to fully integrate with form elements located in a different shadow root the same way they would with form elements in the same root. The only options available to achieve a similar result are:</p>
+        <h3>Spec/API Reports Table of Contents</h3>
         <ul>
-          <li>The formdata event: this event only provides integration on form submission. Using this feature alone may also lead to accessibility issues due to the lack of cross-root ARIA.</li>
-          <li>
-            Setting a form element in light DOM (e.g. using slots): this gives web components authors two main options both of which will only work with standard form elements, mostly for form submission, and require both implementers and end users to write more code:
-            <ul>
-              <li>Visually hide the form element in light DOM and synchronize its value to a visible form element located inside the web component’s shadow root.</li>
-              <li>Have both the form element and its label located in slots and forgo the granular control shadow DOM gives you over how to allow for CSS customization.</li>
-            </ul>
-          </li>
-        </ul>
-        <p>This situation has forced developers to either not use web components for form elements or create their own form systems that allow for full integration (e.g. many big web component libraries such as Lion or Shoelace provide form systems that integrate with their components). This limits the reach web components could have as plug-in form elements for projects created with different tech stacks.</p>
-      </section>
-    </section>
-    <section>
-      <h2>Cross-root ARIA</h2>
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/aom/issues/169">WICG/aom#169</a></dd>
-        <dd><a href="https://github.com/WICG/aom/issues/107">WICG/aom#107</a></dd>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/917">WICG/webcomponents#917</a></dd>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/916">WICG/webcomponents#916</a></dd>
-        <dt>Priority:</dt>
-        <dd>Critical</dd>
-        <dt>Status:</dt>
-        <dd>Uncertain</dd>
-      </dl>
-      <section>
-        <h3>Description</h3>
-        <ol>
-          <li>Shadow root encapsulation currently prevents references between elements in different roots. Cross-root ARIA references would re-enable this platform feature within shadow roots.</li>
-          <li>It's not possible to "forward" ARIA attributes from a custom element host into elements in the host's shadow root. For instance, a custom input that wants to allow users to customize the ARIA role, has no way to forward the role attribute to the encapsulated native input.</li>
-        </ol>
-      </section>
-      <section>
-        <h3>Motivation</h3>
-        <p>It's critically important that content on the web be accessible. Making web component content accessible currently requires many complicated and only partially-successful workarounds, such as:</p>
-        <ul>
-          <li>Observing and moving ARIA-related attributes across elements (for role, etc.)</li>
-          <li>Using non-standard attributes for ARIA features, in order to apply them to elements in a shadow root.</li>
-          <li>Requiring that custom elements users wrap/slot elements so that ARIA attributes can be placed directly on them. This gets very complicated as the number of slotted inputs and levels of shadow root nesting increase.</li>
-          <li>Duplicating nodes across shadow root boundaries</li>
-          <li>Abandoning Shadow DOM</li>
+          <li><a href="./2022.html" title="2022 Report">2022</a></li>
+          <li><a href="./2021.html" title="2021 Report">2021</a></li>
         </ul>
       </section>
     </section>
-    <section>
-      <h2>Constructable Stylesheets & adoptedStyleSheets</h2>
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/468">WICG/webcomponents#468</a></dd>
-        <dt>Priority:</dt>
-        <dd>Critical</dd>
-        <dt>Status:</dt>
-        <dd>Some implementation</dd>
-        <dd>Mozilla: <a href="https://mozilla.github.io/standards-positions/#construct-stylesheets" target="_blank">position</a></dd>
-      </dl>
-      <section>
-        <h3>Description</h3>
-        <p>Constructable Stylesheets and `adoptedStyleSheets` enable adding styles directly to shadow roots without creating new DOM elements. Because a single stylesheet object can be adopted by multiple scopes, it also allows sharing of styles that can be centrally modified.</p>
-      </section>
-      <section>
-        <h3>Motivation</h3>
-        <ul>
-          <li>There is no effective way to share styles across components while allowing them to be centrally modified.</li>
-          <li>Creating `&lt;style&gt;` elements for each style used in each shadow root has a measurable performance overhead.</li>
-          <li>CSS Module Scripts, another critical feature, depends on constructible stylesheets.</li>
-        </ul>
-      </section>
-    </section>
-    <section>
-      <h2>CSS Module Scripts</h2>
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/759">WICG/webcomponents#759</a></dd>
-        <dt>Priority:</dt>
-        <dd>Critical</dd>
-        <dt>Status:</dt>
-        <dd>Some implementation</dd>
-        <dd>Mozilla: <a href="https://mozilla.github.io/standards-positions/#import-attributes" target="_blank">position</a></dd>
-      </dl>
-      <section>
-        <h3>Description</h3>
-        <p>CSS Module Scripts allow JavaScript modules to import style sheets. They can then be applied to a document or shadow root using adoptedStyleSheets in the same way as constructible style sheets.</p>
-        <pre class="javascript">
-          import styleSheet from "./styles.css" assert { type: "css" };
-          document.adoptedStyleSheets = [ styleSheet ];
-        </pre>
-      </section>
-      <section>
-        <h3>Motivation</h3>
-        <ul>
-          <li>CSS modules will allow styles to be loaded in component definitions without adding `&lt;style&gt;` or `&lt;link&gt;` elements that need to be created in each element instance.</li>
-          <li>Authors today often use inlined CSS strings in JS modules, but many of them want to move the CSS into separate .css files.</li>
-          <li>Without CSS-in-JS it's difficult to ensure that CSS is loaded before the component is defined and rendered. CSS module scripts provide the same ordering guarantee.</li>
-          <li>Component authors may need to import a resource that is only available as an external .css file, and don't have control over the resource to wrap it in a JS module.</li>
-        </ul>
-        <p>For further motivational details, see this explainer document: <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/css-modules-v1-explainer.md#why-are-css-modules-needed">webcomponents/css-modules-v1-explainer.md at gh-pages · WICG/webcomponents</a>.</p>
-      </section>
-    </section>
-    <section>
-      <h2>Scoped Element Registries</h2>
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/716">WICG/webcomponents#716</a></dd>
-        <dt>Priority:</dt>
-        <dd>Critical</dd>
-        <dt>Status:</dt>
-        <dd>Consensus</dd>
-      </dl>
-      <section>
-        <h3>Description</h3>
-        <p>Scoped element registries allow custom element definitions to be scoped to one or more shadow roots. This allows the same tag name to be used with different implementations in different parts of the page, greatly reducing tag name collisions.</p>
-      </section>
-      <section>
-        <h3>Motivation</h3>
-        <p>There are a number of situations where multiple definitions of an element may be loaded into a page, leading to errors when the second definition executes:</p>
-        <ul>
-          <li>Unrelated name collisions: Unrelated web component libraries may attempt to register the same name; eg, `&lt;my-button&gt;`.</li>
-          <li>Versioning: Often different versions of a library are required as dependencies of an application. If any library defines a custom element, only one version of that element can be registered. This can cause bugs with incompatible versions of the element being used.</li>
-          <li>Distribution: Some elements are distributed via different channels, like CDNs and NPM. If a page consumes the library from multiple sources, that can lead to name collisions. The workarounds are not obvious.</li>
-          <li>Encapsulation: Some components define and use other elements as internal implementation helpers. These elements should not have to be defined in a public global scope.</li>
-        </ul>
-        <p>A partial polyfill for scoped custom element registries is available, but it has a number of drawbacks, including lower performance, and a requirement that all definitions have the same set of observed attributes.</p>
-      </section>
-    </section>
-    <section>
-      <h2>Declarative Shadow DOM</h2>
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/whatwg/dom/issues/831">whatwg/dom#831</a></dd>
-        <dt>Priority:</dt>
-        <dd>Critical</dd>
-        <dt>Status:</dt>
-        <dd>Partial consensus, some implementation</dd>
-        <dd>Mozilla: <a href="https://mozilla.github.io/standards-positions/#declarative-shadow-dom" target="_blank">position</a></dd>
-      </dl>
-      <section>
-        <h3>Description</h3>
-        <p>Declarative Shadow DOM is a mechanism to express <a href="https://www.w3.org/TR/shadow-dom/">Shadow DOM</a> using only HTML, with no dependency on JavaScript, much like light DOM can be declaratively expressed today.</p>
-        <p><em>For details, see <a href="https://web.dev/declarative-shadow-dom/">this article</a> by Jason Miller and Mason Freed.</em></p>
-      </section>
-      <section>
-        <h3>Motivation</h3>
-        <p>Without Declarative Shadow DOM, web components depend on rendering environments that support JavaScript. This limits their use in:</p>
-        <ul>
-          <li>Server-Side Rendering: Without Declarative Shadow DOM, servers cannot deliver complete websites that include web component content. Markup cannot be efficiently delivered and then hydrated with JavaScript client-side.</li>
-          <li>JavaScript-less environments: Many web components could be implemented without JavaScript, taking advantage of encapsulated DOM and styles. However, web components cannot currently be rendered by users who have JavaScript disabled. Developers who are more comfortable with markup than with scripting may avoid shadow DOM altogether due to its tight coupling with JavaScript.</li>
-        </ul>
-        <p>Chrome has <a href="https://web.dev/declarative-shadow-dom/#detection-support">experimental support</a> and <a href="https://web.dev/declarative-shadow-dom/#polyfill">a polyfill</a> for Declarative Shadow DOM, but complete workarounds are not possible since Declarative Shadow DOM is a browser-level feature. Frameworks and libraries have hacked around this issue by prerendering sites, pages, or components in JavaScript-supporting environments prior to delivering HTML.</p>
-      </section>
-    </section>
-    <section>
-      <h2>Composed Selection</h2>
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/79">WICG/webcomponents#79</a></dd>
-        <dt>Priority:</dt>
-        <dd>High</dd>
-        <dt>Status:</dt>
-        <dd>Partial consensus, divergent partial implementations</dd>
-      </dl>
-      <section>
-        <h3>Description</h3>
-        <p>The ability to get a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Selection">Selection</a> from `shadowRoot.getSelection()` or `document.getSelection()`, then subsequently identify the selection range across composed trees of light and/or shadow DOM.</p>
-        <p>TPAC 18 resolved in <a href="https://github.com/WICG/webcomponents/issues/79#issuecomment-432974389">consensus</a> to add `getComposedRange()` to the existing Selection object (<a href="https://github.com/mfreed7/shadow-dom-selection#readme">explainer</a>). However, `Selection.getComposedRange()` is not yet implemented in any browser. Browsers also diverge in their implementations of `shadowRoot.getSelection`:</p>
-        <ul>
-          <li>Chrome always sets `isCollapsed` to true.</li>
-          <li>Firefox has not implemented `shadowRoot.getSelection`, but returns shadow root anchorNodes from `document.getSelection`. This bug can be leveraged to <a href="https://github.com/GoogleChromeLabs/shadow-selection-polyfill">polyfill</a> `shadowRoot.getSelection`.</li>
-          <li>Safari does not implement `shadowRoot.getSelection` and cannot be polyfilled.</li>
-        </ul>
-      </section>
-      <section>
-        <h3>Motivation</h3>
-        <p>Selection does not work consistently, or at all, across or within shadow roots. <strong>This makes fully-featured rich-text editors impossible to implement via web components.</strong> Some of the web’s most popular editors have issues that are blocked on this functionality:</p>
-        <ul>
-          <li><a href="https://github.com/tinymce/tinymce/pull/4737#issuecomment-719317085">TinyMCE</a></li>
-          <li><a href="https://github.com/ckeditor/ckeditor5/pull/7846#issuecomment-675477977">CKEditor</a></li>
-          <li><a href="https://github.com/quilljs/quill/pull/1805">Quill</a></li>
-        </ul>
-      </section>
-    </section>
-    <section>
-      <h2>Declarative CSS Modules</h2>
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/939">WICG/webcomponents#939</a></dd>
-        <dt>Priority:</dt>
-        <dd>High</dd>
-        <dt>Status:</dt>
-        <dd>Not Addressed</dd>
-      </dl>
-      <section>
-        <h3>Description</h3>
-        <p>Declarative shadow roots and constructible stylesheets need to be made to work together so that stylesheets added to shadow roots can be round-tripped through HTML serialization and deserialization.</p>
-      </section>
-      <section>
-        <h3>Motivation</h3>
-        <p>Currently, there is no way to associate a declarative shadow root with a constructed stylesheet. This means that when a custom element with a shadow root and adopted stylesheets is serialized to HTML, it either loses its styling or some additional code has to convert the adopted stylesheets to style tags and insert them into the markup.</p>
-      </section>
-    </section>
-    <section>
-      <h2>Children changed callback</h2>
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/809">WICG/webcomponents#809</a></dd>
-        <dt>Priority:</dt>
-        <dd>High</dd>
-        <dt>Status:</dt>
-        <dd>---</dd>
-      </dl>
-      <section>
-        <h3>Description</h3>
-        <p>This is a proposal to add a new callback to the CEReaction extended attribute that would fire once an element's child has changed. This new callback would allow developers to deterministically know when child elements are added or removed, taking into account slotting.</p>
-      </section>
-      <section>
-        <h3>Motivation</h3>
-        <ul>
-          <li>Simplicity: Currently, developers are using a combination of mutation observers and slotchange events to be notified when new elements have entered or removed from its scope. This would be replaced by a single callback function on the parent element.</li>
-          <li>Children upgraded: When new children enter the parents scope there is no way of deterministically knowing that the child element has been upgraded with its custom element definition. Developers resort to polling, promise callbacks or timeouts to then wait for the child to finish upgrading before calling its APIs. The proposed callback would contain elements that have already been upgraded.</li>
-        </ul>
-      </section>
-    </section>
-    <section>
-      <h2>Open styling of shadow roots</h2>
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/issues/909">WICG/webcomponents#909</a></dd>
-        <dt>Priority:</dt>
-        <dd>High</dd>
-        <dt>Status:</dt>
-        <dd>Not addressed</dd>
-      </dl>
-      <section>
-        <h3>Description</h3>
-        <p>Open-styleable shadow roots would be a new mode on shadow roots that allow selectors from the shadow root's containing scope. This will allow component's internal DOM to be styled by page styles if there is a chain of open-styleable shadow roots up to the document scope - which in turn allow those components to be made to be compatible with existing pages so that projects can incrementally adopt shadow DOM.</p>
-      </section>
-      <section>
-        <h3>Motivation</h3>
-        <p>Many potential consumers and providers of web components have raised the issue that they need to make components styleable with existing, and potentially <em>unknown</em> stylesheets. This is a common occurrence with systems like Bootstrap, Tailwind, or corporate stylesheets. The stylesheet may be loaded at the page level and maintained and distributed by a different team than the team building components. This scenario is extremely common for projects that are trying to port existing components to web components.</p>
-        <p>A common request for a solution to this problem is to be able to opt shadow roots into including styles from the scope above them. A chain of these "open-styleable" shadow roots from the top-level down would allow page styles to select against nodes in the shadow root.</p>
-        <p>While this does loosen encapsulation a lot, it also preserves many of the benefits of shadow DOM including upper bound style encapsulation, lower bound encapsulation to non-open-styleable shadow roots, DOM composition with slotting, and providing a scope for custom element registrations, ARIA/focus delegation, event composition, attaching constructible stylesheets and more.</p>
-        <p>We estimate this is a extremely large blocker to shadow DOM adoption. The inability to style shadow roots is one of the most common complaints on various GitHub/Twitter/Chat comments.</p>
-        <p>There is theoretically a workaround where a component reads styles from its containing scope and copies them into its own shadow root. This is difficult to make reactive to changes in DOM structure and new styles being added in parent scopes, and requires script so doesn't work with declarative shadow DOM.</p>
-      </section>
-    </section>
-    <section>
-      <h2>Declarative custom elements</h2>
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Declarative-Custom-Elements-Strawman.md">Strawperson</a></dd>
-        <dt>Priority:</dt>
-        <dd>High</dd>
-        <dt>Status:</dt>
-        <dd>Not addressed</dd>
-      </dl>
-      <section>
-        <h3>Description</h3>
-        <p>ְDevelopers would like to define a custom element, it’s shadow-root, and styles from HTML, without need for JavaScript.</p>
-      </section>
-      <section>
-        <h3>Motivation</h3>
-        <p>This would allow them to share reusable components easily without need for extra tooling, and to load them in `&lt;noscript&gt;` contexts. Declarative Shadow DOM allows developers to emulate this using build-tools, but requires repeating the declared shadow roots for each instance.</p>
-      </section>
-    </section>
-    <section>
-      <h2>Feature or Problem</h2>
-      <dl>
-        <dt>GitHub Issue(s):</dt>
-        <dd>---</dd>
-        <dt>Priority:</dt>
-        <dd>---</dd>
-        <dt>Status:</dt>
-        <dd>---</dd>
-      </dl>
-      <section>
-        <h3>Description</h3>
-        <p>---</p>
-      </section>
-      <section>
-        <h3>Motivation</h3>
-        <p>---</p>
-      </section>
-    </section>
-    <section id="conformance">
-      <p>
-        This is required for specifications that contain normative material.
-      </p>
-    </section>
-    <section id="index"></section>
   </body>
 </html>
