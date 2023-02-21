@@ -8,31 +8,62 @@
       class="remove"
       defer
     ></script>
-    <style>
-      /* some basic styling to make the ToC centered */
-      @media screen and (min-width: 78em) {
-        body:not(.toc-inline) {
-          padding-left: 2rem;
-        }
-      }
-
-      h1, h2 {
-        text-align: center;
-      }
-
-      ul {
-        width: 10%;
-        margin: auto;
-      }
-    </style>
+    <script class="remove">
+      // All config options at https://respec.org/docs/
+      var respecConfig = {
+        specStatus: "CG-DRAFT",
+        latestVersion: null,
+        edDraftURI: null,
+        editors: [
+          {
+            name: "Westbrook Johnson",
+            url: "https://westbrookjohnson.com",
+          },
+          {
+            name: "Alan Dávalos",
+            url: "https://github.com/alangdm",
+          },
+          {
+            name: "Rob Eisenberg",
+            url: "https://github.com/eisenbergeffect",
+          },
+          {
+            name: "Owen Buckley",
+            url: "https://github.com/thescientist13",
+          },
+          {
+            name: "Caleb Williams",
+            url: "https://github.com/calebdwilliams"
+          },
+          {
+            name: "Justin Fagnani",
+            url: "https://github.com/justinfagnani"
+          }
+        ],
+        github: "w3c/webcomponents-cg",
+        shortName: "webcomponents-cg",
+        xref: "web-platform",
+        group: "webcomponents",
+        tocIntroductory: true,
+      };
+    </script>
   </head>
   <body>
-    <h1>Web Components Community Group</h1>
-    
-    <h2>Spec/API Reports Table of Contents</h2>
-    <ul>
-      <li><a href="./2022.html" title="2022 Report">2022</a></li>
-      <li><a href="./2021.html" title="2021 Report">2021</a></li>
-    </ul>
+    <section id="abstract">
+      <p>The Web Components Community Group publishes yearly reports on the status a web components APIs and their presence in browsers.</p>
+    </section>
+    <section id="sotd">
+      <p>This is a record of all currently available reports.</p>
+    </section>
+    <section class="informative">
+      <h2>Web Components Community Group</h2>
+      <section>
+        <h3>Spec/API Reports Table of Contents</h3>
+        <ul>
+          <li><a href="./2022.html" title="2022 Report">2022</a></li>
+          <li><a href="./2021.html" title="2021 Report">2021</a></li>
+        </ul>
+      </section>
+    </section>
   </body>
 </html>
