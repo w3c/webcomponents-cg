@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Web Components Community Group: 2022 Spec/API status</title>
+    <script
+      src="https://www.w3.org/Tools/respec/respec-w3c"
+      class="remove"
+      defer
+    ></script>
+    <script class="remove">
+      // All config options at https://respec.org/docs/
+      var respecConfig = {
+        specStatus: "CG-DRAFT",
+        latestVersion: null,
+        edDraftURI: null,
+        editors: [
+          {
+            name: "Westbrook Johnson",
+            url: "https://westbrookjohnson.com",
+          },
+          {
+            name: "Alan Dávalos",
+            url: "https://github.com/alangdm",
+          },
+          {
+            name: "Rob Eisenberg",
+            url: "https://github.com/eisenbergeffect",
+          },
+          {
+            name: "Owen Buckley",
+            url: "https://github.com/thescientist13",
+          },
+          {
+            name: "Caleb Williams",
+            url: "https://github.com/calebdwilliams"
+          },
+          {
+            name: "Justin Fagnani",
+            url: "https://github.com/justinfagnani"
+          }
+        ],
+        github: "w3c/webcomponents-cg",
+        shortName: "webcomponents-cg",
+        xref: "web-platform",
+        group: "webcomponents",
+        tocIntroductory: true,
+      };
+    </script>
+  </head>
+  <body>
+    <section id="abstract">
+      <p>This is required.</p>
+    </section>
+    <section id="sotd">
+      <p>This is required.</p>
+    </section>
+    <section class="informative">
+      <h2>Introduction</h2>
+      <p>The initial slate of APIs that browsers shipped with web components "v1" left many important features and use-cases on a future to-do list, to be finalized out after the core custom element and shadow DOM features landed. While the web components GitHub issues and face-to-face meets have tracked and discussed many of these features individually, there hasn't been a comprehensive overview of what's left to "finish" web components.</p>
+      <p>This document tries to highlight the main features that are lacking from the web components spec that either block adoption for more developers and frameworks, or cause pain points for existing developers.</p>
+      <p>It's worth noting that many of these pain points are directly related to Shadow DOM's encapsulation. While there are many benefits to some types of widely shared components to strong encapsulation, the friction of strong encapsulation has prevented most developers from adopting Shadow DOM, to the point of there being alternate proposals for style scoping that don't use Shadow DOM. We urge browser vendors to recognize these barriers and work to make Shadow DOM more usable by more developers.</p>
+      <section>
+        <h3>Browser Parity</h3>
+        <p>We noticed the following specs already have a high degree of alignment from an implementation perspective, but support in browsers is still not equally distributed.  Filling in these gaps would be a big win for users and developers alike for a more predictable web.</p>
+        <ul>
+          <li><a href="#form-associated-custom-elements">FACE (Form-Associated Custom Elements)</a></li>
+          <li><a href="#constructable-stylesheets-adoptedstylesheets">Constructable Style Sheets</a></li>
+          <li><a href="#css-module-scripts">CSS Modules</a></li>
+          <li><a href="#imperative-slot-assignment">Imperative slots</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Spec Alignment</h3>
+        <p>The following specs we see as highly valuable to the developer community for being able to deliver great web experiences to users when using Web Components.  As it pertains to topics like Aria and SSR, these specs just need a little more alignment across browser implementors so that consensus can be achieved.</p>
+        <ul>
+          <li><a href="#cross-root-aria">Cross-root Aria</a></li>
+          <li><a href="#scoped-element-registries">Scoped Registries</a></li>
+          <li><a href="#declarative-shadow-dom">Declarative Shadow DOM</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Table of Contents</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Feature or Problem</th>
+              <th>GitHub Issue(s)</th>
+              <th>Status(?)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th><a href="#children-changed-callback">Children changed callback</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/809">WICG/webcomponents#809</a></td>
+              <td>Uncertain</td>
+            </tr>
+            <tr>
+              <th><a href="#composed-selection">Composed Selection</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/79">WICG/webcomponents#79</a></td>
+              <td>Partial consensus, divergent partial implementations</td>
+            </tr>
+            <tr>
+              <th><a href="#constructable-stylesheets-adoptedstylesheets">Constructable Stylesheets & adoptedStyleSheets</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/169">WICG/webcomponents#468</a></td>
+              <td>Some implementation</td>
+            </tr>
+            <tr>
+              <th><a href="#cross-root-aria">Cross-root ARIA</a></th>
+              <td>
+                <a href="https://github.com/WICG/aom/issues/169">WICG/aom#169</a><br>
+                <a href="https://github.com/WICG/aom/issues/107">WICG/aom#107</a><br>
+                <a href="https://github.com/WICG/webcomponents/issues/917">WICG/webcomponents#917</a><br>
+                <a href="https://github.com/WICG/webcomponents/issues/916">WICG/webcomponents#916</a>
+              </td>
+              <td>Uncertain</td>
+            </tr>
+            <tr>
+              <th><a href="#css-module-scripts">CSS Module Scripts</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/759">WICG/webcomponents#759</a></td>
+              <td>Some implementation</td>
+            </tr>
+            <tr>
+              <th><a href="#css-properties-and-values-inside-shadow-root">CSS Properties and values inside shadow root</a></th>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th><a href="#custom-attributes">Custom Attributes</a></th>
+              <td><a href="https://github.com/w3c/webcomponents-cg/discussions/31#discussioncomment-3163644">Web Components CG Discussion</a></td>
+              <td>Not addressed</td>
+            </tr>
+            <tr>
+              <th><a href="#custom-css-state">Custom CSS State</a></th>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th><a href="#declarative-css-modules">Declarative CSS Modules</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/939">WICG/webcomponents#939</a></td>
+              <td>Not Addressed</td>
+            </tr>
+            <tr>
+              <th><a href="#declarative-custom-elements">Declarative custom elements</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Declarative-Custom-Elements-Strawman.md">Strawperson</a></td>
+              <td>Not addressed</td>
+            </tr>
+            <tr>
+              <th><a href="#declarative-shadow-dom">Declarative Shadow DOM</a></th>
+              <td><a href="https://github.com/whatwg/dom/issues/831">whatwg/dom#831</a></td>
+              <td>Partial consensus, some implementation</td>
+            </tr>
+            <tr>
+              <th><a href="#dom-parts">DOM Parts</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/DOM-Parts.md">DOM Part API - First Step of Template Instantiation</a></td>
+              <td>Uncertain</td>
+            </tr>
+            <tr>
+              <th><a href="#form-associated-custom-elements">Form-Associated Custom Elements</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/187">WICG/webcomponents#187</a></td>
+              <td>Some implementation</td>
+            </tr>
+            <tr>
+              <th><a href="#html-modules">HTML modules</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/645">WICG/webcomponents#645</a></td>
+              <td>Partial consensus, no implementations</td>
+            </tr>
+            <tr>
+              <th><a href="#imperative-slot-assignment">Imperative Slot Assignment</a></th>
+              <td><a href="https://github.com/whatwg/html/issues/3534" target="_blank">whatwg/html#3534</a></td>
+              <td>Partial Implementation</td>
+            </tr>
+            <tr>
+              <th><a href="#lazy-custom-element-definitions">Lazy custom element definitions</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/782">WICG/webcomponents#782</a></td>
+              <td>Uncertain</td>
+            </tr>
+            <tr>
+              <th><a href="#open-styling-of-shadow-roots">Open styling of shadow roots</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/909">WICG/webcomponents#909</a></td>
+              <td>Not addressed</td>
+            </tr>
+            <tr>
+              <th><a href="#scoped-element-registries">Scoped Element Registries</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/716">WICG/webcomponents#716</a></td>
+              <td>Consensus</td>
+            </tr>
+            <tr>
+              <th><a href="#styling-children-of-slotted-content">Styling children of slotted content</a></th>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th><a href="#theming">Theming</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/864">WICG/webcomponents#864</a></td>
+              <td>Uncertain</td>
+            </tr>
+            <tr>
+              <th>---</th>
+              <td>---</td>
+              <td>---</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+    <section>
+      <h2>Children changed callback</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#children-changed-callback">2021</a></dd>
+          <dt>GitHub issues:</dt>
+          <dd>
+            <ul>
+              <li><a href="https://github.com/WICG/webcomponents/issues/809">2019 discussion - open</a></li>
+              <li><a href="https://github.com/WICG/webcomponents/issues/619">December 2016 discussion - closed</a></li>
+              <li><a href="https://github.com/WICG/webcomponents/issues/551">August 2016 discussion regarding parsing timing - closed</a></li>
+              <li><a href="https://github.com/WICG/webcomponents/issues/550">August 2016 discussion - closed</a></li>
+            </ul>
+          </dd>
+          <dt>Browser positions:</dt>
+          <dd>---</dd>
+          <dt>Polyfills/Libraries</dt>
+          <dd><a href="https://github.com/WebReflection/html-parsed-element"> For the parsing behavior</a></dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>Provide a callback that triggers whenever the parser finishes parsing children or when a new child is inserted or an old child is removed.</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>Uncertain - no concrete proposal or consensus on spec</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>No concrete API proposal exists so far but the discussions seem to refer to using the callback similar to the attributeChangedCallback.</p>
+        <p>A component using said callback would look like this:</p>
+        <pre class="javascript">
+          class ChildrenChangedCallbackSample extends HTMLElement {
+            childrenChangedCallback() {}
+          }
+        </pre>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <ul>
+          <li><strong>Children parsed</strong>: This proposal would act as a cross-browser method of detecting when a custom element's children have been fully parsed reliably.</li>
+          <li><strong>Children inserted/removed</strong>: This proposal would provide better ergonomics to react to insertion or removal of children nodes than using a MutationObserver.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>Too expensive to implement: this is no longer the case, all engines have mechanisms for this already</li>
+          <li>The addition of the parsing behavior might encourage assuming a set of initial children exists and not reacting to changes in them.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>Some people believe using a MutationObserver is enough to cover the insertion/removal cases and want to avoid creating a duplicate similar API for custom elements. But the async nature of MutationObserver seems to cause timing issues.</li>
+          <li>Some other people don't want to add this API if it will only cover the use case when the parser finishes parsing children. (See the second concern)</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li><a href="https://github.com/WICG/webcomponents/issues/933">slotchange event options</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>Should this API really cover both use cases to begin with? Arguments for both sides have been mentioned in all referenced discussions with no conclusion</li>
+          <li>Should this be one or two separate callback functions?</li>
+          <li>Would it be better to implement this behavior as <a href="https://github.com/WICG/webcomponents/issues/933">part of the slotchange event as suggested in this other issue</a>? This might lead to engine security bugs so the callback seems a better option in that regard.</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Composed Selection</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#composed-selection">2021</a></dd>
+          <dt>GitHub issues:</dt>
+          <dd><a href="https://github.com/WICG/webcomponents/issues/79">Selection APIs for Shadow DOM (main issue)</a></dd>
+          <dd><a href="https://github.com/w3c/selection-api/issues/98">Add getComposedRange to Selection</a></dd>
+          <dd><a href="https://github.com/w3c/selection-api/issues/99">Change setBaseAndExtent</a></dd>
+          <dt>Browser positions:</dt>
+          <dd><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1430308">Mozilla open bug: Implement Selection.getComposedRange()</a></dd>
+          <dd><a href="https://bugs.webkit.org/show_bug.cgi?id=163921">Webkit open bug: Add selection API that works across shadow boundaries</a></dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>
+          Since existing Selection APIs can represent only a single selection in a document,
+          bound to a single Range,
+          the need for an API to represent ranges over a composed tree has been generally acknowledged since at least 2015.
+        </p><p>
+          This introduces a new API,
+          `getComposedRange()`, that can return a `StaticRange` with endpoints in different shadow trees.
+          It modifies several existing selection APIs,
+          like `setBaseAndExtent()`,
+          to support composed trees in a backwards-compatible way.
+        </p>
+        <p>
+          It also specifies a consistent behavior for `getSelection()`,
+          which currently behaves differently across browsers when applied to a shadow root.
+        </p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>
+            Consensus on
+            <a href="https://github.com/mfreed7/shadow-dom-selection/blob/main/README.md">The Shadow Selection API</a>,
+            but no spec or implementations.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <pre class="javascript">
+          customElements.define('x-editor', class extends HTMLElement {
+            connectedCallback() {
+              super.connectedCallback();
+              document.addEventListener('selectionchange', () => {
+                const selection = window.getSelection();
+                const range = selection.getComposedRange({ shadowRoots: [ this.shadowRoot ] });
+                // use shadow-aware `range` to evaluate selection within this component
+              })
+            }
+          });
+        </pre>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>
+          Selection does not work across or within shadow roots.
+          <strong>This makes fully-featured rich-text editors impossible to implement with web components.</strong>
+          Some of the web's most popular editors have issues that are blocked on this functionality:
+        </p>
+        <ul>
+          <li><a href="https://github.com/tinymce/tinymce/pull/4737#issuecomment-719317085">TinyMCE</a></li>
+          <li><a href="https://github.com/ckeditor/ckeditor5/pull/7846#issuecomment-675477977">CKEditor</a></li>
+          <li><a href="https://github.com/quilljs/quill/pull/1805">Quill</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>
+            Aligning all browsers behind a spec will change behavior in the wild
+            in any cases where cross-tree nodes are already being used.
+            However, since cross-root selection behavior is currently unspecified
+            and works differently in every browser,
+            the impact of this is expected to be small.
+          </li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Constructable Stylesheets & adoptedStyleSheets</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#constructable-stylesheets-adoptedstylesheets">2021</a></dd>
+          <dt>GitHub issues:</dt>
+          <dd><a href="https://github.com/WICG/webcomponents/issues/468">WICG/webcomponents#468</a></dd>
+          <dt>Browser positions:</dt>
+          <dd><a href="https://chromestatus.com/feature/5394843094220800" target="_blank">Chrome (Shipped)</a></dd>
+          <dd><a href="https://github.com/mozilla/standards-positions/issues/103" target="_blank">Mozilla (Shipped)</a></dd>
+          <dd><a href="https://github.com/WebKit/standards-positions/issues/42" target="_blank">Safari</a></dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p><a href="https://wicg.github.io/construct-stylesheets/" target="_blank">Constructable Stylesheets</a> and adoptedStyleSheets enable adding styles directly to DOM trees, e.g. `document` and shadow roots, without creating new DOM elements. Because a single stylesheet object can be adopted by multiple scopes, it also allows sharing of styles that can be centrally modified.</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>Partial consensus; shipped in both <a href="https://web.dev/constructable-stylesheets/" target="_blank">Chrome</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1520690" target="_blank">Firefox</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>The following is <a href="https://web.dev/constructable-stylesheets/#using-constructed-stylesheets" target="_blank">an example</a> of what this would look like in practice.</p>
+        <pre>
+          const sheet = new CSSStyleSheet();
+          sheet.replaceSync('a { color: red; }');
+          
+          // Apply the stylesheet to a document:
+          document.adoptedStyleSheets = [sheet];
+          
+          // Apply the stylesheet to a Shadow Root:
+          const node = document.createElement('div');
+          const shadow = node.attachShadow({ mode: 'open' });
+          shadow.adoptedStyleSheets = [sheet];
+        </pre>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <ul>
+          <li>There is no effective way to share styles across components while allowing them to be centrally modified.</li>
+          <li>Creating `&lt;style&gt;` elements for each style used in each shadow root has a measurable performance overhead.</li>
+          <li>CSS Module Scripts, another critical feature, depends on constructable stylesheets.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <p>From their standards position tracker, Safari has highlighted some of the following concerns:</p>
+          <ul>
+            <li>Issues related to <a href="https://github.com/WICG/construct-stylesheets/issues/45" target="_blank">race conditions</a> with adopting stylesheets and if the adoptedStyleSheets array should be directly mutable or not</li>
+            <li>There is concern that it is <a href="https://github.com/whatwg/dom/pull/892#pullrequestreview-593774559" target="_blank">incompatible with Declarative Shadow DOM</a>.</li>
+            <li>Outstanding questions around <a href="https://github.com/WICG/webcomponents/issues/870" target="_blank"><em>@import</em> statements in CSS Modules</a>.</li>
+          </ul>
+        </p>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li><a href="/#declarative-shadow-dom" target="_blank">Declarative Shadow DOM</a></li>
+          <li><a href="/#css-module-scripts" target="_blank">CSS Module Scripts</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Cross-root ARIA</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#cross-root-aria">2021</a></dd>
+          <dt>GitHub issues:</dt>
+          <dd><a href="https://github.com/leobalter/cross-root-aria-delegation" target="_blank">Cross-root ARIA Delegation</a></dd>
+          <dd><a href="https://github.com/Westbrook/cross-root-aria-reflection" target="_blank">Cross-root ARIA Reflection</a></dd>
+          <dt>Browser positions:</dt>
+          <dd>---</dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>
+          Shadow boundaries prevent content on either side of the boundary from referencing each other via ID references. ID references being the basis of the majority of the accessibility patters outlines by aria attributes, this causes a major issue in developing accessible content with shadow DOM. While there are ways to develop these UIs by orchestrating the relationships between elements of synthesizing the passing of content across a shadow boundary, these practices generally position accessible development out of reach for most developers, both at component creation and component consumption time.
+        </p>
+        <p>
+          Developers of a custom element should be able to outline to browsers how content from outside of their shadow root realtes to the content within it and visa versa. Cross-root ARIA Delegation would allow developers to define how content on the outside is mapped to the content within a shadow root, while Cross-root ARIA Reflection would define how content within a shadow root was made available to content outside of it.
+        </p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <p>
+          Implementors participating in bi-weekly Accessibility Object Model syncs with WICG have all been favorable to the delegation work and are interested in the reflection work as a tighly related API that maybe is a fast follower. Leo Balter is working on finalizing proposal text for the delegation API at which time Westbrook Johnson will apply similar teminology to the reflection API proposal.
+        </p>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <h4>Delegation API</h4>
+        <p>HTML</p>
+        <pre>
+          <code>
+            &lt;span id="foo">Description!&lt;/span>
+            &lt;template id="template1">
+              &lt;input id="input" autoarialabel autoariadescribedby />
+              &lt;span autoarialabel>Another target&lt;/span>
+            &lt;/template>
+            &lt;x-foo aria-label="Hello!" aria-describedby="foo">&lt;/x-foo>
+          </code>
+        </pre>
+        <p>JS</p>
+        <pre>
+          <code>
+            const template = document.getElementById('template1');
+
+            class XFoo extends HTMLElement {
+              constructor() {
+                super();
+                this.attachShadow({ mode: "open", delegatesAriaLabel: true, delegatesAriaDescribedBy: true });
+                this.shadowRoot.appendChild(template.content.cloneNode(true));
+              }
+            }
+
+            customElements.define("x-foo", XFoo);
+          </code>
+        </pre>
+        <h4>Reflection API</h4>
+        <p>HTML</p>
+        <pre>
+          <code>
+            &lt;input aria-controlls="foo" aria-activedescendent="foo">Description!&lt;/span>
+            &lt;template id="template1">
+              &lt;ul reflectariacontrols>
+                &lt;li>Item 1&lt;/li>
+                &lt;li reflectariaactivedescendent>Item 2&lt;/li>
+                &lt;li>Item 3&lt;/li>
+              &lt;/ul&gt;
+            &lt;/template>
+            &lt;x-foo id="foo">&lt;/x-foo>
+          </code>
+        </pre>
+        <p>JS</p>
+        <pre>
+          <code>
+            const template = document.getElementById('template1');
+
+            class XFoo extends HTMLElement {
+              constructor() {
+                super();
+                this.attachShadow({ mode: "open", reflectsAriaControls: true, reflectsAriaActivedescendent: true });
+                this.shadowRoot.appendChild(template.content.cloneNode(true));
+              }
+            }
+            customElements.define("x-foo", XFoo);
+          </code>
+        </pre>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>When developing many of the patterns outlines in the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank">ARIA Authoring Practices Guide</a> having this capability would allow for encapsulating responsibilities outlined by the `role` attribute in a shadow root.</p>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li><a href="https://github.com/WICG/aom" target="_blank">AOM</a></li>
+          <li><a href="https://wicg.github.io/aom/aria-reflection-explainer.html" target="_blank">ARIA Reflection</a></li>
+          <li><a href="https://github.com/WICG/aom/blob/gh-pages/element_reference_properties.md" target="_blank">Element reference DOM properties</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>Should these two ideas can/should really ship separately? While the reflection API was ideated after the delegation API it may not be practical to separate them at the implementation/consumption level.</li>
+          <li>Is `delegation` and `reflection` the right name for these APIs? Particularly, "reflection" is used in <a href="https://wicg.github.io/aom/aria-reflection-explainer.html" target="_blank">ARIA Reflection</a>.</li>
+          <li>There are non-ARIA attributes that would benefit from being supported by these APIs. Should they be drafted in a more general way?</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>CSS Module Scripts</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#css-module-scripts">2021</a></dd>
+          <dt>GitHub issues:</dt>
+          <dd><a href="https://github.com/WICG/webcomponents/issues/759">WICG/webcomponents#759</a></dd>
+          <dt>Browser positions:</dt>
+          <dd><a href="https://web.dev/css-module-scripts/">Chrome</a></dd>
+          <dd><a href="https://mozilla.github.io/standards-positions/#import-attributes">Firefox</a></dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>CSS Module Scripts allow JavaScript modules to import style sheets. They can then be applied to a document or shadow root using adoptedStyleSheets in the same way as constructable style sheets.</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li><a href="https://chromestatus.com/feature/5948572598009856">Chrome (shipped)</a></li>
+          <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1720570">Firefox</a></li>
+          <li><a href="https://bugs.webkit.org/show_bug.cgi?id=227967">Safari</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <pre class="javascript">
+          import styleSheet from "./styles.css" assert { type: "css" };
+
+          document.adoptedStyleSheets = [ styleSheet ];
+        </pre>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <h3>Motivation</h3>
+        <ul>
+          <li>CSS modules will allow styles to be loaded in component definitions without adding `&lt;style&gt;` or `&lt;link&gt;` elements that need to be created in each element instance.</li>
+          <li>Authors today often use inlined CSS strings in JS modules, but many of them want to move the CSS into separate .css files.</li>
+          <li>Without CSS-in-JS it's difficult to ensure that CSS is loaded before the component is defined and rendered. CSS module scripts provide the same ordering guarantee.</li>
+          <li>Component authors may need to import a resource that is only available as an external .css file, and don't have control over the resource to wrap it in a JS module.</li>
+        </ul>
+        <p>For further motivational details, see this explainer document: <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/css-modules-v1-explainer.md#why-are-css-modules-needed">webcomponents/css-modules-v1-explainer.md at gh-pages · WICG/webcomponents</a>.</p>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>Safari has a security concern regarding <a href="https://github.com/w3ctag/design-reviews/issues/405#issuecomment-535478821">the result of a loaded module.</a></li>
+          <li>Safari wants to better understand <a href="https://github.com/w3ctag/design-reviews/issues/405#issuecomment-561304217">how to handle <code>@import</code> statements in CSS Modules.</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>This has a pre-requisite on <a href="#constructable-stylesheets-adoptedstylesheets">Constructable Stylesheets</a> landing.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>CSS Properties and values inside shadow root</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd>N/A</dd>
+          <dt>GitHub issues:</dt>
+          <dd>---</dd>
+          <dt>Browser positions:</dt>
+          <dd>---</dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>---</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>---</p>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Custom Attributes</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd>N/A</dd>
+          <dt>GitHub issues:</dt>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/w3c/webcomponents-cg/discussions/31#discussioncomment-3163644">Discussion</a>
+              </li>
+              <li>
+                <a href="https://github.com/whatwg/html/issues/2271">Custom Attribute Name Rules</a>
+              </li>
+              <li>
+                <a href="https://github.com/whatwg/dom/issues/533#issuecomment-405530738">Node Connectedness comment about Custom Attributes</a>
+              </li>
+            </ul>
+          </dd>
+          <dt>Browser positions:</dt>
+          <dd>---</dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>Enable developers to create reusable custom behaviors that that can be declaratively applied to any element.</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>
+            No official proposal yet.
+          </li>
+          <li>
+            While there is no official issue for this yet, this feature request crops up in several discussions on other threads. In general, the community seems to be very interested in having something like this.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>There is no issue or proposal yet. The following can serve as an initial idea, inspired by custom elements.</p>
+        <pre class="javascript">
+          class MaterialRipple extends Attr {
+            // ownerElement inherited from Attr
+            // name inherited from Attr
+            // value inherited from Attr
+            // ...
+
+            connectedCallback () {
+              // called when the ownerElement is connected to the DOM
+            }
+
+            disconnectedCallback () {
+              // called when the ownerElement is disconnected from the DOM
+            }
+
+            attributeChangedCallback() {
+              // called when the value property of this attribute changes
+            }
+        }
+
+        customAttributes.define("material-ripple", MaterialRipple);
+        </pre>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>
+          <ul>
+            <li>Enable more built-in patterns to be accomplishable by developer extensions. e.g. label for, img src</li>
+            <li>Enable behaviors to be written once and used on any element.</li>
+            <li>May serve as a better solution than the "is" capability of custom elements (which isn't fully supported).</li>
+          </ul>
+        </p>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <p>No concerns yet.</p>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <p>No dissenting opinions yet.</p>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>
+            <a href="#declarative-shadow-dom">Declarative Shadow DOM</a>
+          </li>
+          <li>
+            <a href="#lazy-custom-element-definitions">Lazy Custom Element Definitions</a>
+          </li>
+          <li>
+            <a href="#dom-parts">DOM Part API</a>
+          </li>
+          <li>
+            <a href="#scoped-element-registries">Scoped Custom Element Registries</a>
+          </li>
+          <li>
+            <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md">Template Instantiation</a>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>
+            How should custom attributes be named? Can they follow the same hyphen convention as custom elements?
+          </li>
+          <li>
+            SVG has some CSS properties that it surfaces as attributes. How do we prevent conflicts?
+          </li>
+          <li>
+            It could be beneficial for a custom attribute to have access to the shadow DOM of a custom element, but is this a security issue?
+          </li>
+          <li>
+            Should we allow access to ElementInternals? Is that a security problem? Is there a limited version of this we could support? Do custom elements need to allow this? What about built-ins?
+          </li>
+          <li>
+            How to handle when "removeAttribute" is called?
+          </li>
+          <li>
+            Should there be special handling for boolean attributes?
+          </li>
+          <li>
+            Should there be a specific set of pre-defined attributes that can be opted into for custom elements. e.g. for, src
+          </li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Custom CSS State</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd>N/A</dd>
+          <dt>GitHub issues:</dt>
+          <dd>https://github.com/WICG/webcomponents/issues/738</dd>
+          <dt>Browser positions:</dt>
+          <dd>
+            <ul>
+              <li>
+                <strong>Chrome</strong> &mdash; shipped
+              </li>
+              <li>
+                <strong>Firefox</strong> &mdash; <a href="https://github.com/mozilla/standards-positions/issues/688">Mozilla position (GitHub issue)</a>
+              </li>
+              <li>
+                <strong>Webkit</strong> &mdash; <a href="https://github.com/WebKit/standards-positions/issues/56">WebKit position (GitHub issue)</a>
+              </li>
+            </ul>
+          </dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        
+        <blockquote cite="https://wicg.github.io/custom-state-pseudo-class/#motivation">
+          <p>Build-in elements provided by user agents have certain “states” that can change over time depending on user interaction and other factors, and are exposed to web authors through pseudo classes. For example, some form controls have the “invalid” state, which is exposed through the :invalid pseudo-class.</p>
+  
+          <p>Like built-in elements, custom elements can have various states to be in too, and custom element authors want to expose these states in a similar fashion as the built-in elements.</p>
+        </blockquote>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>A <a href="https://wicg.github.io/custom-state-pseudo-class/#exposing">draft of the spec has been written in WICG</a>.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>The <code>CustomStateSet</code> API allows component authors to expose internal component state for use in styling or other element-matching operations (such as <code>querySelector</code></p>
+
+        <p>This is different from a custom element sprouting a class (via <code>this.classList.add</code> in any state added to the custom element can be seen as internal (similar to the <code>:checked</code> pseud-selector for input elements).</code></p>
+
+        <p>To allow for this operation, a set-like API is exposed at <code>ElementInternals.prototype.states</code>, meaning that only custom elements can apply custom states. An example might look like the following:</p>
+
+        <pre>
+          <code>
+class FancyElement extends HTMLElement {
+  #internals = this.attachInternals();
+
+  constructor() {
+    super();
+    
+    const root = this.attachShadow({ mode: 'open' });
+    const button = document.createElement('button');
+    button.innerText = 'Add clicked state';
+    button.setAttribute('part', 'btn');
+    root.append(button);
+
+    this.addEventListener('click', function wasClicked() {
+      this.#internals.states.add('--clicked');
+      this.removeEventListener('click', wasClicked);
+    });
+  }
+}
+customElements.define('fancy-element', FancyElement);
+          </code>
+        </pre>
+
+        <p>Consumers of the <code>fancy-element</code> code can now take advantage of the <code>:--clicked</code> state in CSS or in any DOM querying API to modify or select the relevant element once clicked.</p>
+
+        <p>For example, to change the background of the element's <code>btn</code> part, a consuming developer could apply the following CSS:</p>
+
+        <pre>
+          <code>
+:--clicked::part(btn) {
+  background: rebeccapurple;
+}
+          </code>
+        </pre>
+        
+        <p>Alternatively, a consuming developer could call <code>document.querySelectorAll(':--clicked')</code> to target all elements with the custom state.</p>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <ul>
+          <li>Allow custom element authors to expose internal state for use in CSS</li>
+          <li>Allow custom element authros to expose internal state for use in DOM selection operations</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>Most of the concerns around this topic are related to syntax rather than functionality. For example, some prefer the selector to match state to be something along the lines of <code>:state(--state)</code>; however, it appears as if the current status is fairly accepted right now.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li><a href="https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-face-example">Form-associated custom elements</a></li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Declarative CSS Modules</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#declarative-css-modules">2021</a></dd>
+          <dt>GitHub issues:</dt>
+          <dd>---</dd>
+          <dt>Browser positions:</dt>
+          <dd>---</dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>---</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>---</p>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Declarative custom elements</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#declarative-custom-elements">2021</a></dd>
+          <dt>GitHub issues:</dt>
+          <dd>
+            <ul>
+              <li><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Declarative-Custom-Elements-Strawman.md">Initial Proposal</a></li>
+              <li><a href="https://github.com/Westbrook/custom-element-proposals/pull/1">Single File Component Explainer</a></li>
+              <li><a href="https://github.com/WICG/webcomponents/issues/645">Cross-over with HTML Modules</a></li>
+              <li><a href="https://github.com/w3c/webcomponents-cg/issues/32">Discussion</a></li>
+            </ul>
+          </dd>
+          <dt>Browser positions:</dt>
+          <dd>---</dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>A method of creating custom elements completely with declarative HTML, not requiring JavaScript.</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>Strawperson proposal available.</li>
+          <li>Dependent on many other proposals that are not yet finished.</li>
+          <li>Many people would like to have something like this but it seems too early due to the number of unfinished dependencies.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>The following, copied from the original strapwerson proposal, demonstrates how a declarative custom element could be defined with the need for JavaScript.</p>
+        <pre class="html">&lt;definition&nbsp;name=&quot;percentage&#45;bar&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;template&nbsp;shadowmode=&quot;closed&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;progressbar&quot;&nbsp;role=&quot;progressbar&quot;&nbsp;aria&#45;valuemin=&quot;0&quot;&nbsp;aria&#45;valuemax=&quot;100&quot;&nbsp;aria&#45;valuenow=&quot;{{\root.attributes.percentage.value}}&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;bar&quot;&nbsp;style=&quot;width:&nbsp;{{\root.attributes.percentage.value}}%&quot;&gt;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;label&quot;&gt;&lt;slot&gt;&lt;/slot&gt;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;style&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:host&nbsp;{&nbsp;display:&nbsp;inline&#45;block&nbsp;!important;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#progressbar&nbsp;{&nbsp;position:&nbsp;relative;&nbsp;display:&nbsp;block;&nbsp;width:&nbsp;100%;&nbsp;height:&nbsp;100%;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#bar&nbsp;{&nbsp;background&#45;color:&nbsp;#36f;&nbsp;height:&nbsp;100%;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#label&nbsp;{&nbsp;position:&nbsp;absolute;&nbsp;top:&nbsp;0px;&nbsp;left:&nbsp;0px;&nbsp;width:&nbsp;100%;&nbsp;height:&nbsp;100%;&nbsp;text&#45;align:&nbsp;center;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/style&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/template&gt;
+&lt;/definition&gt;
+        </pre>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <ul>
+          <li>Create reusable custom elements without needing to load or run JavaScript.</li>
+          <li>Use custom elements in noscript contexts.</li>
+          <li>Open up new opportunities for more efficient server-side-rendering. e.g. Smaller html payloads due to less duplication of HTML</li>
+          <li>Codify framework "single file component" patterns in the platform.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>Binding syntax for attributes is extremely verbose. e.g. "{{\root.attributes.percentage.value}}" is used instead of something terser like "{{\percentage}}" .</li>
+          <li>Binding syntax doesn't look extensible.</li>
+          <li>A lot of cooperation from tooling and plugin authors will be required to enable developer ergonomics and adoption.</li>
+          <li>The current proposal's script model creates a second way of coding components with some different behavior from what we have today.</li>
+          <li>The current proposal conflicts in syntax with Declarative Shadow DOM.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <p>No dissenting opinions yet.</p>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>
+            <a href="https://html.spec.whatwg.org/multipage/scripting.html#htmltemplateelement">HTML Template Element</a>
+          </li>
+          <li>
+            <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#form-associated-custom-elements">Form Associated Custom Elements</a>
+          </li>
+          <li>
+            <a href="https://wicg.github.io/custom-state-pseudo-class/#customstateset">Custom State Set</a>
+          </li>
+          <li>
+            <a href="#declarative-css-modules">Declarative CSS Modules</a>
+          </li>
+          <li>
+            <a href="#dom-parts">DOM Part API</a>
+          </li>
+          <li>
+            <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md">Template Instantiation</a>
+          </li>
+          <li>
+            <a href="#scoped-element-registries">Scoped Custom Element Registries</a>
+          </li>
+          <li>
+            <a href="#lazy-custom-element-definitions">Lazy Custom Element Definitions</a>
+          </li>
+          <li>
+            <a href="#cross-root-aria">Cross Root Aria</a>
+          </li>
+          <li>
+            <a href="#html-modules">HTML Modules</a>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>Shouldn't attributes be declared instead of inferred through the bindings?</li>
+          <li>How to handle boolean attributes and reflected attributes?</li>
+          <li>If script is provided through src, how should loading be handled? Does it block or can it be partially upgraded?</li>
+          <li>How does this support aria roles, degegated aria, and cross-root aria?</li>
+          <li>How is form association handled?</li>
+          <li>When script is provided, how does it interact with or gain access to the template and styles?</li>
+          <li>Should there be ways to ship definitions along with a data set or top-level template so that small payloads of data can be automatically combined with template and element declarations without the need for JS?</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Declarative Shadow DOM</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#declarative-shadow-dom">2021</a></dd>
+          <dt>GitHub issues:</dt>
+          <dd><a href="https://github.com/whatwg/dom/issues/831">https://github.com/whatwg/dom/issues/831</a></dd>
+          <dt>Browser positions:</dt>
+          <dd><a href="https://chromestatus.com/feature/5191745052606464">Chrome (Shipped)</a></dd>
+          <dd><a href="https://github.com/mozilla/standards-positions/issues/335">Mozilla</a></dd>
+          <dd><a href="https://github.com/WebKit/standards-positions/issues/12">Safari</a></dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>Declarative Shadow DOM is a mechanism to express Shadow DOM using only HTML, with no dependency on JavaScript, much like light DOM can be declaratively expressed today.</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>Partial consensus, some implementation</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>Below is an example taken from the <a href="https://web.dev/declarative-shadow-dom">web.dev blog</a> on Declarative Shadow DOM.</a>
+          <pre>
+            &lt;host-element&gt;
+              &lt;template shadowroot="open"&gt;
+                &lt;slot&gt;&lt;/slot&gt;
+              &lt;/template&gt;
+              &lt;h2>Light content&lt;/h2>&gt;
+            &lt;/host-element>
+          </pre>
+        </p>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>Server-Side Rendering: Without Declarative Shadow DOM, servers cannot deliver complete websites that include web component content. Markup cannot be efficiently delivered and then hydrated with JavaScript client-side.</p>
+        <p>JavaScript-less environments: Many web components could be implemented without JavaScript, taking advantage of encapsulated DOM and styles. However, web components cannot currently be rendered by users who have JavaScript disabled. Developers who are more comfortable with markup than with scripting may avoid shadow DOM altogether due to its tight coupling with JavaScript..</p>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>Mozilla considers this to be non-harmful, though debates the merits on ROI to developers weighed against the added complexity to be added to the HTML parser from a performance perspective.</li>
+          <li>Safari would like to see compatibility with Scoped Element Registry addressed first.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>N / A</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li><a href="https://github.com/WICG/webcomponents/issues/716">Scoped Element Registries</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>Mozilla would like to see more <a href="https://github.com/whatwg/dom/issues/831#issuecomment-988394185">real world uses cases</a> of Declarative Shadow DOM in the wild.  <a href="https://github.com/whatwg/dom/issues/831#issuecomment-1204554491" target="_blank">GitHub has confirmed that they are using DSD</a> and see many architectural benefits from it, especially for their design system. Although a polyfill exists, it comes as a bit of a catch-22 when trying to target pure SSR Web Components (HTML) use cases.</li>
+          <li>Safari would like to <a href="https://github.com/whatwg/dom/issues/831#issuecomment-797845645">get consensus on the solution for Scoped Element Registries first.</a></li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>DOM Parts</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd>N/A</dd>
+          <dt>GitHub issues:</dt>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/DOM-Parts.md">Initial Proposal</a>
+              </li>
+              <li>
+                <a href="https://docs.google.com/document/d/1UVtF1gM6XY-_NKm2_c045K803U3ZTjfyluLeToJlIUk/edit">Alternative Diffing Proposal</a>
+              </li>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/issues/902">Naming Discussion</a>
+              </li>
+            </ul>
+          </dd>
+          <dt>Browser positions:</dt>
+          <dd>---</dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>A mechanism to insert or replace content at specific locations within the DOM tree.</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>Strawperson proposal available.</li>
+          <li>General consensus is that this is needed and could be used by existing Web Component and Frontend libraries and frameworks.</li>
+          <li>Lots of bike shedding over naming.</li>
+          <li>There is a large number of open questions both on this feature and how it interacts with other proposals.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>The following is a summary of the core types from the proposal.</p>
+        <pre class="javascript">
+          interface Part {
+              attribute any value;
+              void commit();
+          };
+
+
+          interface NodePart : Part {
+              readonly attribute Node node;
+          };
+
+
+          interface AttributePart : Part {
+              constructor(Element element, DOMString qualifiedName, DOMString? namespace);
+              readonly attribute DOMString prefix;
+              readonly attribute DOMString localName;
+              readonly attribute DOMString namespaceURI;
+          };
+
+
+          interface ChildNodePart : Part {
+              constructor(Node node, Node? previousSibling, Node? nextSibling);
+              readonly attribute Node parentNode;
+              readonly attribute Node? previousSibling;
+              readonly attribute Node? nextSibling;
+          }
+          </pre>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>
+          <ul>
+            <li>
+              Enable batched updates to the DOM, usable by library/framework view engines. Library authors would be able to remove part of their user-land solution, shrinking libraries and reducing JS execution.
+            </li>
+            <li>
+              Needed as a steppingstone towards reactive bindings for custom elements.
+            </li>
+          </ul>
+        </p>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>
+            Naming the API as "Part" could cause confusion with CSS Shadow Parts. No consensus over naming reached yet.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>
+            Some individuals, particularly from React-ish backgrounds, would prefer a diffing-based alternative to batched updates. However, there are several problems with the diffing proposal.
+            <ul>
+              <li>
+                The core proposal shows diffing between real DOM nodes, which is very heavy.
+              </li>
+              <li>
+                The diffing proposal acknowledges the above flaw and attempts to solve it by proposing a JavaScript API to create virtual DOMs but it's unclear why existing libraries can't be used for this.
+              </li>
+              <li>
+                It is not clear how this maps to fully declarative templates down the road, which are created in real DOM.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>
+            <a href="#declarative-shadow-dom">Declarative Shadow DOM</a>
+          </li>
+          <li>
+            <a href="#declarative-custom-elements">Declarative Custom Elements</a>
+          </li>
+          <li>
+            <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md">Template Instantiation</a>
+          </li>
+          <li>
+            <a href="#custom-attributes">Custom Attributes</a>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>
+            How to handle attribute parts when there is a mixture of static and dynamic parts needed to assemble the attribute value?
+          </li>
+          <li>
+            How to handle child node updates when there is a mixture of elements, text, etc. that are potentially changing.
+          </li>
+          <li>
+            How to handle setting properties?
+          </li>
+          <li>
+            How do libraries and frameworks handle custom behaviors/directives?
+          </li>
+          <li>
+            How do we handle batches of updates and ordering of updates?
+          </li>
+          <li>
+            How do we clone templates to efficiently reproduce the template content and the proper part setup?
+          </li>
+          <li>
+            Could part references be shared with workers to allow DOM updates from workers?
+          </li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Form-Associated Custom Elements</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#form-associated-custom-elements">2021</a></dd>
+          <dt>GitHub issues:</dt>
+          <dd><a href="https://github.com/whatwg/html/issues">https://github.com/whatwg/html/issues</a></dd>
+          <dt>Browser positions:</dt>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/WebKit/standards-positions/issues/47">WebKit</a>
+              </li>
+            </ul>
+          </dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>The form-associated custom elements APIs enable custom elements to participate in form submission and validation lifecycles.</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>
+            <a href="https://chromestatus.com/feature/4708990554472448">Chrome/Edge (shipped in version 77)</a>
+          </li>
+          <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals/setFormValue">Firefox (shipped in version 90)</a>
+          </li>
+          <li>
+            <a href="https://github.com/WebKit/standards-positions/issues/47#issuecomment-1221419927">WebKit is in favor and has the feature in active development</a> and has <a href="https://github.com/WebKit/WebKit/pull/2690">merged a PR implementing the first part of <code>ElementInternals</code></a> which includes the form-associated custom elements behavior; however, the initial PR doesn't include the actual form-association APIs.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>The form-associated custom elements APIs are implemented within the attachInternals method on the HTMLElement prototype. Calling attachInternals returns an instance of an ElementInternals object which grants developers the ability to interact with form elements provided they designate their element as a form-associated element.</p>
+        <pre>
+          <code>
+    &lt;form>
+      &lt;fancy-input name="fancy">&lt;/fancy-input>
+    &lt;/form>
+    
+    &lt;script>
+      class FancyInput extends HTMLElement {
+        static get formAssociated() {
+          return true;
+        }
+
+        constructor() {
+          super();
+          this.#internals = this.attachInternals();
+          this.#internals.setFormValue('I can participate in a form!');
+        }
+      }
+
+      customElements.define('fancy-input', FancyInput);
+
+      document.querySelector('form').addEventListener('submit', event => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+
+        console.log(formData.get('fancy')); // logs 'I can participate in a form!'
+      });
+    &lt;/script>
+          </code>
+        </pre>
+        <p>The <code>setFormValue</code> method can accept several types of data including strings, <code>FileData</code> and <code>FormData</code> objects, the latter of which can allow a nested form to participate with a parent in its entirety.</p>
+        <p>In addition to providing an method for adding a value to a form object, the form-associated APIs provide a surface to allow custom elements to participate in form validation.</p>
+        <pre>
+          <code>
+class FancyInput extends HTMLElement {
+  static get formAssociated() {
+    return true;
+  }
+
+  constructor() {
+    super();
+    const root = this.attachShadow({ mode: 'open' });
+    this.#internals = this.attachInternals();
+    this.#internals.setFormValue('I can participate in a form!');
+    const button = document.createElement('button');
+    root.append(button);
+
+    button.addEventListener('click', this.#onClick);
+    this.button = button;
+  }
+
+  #onClick = () => {
+    if (this.#internals.invalid) {
+      this.#internals.setValidity(); // Marks the element as valid
+    } else {
+      this.#internals.setValidity({
+        customError: true
+        }, 'You must click the button', this.button); // Marks the element as invalid and will focus on the button when the form checks validity
+  }
+}
+          </code>
+        </pre>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <ul>
+          <li>Enable custom elements to participate in form submission by adding a value to the <code>FormData</code> object, adding to the <code>HTMLFormElement.prototype.elements</code> object and in other submission formats.</li>
+          <li>Enables custom elements to participate in the form validation lifecycle by providing APIs similar to and building on top of the constraint validation APIs.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li><a href="https://github.com/whatwg/html/issues/5891">HTMLFormElement elements does not contain form-associated CustomElements when name attribute is shared</a></li>
+          <li>The form-associated APIs currently have <a href="https://github.com/WICG/webcomponents/issues/814">no way for a developer to behave as a custom submit button</a>. Though there are <a href="https://twitter.com/justinfagnani/status/1510387984830386180">several</a> <a href="https://github.com/open-wc/form-participation/tree/main/packages/form-helpers#implicit-form-submit">workarounds</a>.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>
+            <code>CustomStateSet</code>
+            <ul>
+              <li>
+                <a href="https://wicg.github.io/custom-state-pseudo-class/#customstateset">Specification</a>
+              </li>
+              <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomStateSet">
+                  <abbr title="Mozilla Developer Network">MDN</abbr>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object">
+              AriaMixin/accessibility object model
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>
+            It is currently unclear how form-associated custom elements should participate in the autocomplete lifecycle despite there being an API for that purpose. It is currently unclear per the spec how this behavior should work. Currently Chromium implements code for the <code>formStateRestoreCallback</code> callback only for restore events (such as back button or page refresh), but does not call the custom element reaction for autocomplete. Firefox currently does not ship any code referencing the <code>formStateRestoreCallback</code>.
+            <ul>
+              <li>
+                <a href="https://github.com/whatwg/html/issues/7292">Form restoration interop</a>
+              </li>
+              <li>
+                <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1335202">
+                  Chromimum Issue 1335202: formStateRestoreCallback custom element reaction will not be called for 'autocomplete'
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>HTML modules</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd>N/A</dd>
+          <dt>GitHub issues:</dt>
+          <dd><a href="https://github.com/WICG/webcomponents/issues/645">HTML Modules</a></dd>
+          <dt>Browser positions:</dt>
+          <dd><a href="https://chromestatus.com/feature/4854408103854080">Chrome</a></dd>
+          <dd><a href="https://mozilla.github.io/standards-positions/#html-modules">Firefox</a></dd>
+          <dd><a href="https://webkit.org/status/#feature-html-import">Safari</a></dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>HTML Modules would provide a means of referencing HTML through the web's module system.  For Web Components specifically, this would allow the usage of <code>import</code> to load and initialize the template of a custom element, much in the same way <a href="#css-module-scripts">CSS Modules</a> would work for an <code>adoptedStyleSheet</code>.</p>
+        <p>Additionally, this could open up the concept of <a href="https://github.com/WICG/webcomponents/issues/645#issuecomment-343601237">Single File Components (SFC)</a> to the web.</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>Chrome (shipped, but not aligned with ESM)</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <pre class="javascript">
+          import template from 'my-template.html' as HTMLTemplateElement;
+          
+          MyCustomElement extends HTMLElement {
+            constructor() {
+              const root = this.attachShadow({mode: 'closed'});
+              root.appendChild(document.importNode(template));
+            }
+          }
+        </pre>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>The primary motivation for HTML Modules is to round out ESM so that all of the three main web languages (HTML / CSS / JS) can be leveraged through a module system.  For Web Components, this is especially helpful for scenarios related to Server Side Rendering or any form of templating, static or otherwise.  Having a common mechanism in JavaScript to author and use Web Components makes for a great experience all around.</p>
+        <p>Additionally it will work great if you prefer to separate your technologies (e.g. <em>my-component.(js|css|html)</em> ), or your (CSS|HTML)-in-JS</p> in one file.
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>Main concern is that now that ESM and Import Assertions are a thing, it is recognized that the proposal for HTML Modules needs to be re-drafted accordingly.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li><a href="#css-module-scripts">CSS Modules</a></li>
+          <li><a href="#declarative-shadow-dom">Declarative Shadow DOM</a></li>
+          <li><a href="#declarative-custom-elements">Declarative Custom Elements</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>What sort of "scope" should the imported HTML be allowed to have?  Should it execute inline script tags?</li>
+          <li>What should the inline API look like for this?</li>
+          <li>How to treat the incoming HTML; as a <code>Document</code>?  As a string? (see the scope concern above)</li>
+          <li>Would / should this align with the the import assertions spec, like with CSS Modules?</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Imperative Slot Assignment</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd>N/A</dd>
+          <dt>GitHub issues:</dt>
+          <dd><a href="https://github.com/whatwg/html/issues/3534">whatwg/html#3534</a></dd>
+          <dt>Browser positions:</dt>
+          <dd><a href="https://github.com/mozilla/standards-positions/issues/335" target="_blank">Firefox</a></dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>---</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li><a href="https://chromestatus.com/feature/5711021289242624" target="_blank">Chrome</a> (Shipped)</li>
+          <li><a href="" target="_blank">Firefox</a> (Shipped)</li>
+          <li><a href="https://webkit.org/status/#feature-imperative-slot-api" target="_blank">Safari (Shipped?)</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>Currently the Slot API only supports a declarative API, meaning that slot usage can only be expressed through adding the name attribute on an element.  But there are valid cases where from multiple sources of slotted content, the Web Components author may want to programmatically set the content of a slot instead.  Take <a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Imperative-Shadow-DOM-Distribution-API.md" target="_blank">this example</a> from the proposal.</p>
+        <pre class="html">
+          &lt;custom-tab show-panel="2"&gt;
+            &lt;tab-panel>&lt;/tab-panel&gt;
+            &lt;tab-panel>&lt;/tab-panel&gt;
+            &lt;tab-panel>&lt;/tab-panel&gt;
+          &lt;/custom-tab&gt;
+        </pre>
+        <p>Without an imperative API, how would an author be able to set the contents of a single available slot to the selected panel index?</p>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>Some of the scenarios called out in the proposal include not having to pre-compute the slot names ahead of time, as well as being able to conditionally load content into a slot.</p>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>What is Safari's timeline for shipping?  Their feature tracker confirms it is supported, but <a href="https://codepen.io/Westbrook/pen/GRvbWzM">this example</a> doesn't work on iOS.</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Lazy custom element definitions</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd>N/A</dd>
+          <dt>GitHub issues:</dt>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/issues/782">Initial Proposal</a>
+              </li>
+              <li>
+                <a href="https://github.com/WICG/webcomponents/issues/444">Alternative Proposal (closed)</a>
+              </li>
+              <li>
+                <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1460815">Firefox Internal Issue</a>
+              </li>
+            </ul>
+          </dd>
+          <dt>Browser positions:</dt>
+          <dd>---</dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>
+          Enable the browser to automatically load a custom element definition when it first sees the associated tag.
+        </p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>
+            Strawperson proposal available.
+          </li>
+          <li>
+            There is further disagreement as to whether this feature is needed. However, the community generally tends to lean toward wanting some version of this.
+          </li>
+          <li>
+            There are many open questions around the feature-set as well as how it interoperates with other proposals.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>Below is a definition for the proposed new CustomElementRegistry API.</p>
+        <pre class="javascript">
+          CustomElementRegistry#defineLazy(tagName: string, loader: () => Promise<CustomElementDefinition>);
+        </pre>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>
+          <ul>
+            <li>
+              Enable bundlers to split code based on the presence of dynamic import calls. Tools like guess.js can integrate with bundlers to provide statistical analysis of actual usage, optimizing bundles better. This proposal would enable that type of integration.
+            </li>
+            <li>
+              Enable consumers of web components to not have to worry about handling the loading of the code in every place where a component is used. This is important in systems where the content may leverage a potential large number of Web Components but where only a few are actually needed in any given experience. E.g. News sites, feeds, etc.
+            </li>
+            <li>
+              Firefox has an internal API for lazy loading definitions.
+            </li>
+          </ul>
+        </p>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>
+            This feature could make it easy to create a "loading pyramid". e.g. Component A loads, which causes B and C to load, which then cause D and E to load, etc.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>
+            Breaks Principle of Least Surprise. If you see a component in the HTML, you expect to be able to interact with it. But this may fail due to the component not being loaded yet.
+          </li>
+          <li>
+            Seems backward to have the browser tell the experience when to load code, rather than the experience telling the browser.
+          </li>
+          <li>
+            Rather than focusing on this high level feature, we should instead add low-level APIs that enable building this feature with a few lines of code. Recognizes that MutationObserver is not sufficient, but isn't convinced about lazy definitions.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>
+            <a href="#scoped-element-registries">Scoped Custom Element Registries</a>
+          </li>
+          <li>
+            <a href="#declarative-shadow-dom">Declarative Shadow DOM</a>
+          </li>
+          <li>
+            <a href="#children-changed-callback">Children Changed Callback</a>
+          </li>
+          <li>
+            <a href="https://github.com/whatwg/dom/issues/533">Observable Node Connectedness</a>
+          </li>
+          <li>
+            <a href="https://github.com/webcomponents-cg/community-protocols/blob/main/proposals/pending-task.md">Pending Task Protocol</a>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>
+            How do we handle ElementDefinitionOptions? CustomElementDefinition isn't defined in the proposal above. Does it include this? How?
+          </li>
+          <li>
+            Should there be a parallel API to unload a definition?
+          </li>
+          <li>
+            Should there be additional configuration options for load triggers?
+            <ul>
+              <li>
+                When certain attributes change.
+              </li>
+              <li>
+                When certain events are fired.
+              </li>
+              <li>
+                When scrolled into view.
+              </li>
+              <li>
+                When the mouse is close.
+              </li>
+            </ul>
+          </li>
+          <li>
+            How does this work with sync calls to document.createElement?
+          </li>
+          <li>
+            Should there be wild card registrations that can be used to load collections of components based on a pattern?
+          </li>
+          <li>
+            Could all of this be handled by a more general-purpose callback that was simply fired when an unknown element name is seen?
+          </li>
+          <li>
+            How do we handle lazy definitions when someone calls "get" on the CustomElementsRegistry?
+          </li>
+          <li>
+            If a component is lazy defined but has not yet loaded, what happens when someone tries to synchronously define an element with the same name?
+          </li>
+          <li>
+            How does a component know when all its lazily loaded children are done loading?
+          </li>
+          <li>
+            Should there be a more declarative API for this to tell the parser where to fine unknown elements?
+          </li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Open styling of shadow roots</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#open-styling-of-shadow-roots">2021</a></dd>
+          <dt>GitHub issues:</dt>
+          <dd>---</dd>
+          <dt>Browser positions:</dt>
+          <dd>---</dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>---</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>---</p>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Scoped Element Registries</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#scoped-element-registries">2021</a></dd>
+          <dt>GitHub issues:</dt>
+          <dd><a href="https://github.com/WICG/webcomponents/issues/716">WICG/webcomponents#716</a></dd>
+          <dt>Browser positions:</dt>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/WebKit/standards-positions/issues/38">WebKit</a>
+              </li>
+              <li>
+                <a href="https://groups.google.com/a/chromium.org/g/blink-dev/c/um-9YjJWyEQ/m/MhKN0L7FAgAJ">Chromium</a>
+              </li>
+              <li>
+                <a href="https://github.com/mozilla/standards-positions/issues/424">Mozilla</a>
+              </li>
+            </ul>
+          </dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>Scoped element registries allow custom element definitions to be scoped to one or more shadow roots. This allows the same tag name to be used with different implementations in different parts of the page, greatly reducing tag name collisions.</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>Chromium: prototyping</li>
+          <li>WebKit: ?</li>
+          <li>Mozilla: ?</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <ul>
+          <li>Building an app npm lbiraries that define elements. npm may duplicate packages and therefore custom element definitions.</li>
+          <li>Complex multi-team applications. Sub-teams often develop and deploy subsystems separately and may include multiple copies of libraries that define custom elements.</li>
+          <li>Complex elements with other custom elements as internal implementation detail. These elements may not want to take up names in the global registry for their sub-components.</li>
+          <li>Distributing elements via npm and CDNs. If both distribution methods are used on a page, one will error. npm usage can be directed to use scoped registries to avoid collisions.</li>
+          <li>Plug in systems. Plug-ins might bring their own custom element definitions which should not collide with the application or other plugins.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>Interaction with declarative shadow DOM (addressed)</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>None</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li><a href="https://github.com/WICG/webcomponents/issues/914">[scoped-registries] Interaction with declarative shadow DOM #914</a></li>
+          <li><a href="https://github.com/WICG/webcomponents/issues/907">Scoped Custom Element Registry: Moving elements with shadow roots between documents #907</a></li>
+          <li><a href="https://github.com/WICG/webcomponents/issues/923">[scoped-registries] Element upgrade ordering #923</a></li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Styling children of slotted content</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd>N/A</dd>
+          <dt>GitHub issues:</dt>
+          <dd>---</dd>
+          <dt>Browser positions:</dt>
+          <dd>---</dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>---</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>---</p>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Theming</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd>N/A</dd>
+          <dt>GitHub issues:</dt>
+          <dd>
+            <ul>
+              <li><a href="https://github.com/WICG/webcomponents/issues/864">2020 discussion - open</a></li>
+            </ul>
+          </dd>
+          <dt>Browser positions:</dt>
+          <dd>N/A</dd>
+          <dt>Explainers</dt>
+          <dd><a href="https://github.com/fergald/docs/blob/master/explainers/css-shadow-parts-1.md">Original explainer</a></dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>Provide a solution for deep cross-shadow root styling of web components without the forwarding needed using ::part or the granularity needed using CSS variables.</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>Uncertain - Dropped from spec once but discussions are ongoing.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>The original proposal suggested using a similar syntax as with shadow parts.</p>
+        <pre class="html">
+          &lt;x-button>
+            #shadow-root
+            &lt;button theme="button">&lt;/button>
+          &lt;/x-button>
+        </pre>
+        <pre class="css">
+          :root::theme(button) { ... }
+        </pre>
+        <p>Further discussions after ::theme was initially dropped from the spec have also suggested <a href="https://github.com/WICG/webcomponents/issues/864#issuecomment-591484810">creating new media query types for theming</a> for better readability and allowing for versioning.</p>
+        <pre class="css">
+          @media (theme-name: vaadin) and (theme-version: 2.0) {
+            :is(vaadin-text-field, vaadin-select):dir(rtl)::part(input-field)::after {
+              transform-origin: 0% 0;
+            }
+          }
+        </pre>
+        <pre class="javascript">
+          // registering the theme on the author side
+          this.attachShadow({ mode: 'open', theme: { name: 'vaadin', version: '2.0' }});
+        </pre>
+        <p>The media query solution wouldn't completely eliminate the need for the ::theme selector as it doesn't solve the issue with exporting shadow parts.</p>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <ul>
+          <li>Page-wide theming when using component libraries: CSS variables and shadow parts somewhat allow for this to happen. However, CSS variables are too granular so you end up using too many of them. Shadow parts on the other hand require extensive forwarding which can make maintenance difficult for library authors.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>Limited theming: Many component authors would want to have a way to limit which CSS properties are subject to a theme.</li>
+          <li>Versioning and interactions with scoped registries: A theming solution would need to consider the possibility of multiple versions of a same component coexisting in a complex application.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>Some people seem to consider open shadow root styling would solve most of their theming-related issues.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li><a href="https://www.w3.org/TR/css-shadow-parts-1/">CSS Shadow Parts</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>How necessary is a functionality to limit what CSS properties apply? Would this be an allow-list or a block-list?</li>
+          <li>How to work around having multiple versions of the same component? Using a versioning system for themes? Interact with scoped element registries?</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Feature or Problem</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd>N/A</dd>
+          <dt>GitHub issues:</dt>
+          <dd>---</dd>
+          <dt>Browser positions:</dt>
+          <dd>---</dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>---</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>---</p>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section id="conformance">
+      <p>
+        This is required for specifications that contain normative material.
+      </p>
+    </section>
+    <section id="index"></section>
+  </body>
+</html>
