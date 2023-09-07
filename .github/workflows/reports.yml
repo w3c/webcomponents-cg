@@ -3,7 +3,7 @@ on:
   pull_request:
     paths: ['reports/**']
   push:
-    branches: ['main', 'report']
+    branches: ['main', '2023']
     paths: ['reports/**']
   workflow_dispatch: {}
 
