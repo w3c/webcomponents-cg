@@ -423,28 +423,75 @@
       </section>
       <section>
         <h3>Description</h3>
+        <p>When building a custom element, the current API is the `customElements.define(tagName, klass)` which takes a custom tag name and a JS class reference and globally registers a new custom element.</p>
         <p>Scoped element registries allow custom element definitions to be scoped to one or more shadow roots. This allows the same tag name to be used with different implementations in different parts of the page, greatly reducing tag name collisions.</p>
       </section>
       <section>
         <h3>Status</h3>
         <ul>
-          <li>Chromium: prototyping</li>
-          <li>WebKit: ?</li>
-          <li>Mozilla: ?</li>
+          <li>
+            <p><b>Chromium</b>: Intent to Prototype / prototyping</p>
+            <p><a href="https://chromestatus.com/feature/5090435261792256">Chromium Platform status Feature</a></p>
+          </li>
+          <li>
+            <p><b>Webkit</b>: No official position yet, likely positive</p>
+            <p><a href="https://github.com/WebKit/standards-positions/issues/38">Webkit standards position issue</a></p>
+          </li>
+          <li>
+            <p><b>Mozilla</b>: No position</p>
+            <p><a href="https://github.com/mozilla/standards-positions/issues/424">Mozilla standards position</a></p>
+          </li>
         </ul>
       </section>
       <section>
         <h3>Initial API Summary/Quick API Proposal</h3>
-        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+        <ul>
+          <li><a href="https://github.com/WICG/webcomponents/issues/716">Proposal Issue</a></li>
+          <li><a href="https://github.com/w3c/tpac2023-breakouts/issues/15">Breakout Session Issue</a></li>
+          <li><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Scoped-Custom-Element-Registries.md">Proposed Spec</a></li>
+        </ul>
+        
       </section>
       <section>
         <h3>Key Scenarios</h3>
+        <p>The issue with the current custom element definition approach is that there is only a single registry in the global space. Having a single global registry means also having the possibility of tag name or class collisions which will present problems when different released versions of the same custom element need to exist on a single HTML page at the same time.</p>
+
+        <h4>Design system use case</h4>
+        <p>Design system teams are largely responsible for making standalone reusable components that can be consumed in all manner of applications across an organization. Design system components can be small and directed (something like `x-label` or coarse-grained like `x-accordion`). For DRY principles, it is often very desirable for large coarse-grained components to internally (in the shadow root render template) use smaller components to keep logic encapsulated.</p>
+
+        <p>When a design system component internally uses a component that a consuming application also uses, a version conflict can arise. If the large component uses `x-small-component` version 1.0.0, and the application uses `x-small-component` version 2.0.0, the custom element tag names will be the same, and both versions will attempt to register in the global registry.</p>
+
+        <p>The first element registered will "win". The second registration will fail. Whichever element "wins" will cause functional failures for either the application or design system component, depending on which component registration "wins".</p>
+
+        <h4>Micro-front end use case</h4>
+
+        <p>Micro-front-end architecture (MFE) is rising in popularity as a way to develop smaller pieces of what will be the final user-facing application, then assemble those pieces at runtime in some sort of shell application, service worker, etc. The micro-front-end architecture basically means that whole pieces of applications will be developed independently by separate probably-siloed teams then placed on the same page at runtime.</p>
+
+        <p>When MFE remote component 1 uses a certain version of a component, and MFE remote component 2 uses a different version of that same component, and both attempt to register in the same global registry under the same tag name, version conflicts arise.</p>
+
+        <p>If MFE 1 uses `x-component` version 1.0.0, and MFE 2 uses `x-component` 2.0.0, whichever component registration comes first "wins" and breaks the other MFE remote component. If 1.0.0 wins, then MFE 2 is broken because it is expecting 2.0.0 and use the 2.0.0 component API. Likewise, if 2.0.0 wins, MFE 1 breaks because it is dependent on the 1.0.0 component API which may not be supported in 2.0.0.</p>
+      </section>
+      <section>
+        <h3>Polyfills</h3>
         <ul>
-          <li>Building an app npm lbiraries that define elements. npm may duplicate packages and therefore custom element definitions.</li>
-          <li>Complex multi-team applications. Sub-teams often develop and deploy subsystems separately and may include multiple copies of libraries that define custom elements.</li>
-          <li>Complex elements with other custom elements as internal implementation detail. These elements may not want to take up names in the global registry for their sub-components.</li>
-          <li>Distributing elements via npm and CDNs. If both distribution methods are used on a page, one will error. npm usage can be directed to use scoped registries to avoid collisions.</li>
-          <li>Plug in systems. Plug-ins might bring their own custom element definitions which should not collide with the application or other plugins.</li>
+          <li><a href="https://github.com/webcomponents/polyfills/tree/master/packages/scoped-custom-element-registry">@webcomponents/scoped-custom-element-registry</a></li>
+        </ul>
+
+        <h3>Mixin</h3>
+        <p>The mixins below are offered as helper libraries to consume the polyfill implementation in an consistent, automated way.</p>
+        <ul>
+          <li>
+            <p>
+              Open Web Components
+              <a href="https://github.com/open-wc/open-wc/tree/master/packages/scoped-elements"> @open-wc/scoped-elements</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              Lit Labs
+              <a href="https://github.com/lit/lit/tree/main/packages/labs/scoped-registry-mixin">@lit-labs/scoped-registry-mixin</a>
+            </p>
+          </li>
         </ul>
       </section>
       <section>
