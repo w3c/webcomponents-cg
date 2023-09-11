@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Web Components Community Group: 2023 Spec/API status</title>
+    <script
+      src="https://www.w3.org/Tools/respec/respec-w3c"
+      class="remove"
+      defer
+    ></script>
+    <script class="remove">
+      // All config options at https://respec.org/docs/
+      var respecConfig = {
+        specStatus: "CG-DRAFT",
+        latestVersion: null,
+        edDraftURI: null,
+        editors: [
+          {
+            name: "Westbrook Johnson",
+            url: "https://westbrookjohnson.com",
+          },
+          {
+            name: "Elliott Marquez",
+            url: "https://github.com/e111077"
+          },
+          {
+            name: "Michael Warren",
+            url: "https://github.com/michaelwarren1106"
+          }
+        ],
+        github: "w3c/webcomponents-cg",
+        shortName: "webcomponents-cg",
+        xref: "web-platform",
+        group: "webcomponents",
+        tocIntroductory: true,
+      };
+    </script>
+  </head>
+  <body>
+    <section id="abstract">
+      <p>The following aims to support implementors in prioritizing, finalizing, and shipping new and agreed upon specifications in accordance with what is most needed by the web component developing community.</p>
+    </section>
+    <section id="sotd">
+      <p>The 2023 report is currently being drafted.</p>
+    </section>
+    <section class="informative">
+      <h2>Introduction</h2>
+      <p>Web component features in the platform swing broadly from twinkle in someone's eye to just waiting for that last browser vendor to ship in the wild. Along that spectrum, there are a myriad of features that browser implementors and web developers could focus on and it's difficult to always align on which are most important. We, the Web Components Community Group, look to build on our work from <a href="./2021.html">2021</a> and <a href="./2022.html">2022</a> and continue to shed light on the priorities in this space as seen by developers conuming these features.</p>
+      <p>Taking the feedback from previous years to heart, we are drew out four features of the highest priority. Each are at different places on the spectrum of "ready to consume", and we look forward to working more closely with vendors in making progress towards that goal. The four features are listed below by status:</p>
+      <section>
+        <h3>Seeking Browser Parity</h3>
+        <p>We noticed the following specs already have a high degree of alignment from an implementation perspective, but support in browsers is still not equally distributed.  Filling in these gaps would be a big win for users and developers alike for a more predictable web.</p>
+        <ul>
+          <li><a href="#declarative-shadow-dom">Declarative Shadow DOM</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Seeking Initial Prototyping</h3>
+        <p>The following specs have recieved a quality review at the proposal stage and are ready to be prototyped in browser. What sort of support could the Web Components Community Group lend to browser implementors as part of this process?</p>
+        <ul>
+          <li><a href="#scoped-element-registries">Scoped Registries</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Seeking specification concensus</h3>
+        <p>The following specs we see as highly valuable to the developer community for being able to deliver great web experiences to users when using Web Components.  As it pertains to topics like Aria and SSR, these specs just need a little more alignment across browser implementors so that consensus can be achieved.</p>
+        <ul>
+          <li><a href="#cross-root-aria">Cross-root Aria</a></li>
+          <li><a href="#css-slot-content-detection">CSS Slot Content Detection</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Table of Contents</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Feature or Problem</th>
+              <th>GitHub Issue(s)</th>
+              <th>Status(?)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th><a href="#cross-root-aria">Cross-root ARIA</a></th>
+              <td>
+                <a href="https://github.com/WICG/aom/issues/169">WICG/aom#169</a><br>
+                <a href="https://github.com/WICG/aom/issues/107">WICG/aom#107</a><br>
+                <a href="https://github.com/WICG/webcomponents/issues/917">WICG/webcomponents#917</a><br>
+                <a href="https://github.com/WICG/webcomponents/issues/916">WICG/webcomponents#916</a>
+              </td>
+              <td>Uncertain</td>
+            </tr>
+            <tr>
+              <th><a href="#declarative-shadow-dom">Declarative Shadow DOM</a></th>
+              <td><a href="https://github.com/whatwg/dom/issues/831">whatwg/dom#831</a></td>
+              <td>Concensus, lacking parity in implementation</td>
+            </tr>
+            <tr>
+              <th><a href="#scoped-element-registries">Scoped Element Registries</a></th>
+              <td><a href="https://github.com/WICG/webcomponents/issues/716">WICG/webcomponents#716</a></td>
+              <td>Consensus, lacking initial prototype</td>
+            </tr>
+            <tr>
+              <th><a href="#css-slot-content-detection">CSS Slot Content Detection</a></th>
+              <td>
+                <a href="https://github.com/w3c/csswg-drafts/issues/7922">w3c/csswg-drafts#7922</a>
+                <a href="https://github.com/WICG/webcomponents/issues/936">WICG/webcomponents#936</a>
+                <a href="https://github.com/w3c/csswg-drafts/issues/6867">w3c/csswg-drafts#6867</a>
+              </td>
+              <td>Uncertain</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+    <section>
+      <h2>Cross-root ARIA</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/2022.html#cross-root-aria">2022</a></dd>
+          <dt>GitHub issues:</dt>
+          <dd><a href="https://github.com/leobalter/cross-root-aria-delegation" target="_blank">Cross-root ARIA Delegation</a></dd>
+          <dd><a href="https://github.com/Westbrook/cross-root-aria-reflection" target="_blank">Cross-root ARIA Reflection</a></dd>
+          <dt>Browser positions:</dt>
+          <dd>---</dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>
+          This problem space is expertly described by Alice Boxhall in this <a href="https://alice.pages.igalia.com/blog/how-shadow-dom-and-accessibility-are-in-conflict/" target="_blank">blog post</a>.
+        </p>
+        <p>
+          In short, accessibility with shadow roots in broken when addressed via the patterns that web developers have come to be acustomed to in their work.
+        </p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <p>
+          Implementors participating in bi-weekly Accessibility Object Model meetings with at the WICG have implied 
+        </p>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>
+          This plays out in a Combobox pattern as follows:
+        </p>
+        <pre>
+          <code>
+            &lt;x-label id="x-label">
+              #shadowRoot
+              | &lt;label for="">Example Label&lt;/label>
+            &lt;/x-label>
+            &lt;x-combobox id="x-combobox-1">
+              #shadowRoot
+              | &lt;x-input>
+              |   #shadowRoot
+              |   | &lt;input
+              |   |   role="combobox"
+              |   |   aria-expanded="true"
+              |   | />
+              | &lt;/x-input>
+              | &lt;button aria-label="Open" aria-expanded="true">v&lt;/button>
+              |
+              | &lt;x-listbox id="x-listbox-1">
+              |   #shadowRoot
+              |   | &lt;div role="listbox">
+              |   |   &lt;div role="option">Option 1&lt;/div>
+              |   |   &lt;div role="option">Option 2&lt;/div>
+              |   |   &lt;div role="option">Option 3&lt;/div>
+              |   | &lt;/div>
+              | &lt;/x-listbox>
+            &lt;/x-combobox>
+          </code>
+        </pre>
+        <p>Even when leveraging the available aria attributes in this case there is no way to assocaite the <code>x-label</code> to the <code>x-input</code> or either of the <code>[role="listbox"]</code> or <code>[role="option"]</code> elements to it either.</p>
+        <p>Less complex patterns are similarly blocked by current APIs. Here we see a custom radio group:</p>
+        <pre>
+          <code>
+            &lt;div role="radiogroup">
+              &lt;x-button>
+                #shadowRoot
+                | &lt;button role="radio">&lt;/button>
+              &lt;/x-button>
+              &lt;x-button>
+                #shadowRoot
+                | &lt;button role="radio">&lt;/button>
+              &lt;/x-button>
+              &lt;x-button>
+                #shadowRoot
+                | &lt;button role="radio">&lt;/button>
+              &lt;/x-button>
+            &lt;/div>
+          </code>
+        </pre>
+        <p>Due to the shadow boundary and DOM element between the <code>[role="radio"]</code> element and the <code>[role="radiogroup"]</code> ancestor, there is no way to complete the accessibility tree that is needed to provide information about this interface to screen readers.</p>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>Leveraging the Element Handles API the Combobox pattern would be work out as follows:</p>
+        <pre>
+          <code>
+            &lt;x-label id="x-label" importhandles="label-for: x-combobox-1::handle(the-input)">
+              #shadowRoot
+              | &lt;label for=":host::handle(label-for)">Example Label&lt;/label>
+            &lt;/x-label>
+            &lt;x-combobox id="x-combobox-1">
+              #shadowRoot
+              | &lt;x-input 
+              |   exporthandles="the-input"
+              |   importhandles="my-activedescendant: x-listbox-1::handle(active), my-listbox: x-listbox-1::handle(the-listbox)">
+              |   #shadowRoot
+              |   | &lt;input
+              |   |   role="combobox"
+              |   |   handle="the-input"
+              |   |   aria-controls=":host::handle(my-listbox)"
+              |   |   aria-activedescendant=":host::handle(my-activedescendant)"
+              |   |   aria-expanded="true"
+              |   | />
+              | &lt;/x-input>
+              | &lt;button aria-label="Open" aria-expanded="true">v&lt;/button>
+              |
+              | &lt;x-listbox id="x-listbox-1">
+              |   #shadowRoot
+              |   | &lt;div role="listbox" handle="the-listbox">
+              |   |   &lt;div role="option" handle="opt1 active">Option 1&lt;/div>
+              |   |   &lt;div role="option" handle="opt2">Option 2&lt;/div>
+              |   |   &lt;div role="option" handle="opt3">Option 3&lt;/div>
+              |   | &lt;/div>
+              | &lt;/x-listbox>
+            &lt;/x-combobox>
+          </code>
+        </pre>
+        <p>Leveraging the Aria Delegate API the radio group pattern could be acheived via:</p>
+        <pre>
+          <code>
+            &lt;div role="radiogroup">
+              &lt;x-button role="radio">
+                #shadowRoot shadowrootsemanticdelegate="button"
+                | &lt;button id="button">&lt;/button>
+              &lt;/x-button>
+              &lt;x-button role="radio">
+                #shadowRoot shadowrootsemanticdelegate="button"
+                | &lt;button role="radio" id="button">&lt;/button>
+              &lt;/x-button>
+              &lt;x-button>
+                #shadowRoot shadowrootsemanticdelegate="button"
+                | &lt;button id="button">&lt;/button>
+              &lt;/x-button>
+            &lt;/div>
+          </code>
+        </pre>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li><a href="https://github.com/WICG/aom" target="_blank">AOM</a></li>
+          <li><a href="https://wicg.github.io/aom/aria-reflection-explainer.html" target="_blank">ARIA Reflection</a></li>
+          <li><a href="https://github.com/WICG/aom/blob/gh-pages/element_reference_properties.md" target="_blank">Element reference DOM properties</a></li>
+          <li>Import/Export IDs: <a href="https://github.com/WICG/aom/issues/169" target="_blank">Content attribute to import/export IDs across shadow boundaries WICG/aom#169</a></li>
+          <li>Cross Root Delegation and Reflection: <a href="https://github.com/leobalter/cross-root-aria-delegation" target="_blank">https://github.com/leobalter/cross-root-aria-delegation</a></li>
+          <li>Semantic Delegates: <a href="https://github.com/alice/aom/blob/gh-pages/semantic-delegate.md" target="_blank">https://github.com/alice/aom/blob/gh-pages/semantic-delegate.md</a></li>
+          <li>Encapsulation preserving IDL references: <a href="https://github.com/WICG/aom/issues/195" target="_blank">Encapsulation-preserving IDL Element reference attributes  WICG/aom#195</a></li>
+          <li>Element Handles: RFC: <a href="https://github.com/WICG/aom/pull/200" target="_blank">Element Handles for Cross-root ARIA WICG/aom#200</a></li>
+          <li>and more, many striking nuanced grounds in between and around the above proposals</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>Which is the best way?</li>
+          <li>Can <em>all</em> problems be solves with one API or is the variance of issue requiring multiple APIs?</li>
+        </ul>
+      </section>
+    </section>
+
+    <section>
+      <h2>CSS Slot Content Detection</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd>N/A</dd>
+          <dt>GitHub issues:</dt>
+          <dd><a href="https://github.com/w3c/csswg-drafts/issues/7922">w3c/csswg-drafts#7922</a></dd>
+          <dd><a href="https://github.com/WICG/webcomponents/issues/936">WICG/webcomponents#936</a></dd>
+          <dd><a href="https://github.com/w3c/csswg-drafts/issues/6867">w3c/csswg-drafts#6867</a></dd>
+          <dt>Browser positions:</dt>
+          <dd>---</dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>In shadow DOM, projection is the concept of placing an element into the light DOM and rendering it in a custom position via slots in the shadow DOM. This allows for greater control over the layout and styling of elements while also giving the user direct control over the contents and styling since the nodes are in the light DOM.</p>
+        <p>These are the current mechanisms in which to interact with slotted content:</p>
+        <ul>
+          <li><code>::slotted()</code> pseudo element
+            <ul>
+              <li>It can take selectors and can only select directly slotted children and not their subtree.</li>
+            </ul>
+          </li>
+          <li>
+            A <code>&lt;slot></code> can also have children
+            <ul>
+              <li>Those children will only render if there is no slotted content assigned to that slot</li>
+              <li>Content can include any Node including a whitespace text node</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>No official or concrete browser positions.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>Summary or proposal based on current status; paragraph(s) and code.</p>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>Currently there is no CSS-only way to determine whether a <code>&lt;slot></code> has content assigned to it without requiring the consumer of a web component to explicitly state so.</p>
+        <h4>Use Case Example</h4>
+        <p>In the web component-based <a href="https://github.com/material-components/material-web" target="_blank">https://github.com/material-components/material-web</a>, there is the Dialog component. The dialog component can have three sections slotted in:</p>
+        <ul>
+          <li>slot=headline</li>
+          <li>slot=content</li>
+          <li>slot=actions</li>
+        </ul>
+        <p>When the dialog’s content is slotted, the dialog must show a divider which is rendered in its shadow DOM. In essence the <code>&lt;md-divider></code> which is a sibling to <code>&lt;slot name=”content”></code> must be styled. e.g</p>
+        <pre>
+          <code>
+            &lt;md-dialog has-content>
+              &lt;template shadowrootmode="open">
+                &lt;style>
+                  md-divider {
+                    display: none;
+                  }
+                  :host([has-content]) md-divider {
+                    display: flex;
+                  }
+                &lt;/style>
+                ...
+                &lt;div class="content">
+                  &lt;md-divider class="before">&lt;/md-divider>
+                  &lt;slot name="content">&lt;/slot>
+                  &lt;md-divider class="after">&lt;/md-divider>
+                &lt;/div>
+                ...
+              &lt;/template>
+            
+              &lt;div slot="content">
+                Really long content ...
+              &lt;/div>
+            &lt;/md-dialog>
+          </code>
+        </pre>
+        <p>The DX would be cleaner if <code>has-content</code> could be inferred by the CSS rather than the user having to apply it or JS having to run at runtime.
+        <p><em>Using <code>/slotted/</code> for the sake of example.</em></p>
+        <pre>
+          <code>
+            &lt;md-dialog>
+              &lt;template shadowrootmode="open">
+                &lt;style>
+                  md-divider {
+                    display: none;
+                  }
+                  .content md-divider:has(~ slot/slotted/ *),
+                  .content slot:has(/slotted/ *) ~ md-divider {
+                    display: flex;
+                  }
+                &lt;/style>
+                ...
+                &lt;div class="content">
+                  &lt;md-divider class="before">&lt;/md-divider>
+                  &lt;slot name="content">&lt;/slot>
+                  &lt;md-divider class="after">&lt;/md-divider>
+                &lt;/div>
+                ...
+              &lt;/template>
+            
+              &lt;div slot="content">
+                Really long content ...
+              &lt;/div>
+            &lt;/md-dialog>
+          </code>
+        </pre>
+        <p>This removes the need for the user to declare that there is slotted content twice:</p>
+        <ul>
+          <li><code>div[slot=content]</code></li>
+          <li><code>md-dialog[has-content]</code></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Declarative Shadow DOM</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/2022.html#declarative-shadow-dom">2022</a></dd>
+          <dt>GitHub issues:</dt>
+          <dd><a href="https://github.com/whatwg/dom/issues/831">https://github.com/whatwg/dom/issues/831</a></dd>
+          <dt>Browser positions:</dt>
+          <dd><a href="https://chromestatus.com/feature/5191745052606464">Chrome (Shipped)</a></dd>
+          <dd><a href="https://github.com/mozilla/standards-positions/issues/335">Mozilla</a></dd>
+          <dd><a href="https://github.com/WebKit/standards-positions/issues/12">Safari (Shipped)</a></dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>Declarative Shadow DOM is a mechanism to express Shadow DOM using only HTML, with no dependency on JavaScript, much like light DOM can be declaratively expressed today.</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>Partial consensus, multiple implementations</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <p>Below is an example taken from the <a href="https://web.dev/declarative-shadow-dom">web.dev blog</a> on Declarative Shadow DOM.</a>
+          <pre>
+            &lt;host-element&gt;
+              &lt;template shadowroot="open"&gt;
+                &lt;slot&gt;&lt;/slot&gt;
+              &lt;/template&gt;
+              &lt;h2>Light content&lt;/h2>&gt;
+            &lt;/host-element>
+          </pre>
+        </p>
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>Server-Side Rendering: Without Declarative Shadow DOM, servers cannot deliver complete websites that include web component content. Markup cannot be efficiently delivered and then hydrated with JavaScript client-side.</p>
+        <p>JavaScript-less environments: Many web components could be implemented without JavaScript, taking advantage of encapsulated DOM and styles. However, web components cannot currently be rendered by users who have JavaScript disabled. Developers who are more comfortable with markup than with scripting may avoid shadow DOM altogether due to its tight coupling with JavaScript..</p>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>Mozilla considers this to be non-harmful, though debates the merits on ROI to developers weighed against the added complexity to be added to the HTML parser from a performance perspective.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>N / A</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li><a href="https://github.com/WICG/webcomponents/issues/716">Scoped Element Registries</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li>Mozilla would like to see more <a href="https://github.com/whatwg/dom/issues/831#issuecomment-988394185">real world uses cases</a> of Declarative Shadow DOM in the wild.  <a href="https://github.com/whatwg/dom/issues/831#issuecomment-1204554491" target="_blank">GitHub has confirmed that they are using DSD</a> and see many architectural benefits from it, especially for their design system. Although a polyfill exists, it comes as a bit of a catch-22 when trying to target pure SSR Web Components (HTML) use cases.</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>Scoped Element Registries</h2>
+      <section>
+        <h3>Links</h3>
+        <dl>
+          <dt>Previous WCCG Report(s)</dt>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/2022.html#scoped-element-registries">2022</a></dd>
+          <dt>GitHub issues:</dt>
+          <dd><a href="https://github.com/WICG/webcomponents/issues/716">WICG/webcomponents#716</a></dd>
+          <dt>Browser positions:</dt>
+          <dd>
+            <ul>
+              <li>
+                <a href="https://github.com/WebKit/standards-positions/issues/38">WebKit</a>
+              </li>
+              <li>
+                <a href="https://groups.google.com/a/chromium.org/g/blink-dev/c/um-9YjJWyEQ/m/MhKN0L7FAgAJ">Chromium</a>
+              </li>
+              <li>
+                <a href="https://github.com/mozilla/standards-positions/issues/424">Mozilla</a>
+              </li>
+            </ul>
+          </dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>When building a custom element, the current API is the `customElements.define(tagName, klass)` which takes a custom tag name and a JS class reference and globally registers a new custom element.</p>
+        <p>Scoped element registries allow custom element definitions to be scoped to one or more shadow roots. This allows the same tag name to be used with different implementations in different parts of the page, greatly reducing tag name collisions.</p>
+      </section>
+      <section>
+        <h3>Status</h3>
+        <ul>
+          <li>
+            <p><b>Chromium</b>: Intent to Prototype / prototyping</p>
+            <p><a href="https://chromestatus.com/feature/5090435261792256">Chromium Platform status Feature</a></p>
+          </li>
+          <li>
+            <p><b>Webkit</b>: No official position yet, likely positive</p>
+            <p><a href="https://github.com/WebKit/standards-positions/issues/38">Webkit standards position issue</a></p>
+          </li>
+          <li>
+            <p><b>Mozilla</b>: No position</p>
+            <p><a href="https://github.com/mozilla/standards-positions/issues/424">Mozilla standards position</a></p>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Initial API Summary/Quick API Proposal</h3>
+        <ul>
+          <li><a href="https://github.com/WICG/webcomponents/issues/716">Proposal Issue</a></li>
+          <li><a href="https://github.com/w3c/tpac2023-breakouts/issues/15">Breakout Session Issue</a></li>
+          <li><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Scoped-Custom-Element-Registries.md">Proposed Spec</a></li>
+        </ul>
+        
+      </section>
+      <section>
+        <h3>Key Scenarios</h3>
+        <p>The issue with the current custom element definition approach is that there is only a single registry in the global space. Having a single global registry means also having the possibility of tag name or class collisions which will present problems when different released versions of the same custom element need to exist on a single HTML page at the same time.</p>
+
+        <h4>Design system use case</h4>
+        <p>Design system teams are largely responsible for making standalone reusable components that can be consumed in all manner of applications across an organization. Design system components can be small and directed (something like `x-label` or coarse-grained like `x-accordion`). For DRY principles, it is often very desirable for large coarse-grained components to internally (in the shadow root render template) use smaller components to keep logic encapsulated.</p>
+
+        <p>When a design system component internally uses a component that a consuming application also uses, a version conflict can arise. If the large component uses `x-small-component` version 1.0.0, and the application uses `x-small-component` version 2.0.0, the custom element tag names will be the same, and both versions will attempt to register in the global registry.</p>
+
+        <p>The first element registered will "win". The second registration will fail. Whichever element "wins" will cause functional failures for either the application or design system component, depending on which component registration "wins".</p>
+
+        <h4>Micro-front end use case</h4>
+
+        <p>Micro-front-end architecture (MFE) is rising in popularity as a way to develop smaller pieces of what will be the final user-facing application, then assemble those pieces at runtime in some sort of shell application, service worker, etc. The micro-front-end architecture basically means that whole pieces of applications will be developed independently by separate probably-siloed teams then placed on the same page at runtime.</p>
+
+        <p>When MFE remote component 1 uses a certain version of a component, and MFE remote component 2 uses a different version of that same component, and both attempt to register in the same global registry under the same tag name, version conflicts arise.</p>
+
+        <p>If MFE 1 uses `x-component` version 1.0.0, and MFE 2 uses `x-component` 2.0.0, whichever component registration comes first "wins" and breaks the other MFE remote component. If 1.0.0 wins, then MFE 2 is broken because it is expecting 2.0.0 and use the 2.0.0 component API. Likewise, if 2.0.0 wins, MFE 1 breaks because it is dependent on the 1.0.0 component API which may not be supported in 2.0.0.</p>
+      </section>
+      <section>
+        <h3>Polyfills</h3>
+        <ul>
+          <li><a href="https://github.com/webcomponents/polyfills/tree/master/packages/scoped-custom-element-registry">@webcomponents/scoped-custom-element-registry</a></li>
+        </ul>
+
+        <h3>Mixin</h3>
+        <p>The mixins below are offered as helper libraries to consume the polyfill implementation in an consistent, automated way.</p>
+        <ul>
+          <li>
+            <p>
+              Open Web Components
+              <a href="https://github.com/open-wc/open-wc/tree/master/packages/scoped-elements"> @open-wc/scoped-elements</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              Lit Labs
+              <a href="https://github.com/lit/lit/tree/main/packages/labs/scoped-registry-mixin">@lit-labs/scoped-registry-mixin</a>
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Concerns</h3>
+        <ul>
+          <li>Interaction with declarative shadow DOM (addressed)</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dissenting Opinion</h3>
+        <ul>
+          <li>None</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Related Specs</h3>
+        <ul>
+          <li>---</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Open Questions</h3>
+        <ul>
+          <li><a href="https://github.com/WICG/webcomponents/issues/914">[scoped-registries] Interaction with declarative shadow DOM #914</a></li>
+          <li><a href="https://github.com/WICG/webcomponents/issues/907">Scoped Custom Element Registry: Moving elements with shadow roots between documents #907</a></li>
+          <li><a href="https://github.com/WICG/webcomponents/issues/923">[scoped-registries] Element upgrade ordering #923</a></li>
+        </ul>
+      </section>
+    </section>
+    <section id="conformance">
+      <p>
+        This is required for specifications that contain normative material.
+      </p>
+    </section>
+    <section id="index"></section>
+  </body>
+</html>
