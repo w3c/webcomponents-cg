@@ -127,6 +127,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     {
       "name": "Westbrook Johnson",
       "url": "https://westbrookjohnson.com"
+    },
+    {
+      "name": "Michael Warren",
+      "url": "https://github.com/michaelwarren1106"
     }
   ],
   "github": "w3c/webcomponents-cg",
@@ -155,8 +159,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       
       
       
-      <dt>Editor:</dt><dd class="editor p-author h-card vcard">
+      <dt>Editors:</dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://westbrookjohnson.com">Westbrook Johnson</a>
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://github.com/michaelwarren1106">Michael Warren</a>
   </dd>
       
       
@@ -205,7 +211,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           discussion of this specification.
         
     
-  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents-0">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#seeking-browser-parity"><bdi class="secno">1.1 </bdi>Seeking Browser Parity</a></li><li class="tocline"><a class="tocxref" href="#seeking-initial-prototyping"><bdi class="secno">1.2 </bdi>Seeking Initial Prototyping</a></li><li class="tocline"><a class="tocxref" href="#seeking-specification-concensus"><bdi class="secno">1.3 </bdi>Seeking specification concensus</a></li><li class="tocline"><a class="tocxref" href="#table-of-contents"><bdi class="secno">1.4 </bdi>Table of Contents</a></li></ol></li><li class="tocline"><a class="tocxref" href="#cross-root-aria"><bdi class="secno">2. </bdi>Cross-root ARIA</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#links"><bdi class="secno">2.1 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">2.2 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#status"><bdi class="secno">2.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios"><bdi class="secno">2.4 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal"><bdi class="secno">2.5 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#related-specs"><bdi class="secno">2.6 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions"><bdi class="secno">2.7 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#css-slot-content-detection"><bdi class="secno">3. </bdi>CSS Slot Content Detection</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#links-0"><bdi class="secno">3.1 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">3.2 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#status-0"><bdi class="secno">3.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-0"><bdi class="secno">3.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-0"><bdi class="secno">3.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns"><bdi class="secno">3.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion"><bdi class="secno">3.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-0"><bdi class="secno">3.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-0"><bdi class="secno">3.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#declarative-shadow-dom"><bdi class="secno">4. </bdi>Declarative Shadow DOM</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#links-1"><bdi class="secno">4.1 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#description-1"><bdi class="secno">4.2 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#status-1"><bdi class="secno">4.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-1"><bdi class="secno">4.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-1"><bdi class="secno">4.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-0"><bdi class="secno">4.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-0"><bdi class="secno">4.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-1"><bdi class="secno">4.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-1"><bdi class="secno">4.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#scoped-element-registries"><bdi class="secno">5. </bdi>Scoped Element Registries</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#links-2"><bdi class="secno">5.1 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#description-2"><bdi class="secno">5.2 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#status-2"><bdi class="secno">5.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-2"><bdi class="secno">5.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-2"><bdi class="secno">5.5 </bdi>Key Scenarios</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#design-system-use-case"><bdi class="secno">5.5.1 </bdi>Design system use case</a></li><li class="tocline"><a class="tocxref" href="#micro-front-end-use-case"><bdi class="secno">5.5.2 </bdi>Micro-front end use case</a></li></ol></li><li class="tocline"><a class="tocxref" href="#polyfills"><bdi class="secno">5.6 </bdi>Polyfills</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#mixin"><bdi class="secno">5.6.1 </bdi>Mixin</a></li></ol></li><li class="tocline"><a class="tocxref" href="#concerns-1"><bdi class="secno">5.7 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-1"><bdi class="secno">5.8 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-2"><bdi class="secno">5.9 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-2"><bdi class="secno">5.10 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">6. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Terms defined by this specification</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Terms defined by reference</a></li></ol></li></ol></nav>
+  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents-0">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#seeking-browser-parity"><bdi class="secno">1.1 </bdi>Seeking Browser Parity</a></li><li class="tocline"><a class="tocxref" href="#seeking-initial-prototyping"><bdi class="secno">1.2 </bdi>Seeking Initial Prototyping</a></li><li class="tocline"><a class="tocxref" href="#seeking-specification-concensus"><bdi class="secno">1.3 </bdi>Seeking specification concensus</a></li><li class="tocline"><a class="tocxref" href="#table-of-contents"><bdi class="secno">1.4 </bdi>Table of Contents</a></li></ol></li><li class="tocline"><a class="tocxref" href="#cross-root-aria"><bdi class="secno">2. </bdi>Cross-root ARIA</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#links"><bdi class="secno">2.1 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">2.2 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#status"><bdi class="secno">2.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios"><bdi class="secno">2.4 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal"><bdi class="secno">2.5 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#related-specs"><bdi class="secno">2.6 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions"><bdi class="secno">2.7 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#css-slot-content-detection"><bdi class="secno">3. </bdi>CSS Slot Content Detection</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#links-0"><bdi class="secno">3.1 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">3.2 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#status-0"><bdi class="secno">3.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-0"><bdi class="secno">3.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-0"><bdi class="secno">3.5 </bdi>Key Scenarios</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#use-case-example"><bdi class="secno">3.5.1 </bdi>Use Case Example</a></li></ol></li><li class="tocline"><a class="tocxref" href="#concerns"><bdi class="secno">3.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion"><bdi class="secno">3.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-0"><bdi class="secno">3.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-0"><bdi class="secno">3.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#declarative-shadow-dom"><bdi class="secno">4. </bdi>Declarative Shadow DOM</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#links-1"><bdi class="secno">4.1 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#description-1"><bdi class="secno">4.2 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#status-1"><bdi class="secno">4.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-1"><bdi class="secno">4.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-1"><bdi class="secno">4.5 </bdi>Key Scenarios</a></li><li class="tocline"><a class="tocxref" href="#concerns-0"><bdi class="secno">4.6 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-0"><bdi class="secno">4.7 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-1"><bdi class="secno">4.8 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-1"><bdi class="secno">4.9 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#scoped-element-registries"><bdi class="secno">5. </bdi>Scoped Element Registries</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#links-2"><bdi class="secno">5.1 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#description-2"><bdi class="secno">5.2 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#status-2"><bdi class="secno">5.3 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#initial-api-summary-quick-api-proposal-2"><bdi class="secno">5.4 </bdi>Initial API Summary/Quick API Proposal</a></li><li class="tocline"><a class="tocxref" href="#key-scenarios-2"><bdi class="secno">5.5 </bdi>Key Scenarios</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#design-system-use-case"><bdi class="secno">5.5.1 </bdi>Design system use case</a></li><li class="tocline"><a class="tocxref" href="#micro-front-end-use-case"><bdi class="secno">5.5.2 </bdi>Micro-front end use case</a></li></ol></li><li class="tocline"><a class="tocxref" href="#polyfills"><bdi class="secno">5.6 </bdi>Polyfills</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#mixin"><bdi class="secno">5.6.1 </bdi>Mixin</a></li></ol></li><li class="tocline"><a class="tocxref" href="#concerns-1"><bdi class="secno">5.7 </bdi>Concerns</a></li><li class="tocline"><a class="tocxref" href="#dissenting-opinion-1"><bdi class="secno">5.8 </bdi>Dissenting Opinion</a></li><li class="tocline"><a class="tocxref" href="#related-specs-2"><bdi class="secno">5.9 </bdi>Related Specs</a></li><li class="tocline"><a class="tocxref" href="#open-questions-2"><bdi class="secno">5.10 </bdi>Open Questions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">6. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Terms defined by this specification</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Terms defined by reference</a></li></ol></li></ol></nav>
     <section class="informative" id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
       
       <p>Web component features in the platform swing broadly from twinkle in someone's eye to just waiting for that last browser vendor to ship in the wild. Along that spectrum, there are a myriad of features that browser implementors and web developers could focus on and it's difficult to always align on which are most important. We, the Web Components Community Group, look to build on our work from <a href="./2021.html">2021</a> and <a href="./2022.html">2022</a> and continue to shed light on the priorities in this space as seen by developers conuming these features.</p>
@@ -448,12 +454,27 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </section>
       <section id="description-0"><div class="header-wrapper"><h3 id="x3-2-description"><bdi class="secno">3.2 </bdi>Description</h3><a class="self-link" href="#description-0" aria-label="Permalink for Section 3.2"></a></div>
         
-        <p>---</p>
+        <p>In shadow DOM, projection is the concept of placing an element into the light DOM and rendering it in a custom position via slots in the shadow DOM. This allows for greater control over the layout and styling of elements while also giving the user direct control over the contents and styling since the nodes are in the light DOM.</p>
+        <p>These are the current mechanisms in which to interact with slotted content:</p>
+        <ul>
+          <li><code>::slotted()</code> pseudo element
+            <ul>
+              <li>It can take selectors and can only select directly slotted children and not their subtree.</li>
+            </ul>
+          </li>
+          <li>
+            A <code>&lt;slot&gt;</code> can also have children
+            <ul>
+              <li>Those children will only render if there is no slotted content assigned to that slot</li>
+              <li>Content can include any Node including a whitespace text node</li>
+            </ul>
+          </li>
+        </ul>
       </section>
       <section id="status-0"><div class="header-wrapper"><h3 id="x3-3-status"><bdi class="secno">3.3 </bdi>Status</h3><a class="self-link" href="#status-0" aria-label="Permalink for Section 3.3"></a></div>
         
         <ul>
-          <li>---</li>
+          <li>No official or concrete browser positions.</li>
         </ul>
       </section>
       <section id="initial-api-summary-quick-api-proposal-0"><div class="header-wrapper"><h3 id="x3-4-initial-api-summary-quick-api-proposal"><bdi class="secno">3.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-0" aria-label="Permalink for Section 3.4"></a></div>
@@ -462,8 +483,74 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </section>
       <section id="key-scenarios-0"><div class="header-wrapper"><h3 id="x3-5-key-scenarios"><bdi class="secno">3.5 </bdi>Key Scenarios</h3><a class="self-link" href="#key-scenarios-0" aria-label="Permalink for Section 3.5"></a></div>
         
-        <p>---</p>
-      </section>
+        <p>Currently there is no CSS-only way to determine whether a <code>&lt;slot&gt;</code> has content assigned to it without requiring the consumer of a web component to explicitly state so.</p>
+        <section id="use-case-example"><div class="header-wrapper"><h4 id="x3-5-1-use-case-example"><bdi class="secno">3.5.1 </bdi>Use Case Example</h4><a class="self-link" href="#use-case-example" aria-label="Permalink for Section 3.5.1"></a></div>
+        <p>In the web component-based <a href="https://github.com/material-components/material-web" target="_blank">https://github.com/material-components/material-web</a>, there is the Dialog component. The dialog component can have three sections slotted in:</p>
+        <ul>
+          <li>slot=headline</li>
+          <li>slot=content</li>
+          <li>slot=actions</li>
+        </ul>
+        <p>When the dialog’s content is slotted, the dialog must show a divider which is rendered in its shadow DOM. In essence the <code>&lt;md-divider&gt;</code> which is a sibling to <code>&lt;slot name=”content”&gt;</code> must be styled. e.g</p>
+        <pre><code aria-busy="false" class="hljs xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-dialog</span> <span class="hljs-attr">has-content</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">shadowrootmode</span>=<span class="hljs-string">"open"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+        md-divider {
+          <span class="hljs-attribute">display</span>: none;
+        }
+        <span class="hljs-selector-pseudo">:host</span>(<span class="hljs-selector-attr">[has-content]</span>) md-divider {
+          <span class="hljs-attribute">display</span>: flex;
+        }
+      </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+      ...
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"content"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">md-divider</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"before"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">md-divider</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"content"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">md-divider</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"after"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">md-divider</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      ...
+    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+  
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"content"</span>&gt;</span>
+      Really long content ...
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-dialog</span>&gt;</span>
+</code></pre>
+        <p>The DX would be cleaner if <code>has-content</code> could be inferred by the CSS rather than the user having to apply it or JS having to run at runtime.
+        </p><p><em>Using <code>/slotted/</code> for the sake of example.</em></p>
+        <pre><code aria-busy="false" class="hljs xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-dialog</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">shadowrootmode</span>=<span class="hljs-string">"open"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+        md-divider {
+          <span class="hljs-attribute">display</span>: none;
+        }
+        <span class="hljs-selector-class">.content</span> md-divider<span class="hljs-selector-pseudo">:has</span>(~ slot/slotted/ *),
+        <span class="hljs-selector-class">.content</span> slot<span class="hljs-selector-pseudo">:has</span>(/slotted/ *) ~ md-divider {
+          <span class="hljs-attribute">display</span>: flex;
+        }
+      </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+      ...
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"content"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">md-divider</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"before"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">md-divider</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"content"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">md-divider</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"after"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">md-divider</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      ...
+    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+  
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"content"</span>&gt;</span>
+      Really long content ...
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-dialog</span>&gt;</span>
+</code></pre>
+        <p>This removes the need for the user to declare that there is slotted content twice:</p>
+        <ul>
+          <li><code>div[slot=content]</code></li>
+          <li><code>md-dialog[has-content]</code></li>
+        </ul>
+      </section></section>
       <section id="concerns"><div class="header-wrapper"><h3 id="x3-6-concerns"><bdi class="secno">3.6 </bdi>Concerns</h3><a class="self-link" href="#concerns" aria-label="Permalink for Section 3.6"></a></div>
         
         <ul>
@@ -495,13 +582,13 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         
         <dl>
           <dt>Previous WCCG Report(s)</dt>
-          <dd><a href="https://w3c.github.io/webcomponents-cg/index.html#declarative-shadow-dom">2021</a></dd>
+          <dd><a href="https://w3c.github.io/webcomponents-cg/2022.html#declarative-shadow-dom">2022</a></dd>
           <dt>GitHub issues:</dt>
           <dd><a href="https://github.com/whatwg/dom/issues/831">https://github.com/whatwg/dom/issues/831</a></dd>
           <dt>Browser positions:</dt>
           <dd><a href="https://chromestatus.com/feature/5191745052606464">Chrome (Shipped)</a></dd>
           <dd><a href="https://github.com/mozilla/standards-positions/issues/335">Mozilla</a></dd>
-          <dd><a href="https://github.com/WebKit/standards-positions/issues/12">Safari</a></dd>
+          <dd><a href="https://github.com/WebKit/standards-positions/issues/12">Safari (Shipped)</a></dd>
         </dl>
       </section>
       <section id="description-1"><div class="header-wrapper"><h3 id="x4-2-description"><bdi class="secno">4.2 </bdi>Description</h3><a class="self-link" href="#description-1" aria-label="Permalink for Section 4.2"></a></div>
@@ -511,7 +598,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <section id="status-1"><div class="header-wrapper"><h3 id="x4-3-status"><bdi class="secno">4.3 </bdi>Status</h3><a class="self-link" href="#status-1" aria-label="Permalink for Section 4.3"></a></div>
         
         <ul>
-          <li>Partial consensus, some implementation</li>
+          <li>Partial consensus, multiple implementations</li>
         </ul>
       </section>
       <section id="initial-api-summary-quick-api-proposal-1"><div class="header-wrapper"><h3 id="x4-4-initial-api-summary-quick-api-proposal"><bdi class="secno">4.4 </bdi>Initial API Summary/Quick API Proposal</h3><a class="self-link" href="#initial-api-summary-quick-api-proposal-1" aria-label="Permalink for Section 4.4"></a></div>
@@ -534,7 +621,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         
         <ul>
           <li>Mozilla considers this to be non-harmful, though debates the merits on ROI to developers weighed against the added complexity to be added to the HTML parser from a performance perspective.</li>
-          <li>Safari would like to see compatibility with Scoped Element Registry addressed first.</li>
         </ul>
       </section>
       <section id="dissenting-opinion-0"><div class="header-wrapper"><h3 id="x4-7-dissenting-opinion"><bdi class="secno">4.7 </bdi>Dissenting Opinion</h3><a class="self-link" href="#dissenting-opinion-0" aria-label="Permalink for Section 4.7"></a></div>
@@ -553,7 +639,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         
         <ul>
           <li>Mozilla would like to see more <a href="https://github.com/whatwg/dom/issues/831#issuecomment-988394185">real world uses cases</a> of Declarative Shadow DOM in the wild.  <a href="https://github.com/whatwg/dom/issues/831#issuecomment-1204554491" target="_blank">GitHub has confirmed that they are using DSD</a> and see many architectural benefits from it, especially for their design system. Although a polyfill exists, it comes as a bit of a catch-22 when trying to target pure SSR Web Components (HTML) use cases.</li>
-          <li>Safari would like to <a href="https://github.com/whatwg/dom/issues/831#issuecomment-797845645">get consensus on the solution for Scoped Element Registries first.</a></li>
         </ul>
       </section>
     </section>
